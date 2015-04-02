@@ -14,9 +14,9 @@ get_battery_pct() {
 get_battery_status() {
     bat_stat=$(pmset -g batt | grep -o "discharging")
     if [ -z "$bat_stat" ]; then
-        echo -n "%{$fg[yellow]%}âš¡%{$fg[green]%}+%{$reset_color%} | "
+        echo -n "%{$fg[yellow]%}%{$fg[green]%}+%{$reset_color%} | "
     else
-        echo -n "%{$fg[black]%}âš¡%{$fg[red]%}-%{$reset_color%} | "
+        echo -n "%{$fg[black]%}%{$fg[red]%}-%{$reset_color%} | "
     fi
 }
 
