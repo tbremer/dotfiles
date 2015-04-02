@@ -37,6 +37,3 @@
 [submodule "vim/vimDir/bundle/vim_search_objects"]
 	path = vim/vimDir/bundle/vim_search_objects
 	url = https://github.com/Raimondi/vim_search_objects
-[submodule "vim/vimDir/bundle/vim-snipmate"]
-	path = vim/vimDir/bundle/vim-snipmate
-	url = https://github.com/nemisj/vim-snipmate
