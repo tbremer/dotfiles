@@ -37,3 +37,6 @@
 [submodule "vim/vimDir/bundle/vim_search_objects"]
 	path = vim/vimDir/bundle/vim_search_objects
 	url = https://github.com/Raimondi/vim_search_objects
+[submodule "vim/vimDir/bundle/vim-javascript"]
+	path = vim/vimDir/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git

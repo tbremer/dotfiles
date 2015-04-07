@@ -178,7 +178,7 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 "
 set colorcolumn=100
 set wrap
-set linebreak
+"set linebreak
 set wm=10
 
 "

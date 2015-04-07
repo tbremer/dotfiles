@@ -58,13 +58,10 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
-# Context: user@hostname (who am I and where am I)
-prompt_context() {
-  local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$user@%m"
-  fi
+#Current date and time.
+prompt_date_time() {
+	DATE_TIME="%T | %W"
+  prompt_segment black 135 $DATE_TIME
 }
 
 # Git: branch/detached head, dirty status
@@ -145,7 +142,7 @@ prompt_dir() {
   # prompt_segment blue black '%~'
   #
   # show path down two directories
-  prompt_segment cyan black '%2d'
+  prompt_segment 135 black ' %d'
 
 }
 
@@ -176,11 +173,11 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_virtualenv
-#  prompt_context
-  prompt_dir
   prompt_git
+  prompt_dir
+  prompt_date_time
   prompt_hg
   prompt_end
 }
 PROMPT='%{%f%b%k%}$(build_prompt)
-%{%F{gray}%} %{%F{white}%}'
+%{%F{gray}%}$ %{%F{white}%}'
