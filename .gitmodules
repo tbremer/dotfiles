@@ -1,42 +1,42 @@
-[submodule "vim/vimDir/bundle/editorconfig-vim"]
-	path = vim/vimDir/bundle/editorconfig-vim
+[submodule "vim/.vim/bundle/editorconfig-vim"]
+	path = vim/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "vim/vimDir/bundle/emmet-vim"]
-	path = vim/vimDir/bundle/emmet-vim
+[submodule "vim/.vim/bundle/emmet-vim"]
+	path = vim/.vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim
-[submodule "vim/vimDir/bundle/nerdtree"]
-	path = vim/vimDir/bundle/nerdtree
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "vim/vimDir/bundle/supertab"]
-	path = vim/vimDir/bundle/supertab
+[submodule "vim/.vim/bundle/supertab"]
+	path = vim/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
-[submodule "vim/vimDir/bundle/tlib_vim"]
-	path = vim/vimDir/bundle/tlib_vim
+[submodule "vim/.vim/bundle/tlib_vim"]
+	path = vim/.vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim
-[submodule "vim/vimDir/bundle/toggle_mouse"]
-	path = vim/vimDir/bundle/toggle_mouse
+[submodule "vim/.vim/bundle/toggle_mouse"]
+	path = vim/.vim/bundle/toggle_mouse
 	url = https://github.com/vim-scripts/toggle_mouse
-[submodule "vim/vimDir/bundle/vim-addon-mw-utils"]
-	path = vim/vimDir/bundle/vim-addon-mw-utils
+[submodule "vim/.vim/bundle/vim-addon-mw-utils"]
+	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils
-[submodule "vim/vimDir/bundle/vim-airline"]
-	path = vim/vimDir/bundle/vim-airline
+[submodule "vim/.vim/bundle/vim-airline"]
+	path = vim/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule "vim/vimDir/bundle/vim-fugitive"]
-	path = vim/vimDir/bundle/vim-fugitive
+[submodule "vim/.vim/bundle/vim-fugitive"]
+	path = vim/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "vim/vimDir/bundle/vim-gitgutter"]
-	path = vim/vimDir/bundle/vim-gitgutter
+[submodule "vim/.vim/bundle/vim-gitgutter"]
+	path = vim/.vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "vim/vimDir/bundle/vim-javascript-syntax"]
-	path = vim/vimDir/bundle/vim-javascript-syntax
+[submodule "vim/.vim/bundle/vim-javascript-syntax"]
+	path = vim/.vim/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax
-[submodule "vim/vimDir/bundle/vim-snippets"]
-	path = vim/vimDir/bundle/vim-snippets
+[submodule "vim/.vim/bundle/vim-snippets"]
+	path = vim/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
-[submodule "vim/vimDir/bundle/vim_search_objects"]
-	path = vim/vimDir/bundle/vim_search_objects
+[submodule "vim/.vim/bundle/vim_search_objects"]
+	path = vim/.vim/bundle/vim_search_objects
 	url = https://github.com/Raimondi/vim_search_objects
-[submodule "vim/vimDir/bundle/vim-javascript"]
-	path = vim/vimDir/bundle/vim-javascript
+[submodule "vim/.vim/bundle/vim-javascript"]
+	path = vim/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
