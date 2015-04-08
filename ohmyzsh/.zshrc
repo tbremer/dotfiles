@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/thomasbremer/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,8 +54,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 eval "$(rbenv init -)"
 
 # SOURCE CONFIGS
-source /Volumes/Dev/github/dotfiles/bash/aliases.sh
-source /Volumes/Dev/github/dotfiles/ohmyzsh/battery-prompt.sh
+source $DOTFILES/bash/aliases.sh
+source $DOTFILES/ohmyzsh/battery-prompt.sh
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
