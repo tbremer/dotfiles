@@ -34,3 +34,9 @@
 [submodule "vim/.vim/bundle/vim-javascript"]
 	path = vim/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/.vim/bundle/editorconfig-vim"]
+	path = vim/.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vim/.vim/bundle/emmet-vim"]
+	path = vim/.vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim
