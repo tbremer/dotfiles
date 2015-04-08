@@ -8,4 +8,4 @@ alias dev='cd /Volumes/Dev'
 alias sta='git status'
 alias master='git checkout master && git fetch && git pull origin master'
 
-echo "## ALIASES LOADED\n"
+echo "== ALIASES LOADED\n"

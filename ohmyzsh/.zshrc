@@ -54,6 +54,16 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 eval "$(rbenv init -)"
 
 # SOURCE CONFIGS
+if [ -e $HOME/.bash_profile ] ; then
+	source $HOME/.bash_profile
+fi
+
+if [ -e $HOME/.dotfiles-path ] ; then
+	source $HOME/.dotfiles-path
+else
+	$DOTFILES=/Volumes/Dev/github/dotfiles
+fi
+
 source $DOTFILES/bash/aliases.sh
 source $DOTFILES/ohmyzsh/battery-prompt.sh
 source $ZSH/oh-my-zsh.sh
