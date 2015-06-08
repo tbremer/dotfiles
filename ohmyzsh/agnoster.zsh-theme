@@ -173,9 +173,9 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_virtualenv
+  prompt_date_time
   prompt_git
   prompt_dir
-  prompt_date_time
   prompt_hg
   prompt_end
 }
