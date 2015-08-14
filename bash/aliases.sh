@@ -3,6 +3,7 @@ alias resource='source ~/.zshrc'
 
 # FOLDER NAVIGATION
 alias dev='cd /Volumes/Dev'
+alias code='cd /Volumes/CODE'
 
 # GIT ALIASES
 alias sta='git status'
