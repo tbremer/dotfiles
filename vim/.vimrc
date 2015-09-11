@@ -29,10 +29,10 @@ set t_Co=256
 set clipboard=unnamed
 "set so=999
 set smartindent
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
-"set smarttab
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
 scriptencoding utf-8
 set encoding=utf-8
 "
@@ -62,10 +62,6 @@ set noswapfile
 "
 filetype plugin indent on
 filetype plugin on
-if has('autocmd')
-	"autocmd
-endif
-
 "
 " RUBIX SPECIFIC FILE TYPES
 "
@@ -77,20 +73,25 @@ au BufRead,BufNewFile *.phtml setfiletype html
 " GUI RUNNING OPTIONS
 "
 if &t_Co>=256 || has("gui_running")
-	syntax enable
-	let g:hybrid_use_iTerm_colors = 1
-	colorscheme Hybrid
-	set cursorline
-	set guifont=Monospace:h20
+				syntax enable
+				"let g:hybrid_use_iTerm_colors = 1
+				colorscheme flatui
+				"set cursorline
+
+				if strftime("%H") >= 5 && strftime("%H") <= 17
+								set background=light
+				else
+								set background=dark
+				endif
 endif
-nmap <leader>dd :set background=dark<CR>
-nmap <leader>ll :set background=light<CR>
+nmap <leader>dd :colorscheme flatui \| :set background=dark<CR>
+nmap <leader>ll :colorscheme flatui \| set background=light<CR>
 
 "
 " SYNTAX HIGHLIGHTING
 "
 if &t_Co >= 2
-	syntax on
+				syntax on
 endif
 
 "
@@ -166,7 +167,7 @@ set foldcolumn=4
 " TRIM TRAILING WHITESPACE
 "
 function! TrimWhiteSpace()
-	%s/\s\+$//e
+				%s/\s\+$//e
 endfunction
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
