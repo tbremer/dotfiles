@@ -191,3 +191,7 @@ nmap <Leader>f :set foldenable!<CR>
 let g:user_emmet_mode='a'
 let g:user_emmet_leader_key=',,'
 
+"
+" SYNTASTIC
+"
+let g:syntastic_javascript_checkers = ['eslint']
