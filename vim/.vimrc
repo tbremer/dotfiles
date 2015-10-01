@@ -195,3 +195,4 @@ let g:user_emmet_leader_key=',,'
 " SYNTASTIC
 "
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_css_checkers = ['csslint']
