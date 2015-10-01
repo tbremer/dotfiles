@@ -13,7 +13,9 @@ au BufReadPost fugitive://* set bufhidden=delete
 " 'must haves'
 "
 set hidden
-set nowrap			" don't wrap lines
+set wrap
+set linebreak
+set nolist
 set backspace=indent,eol,start 	" allow backspacing in insert mode
 set autoindent 			" autoindent
 set copyindent 			" use last indentation for this one
@@ -35,6 +37,7 @@ set expandtab
 set smarttab
 scriptencoding utf-8
 set encoding=utf-8
+
 "
 " GLOBAL REMAPS
 "
@@ -68,30 +71,27 @@ filetype plugin on
 au BufRead,BufNewFile *.rbx setfiletype json
 au BufRead,BufNewFile *.hbs setfiletype html
 au BufRead,BufNewFile *.phtml setfiletype html
+au BufRead,BufNewFile *.es6 setfiletype javascript
 
 "
 " GUI RUNNING OPTIONS
 "
 if &t_Co>=256 || has("gui_running")
-				syntax enable
-				"let g:hybrid_use_iTerm_colors = 1
-				colorscheme flatui
-				"set cursorline
-
-				if strftime("%H") >= 5 && strftime("%H") <= 17
-								set background=light
-				else
-								set background=dark
-				endif
+  syntax enable
+  "let g:hybrid_use_iTerm_colors = 1
+  set cursorline
+  colorscheme railscasts
+  set background=light
 endif
-nmap <leader>dd :colorscheme flatui \| :set background=dark<CR>
-nmap <leader>ll :colorscheme flatui \| set background=light<CR>
+
+nmap <leader>dd :colorscheme railscasts \| :set background=dark<CR>
+nmap <leader>ll :colorscheme summerfruit256 \| set background=light<CR>
 
 "
 " SYNTAX HIGHLIGHTING
 "
 if &t_Co >= 2
-				syntax on
+  syntax on
 endif
 
 "
@@ -167,7 +167,7 @@ set foldcolumn=4
 " TRIM TRAILING WHITESPACE
 "
 function! TrimWhiteSpace()
-				%s/\s\+$//e
+  %s/\s\+$//e
 endfunction
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
@@ -175,19 +175,12 @@ autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
 "
-" SOFT WRAP
-"
-set colorcolumn=100
-set wrap
-"set linebreak
-set wm=10
-
-"
 " REMAP THE CAPSLOCK KEY TO ESCAPE
 " turn off recording first
 map q <Nop>
 imap qq <Esc>
 vmap qq <Esc>
+imap $$ <C-o>$
 
 set autoread
 nmap <Leader>f :set foldenable!<CR>
@@ -197,3 +190,4 @@ nmap <Leader>f :set foldenable!<CR>
 "
 let g:user_emmet_mode='a'
 let g:user_emmet_leader_key=',,'
+
