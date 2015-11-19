@@ -1,5 +1,4 @@
 # Formal
-====
 
 I wanted to reach out and show my interest in your opening for a User Interface Engineer, I am currently supporting the development of a UI Framework for an internal client. Daily I am tasked with moving designs into code and manual processes into automated ones. I do this on the clientside with: HTML, Sass, and Javascript. In the development environment with: NodeJS, Gulp, Grunt, ES6 (Babel and IOJS), and Bash. I have done work in React, FlightJS and small tasks in Ember.
 
@@ -21,7 +20,6 @@ Sincerely
 Tom Bremer.
 
 # Less Formal
-====
 
 I wanted to reach out and show my interest in your opening for a web developer, I am currently supporting the development of a UI Framework for an internal client. Daily I am tasked with moving designs into code and manual processes into automated ones. I do this on the clientside with: HTML, Sass, PostCSS, and Javascript. In the development environment with: NodeJS, Gulp, Grunt, utilizing the latest in ES6 (normally through Babel), and Bash. I have done work in React, FlightJS and small tasks in Ember.
 
