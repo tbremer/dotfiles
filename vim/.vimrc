@@ -31,7 +31,7 @@ set ttymouse=xterm2
 " Color Scheme to 256 colors
 " set colorscheme
 set t_Co=256
-colorscheme gruvbox
+"colorscheme gruvbox
 :hi Normal ctermbg=black
 
 " Set softwrap to false
