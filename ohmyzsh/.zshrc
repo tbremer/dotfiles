@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kphoen"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,6 +67,12 @@ fi
 source $DOTFILES/bash/aliases.sh
 source $DOTFILES/ohmyzsh/battery-prompt.sh
 source $ZSH/oh-my-zsh.sh
+
+# POWERLINE 9K Stuff
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery time)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
