@@ -2,13 +2,10 @@
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'othree/yajs.vim'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'elzr/vim-json'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/jspc.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
