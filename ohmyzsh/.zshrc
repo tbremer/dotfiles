@@ -61,7 +61,7 @@ fi
 if [ -e $HOME/.dotfiles-path ] ; then
 	source $HOME/.dotfiles-path
 else
-	$DOTFILES=/Volumes/Dev/github/dotfiles
+	DOTFILES=$HOME/Documents/dotfiles
 fi
 
 source $DOTFILES/bash/aliases.sh
