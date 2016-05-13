@@ -10,7 +10,6 @@ alias master='git checkout master && git fetch && git pull origin master'
 alias ghash='git rev-parse HEAD'
 alias ggraph='git log --graph --oneline --decorate'
 alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
-alias diff="for file in `git diff origin/master --name-only`; do; git diff origin/master $file; done;"
 
 function push {
 	git add .; git commit -m "$1"; git push;
@@ -46,5 +45,16 @@ function processes {
 	eval $COMMAND
 }
 
+function diff {
+	BRANCH=$1;
+
+	if [ -z "$BRANCH" ]; then;
+		BRANCH="origin/master"
+	fi
+
+	for FILE in $(git diff "$BRANCH" --name-only); do
+		git diff $BRANCH $FILE;
+	done;
+}
 
 echo "== ALIASES LOADED\n"
