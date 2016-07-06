@@ -8,7 +8,6 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/jspc.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/BufOnly.vim'
 call plug#end()
