@@ -59,11 +59,14 @@ if [ -e $HOME/.bash_profile ] ; then
 	source $HOME/.bash_profile
 fi
 
-if [ -e $HOME/.dotfiles-path ] ; then
-	source $HOME/.dotfiles-path
+if [ -e $HOME/.files-path ] ; then
+	source $HOME/.files-path
 else
 	DOTFILES=$HOME/Documents/dotfiles
+	CODE=/Volumes/CODE
 fi
+
+alias code="cd $CODE";
 
 source $DOTFILES/bash/aliases.sh
 source $DOTFILES/ohmyzsh/battery-prompt.sh
