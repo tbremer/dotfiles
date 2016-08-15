@@ -1,9 +1,6 @@
 # BASH ALIASES
 alias resource='source ~/.zshrc'
 
-# FOLDER NAVIGATION
-alias code='if [ -d /Volumes/CODE ] ; then; cd /Volumes/CODE; else; cd /Volumes/DEV; fi'
-
 # GIT ALIASES
 alias sta='git status'
 alias master='git checkout master && git fetch && git pull origin master'
