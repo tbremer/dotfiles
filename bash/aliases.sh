@@ -49,6 +49,8 @@ function diff {
 		BRANCH="origin/master"
 	fi
 
+	git diff $BRANCH --name-status;
+
 	for FILE in $(git diff "$BRANCH" --name-only); do
 		git diff $BRANCH $FILE;
 	done;
