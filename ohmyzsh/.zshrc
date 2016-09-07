@@ -5,8 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="frisk"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="muse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,3 +82,4 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir show_branch vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
+eval "$(thefuck --alias)"

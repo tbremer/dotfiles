@@ -1,99 +1,75 @@
 ;call plug#begin('~/.vim/plugged')
-Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-Plug 'elzr/vim-json'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/jspc.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'honza/vim-snippets'
-Plug 'vim-scripts/BufOnly.vim'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-"
-" VIM BASICS
-"
-" Set leader to ,
-:let mapleader = ","
+let mapleader = ","
+nmap ; :
+set noswapfile
 
-" Set : to ;
-:nmap ; :
+" Mouse controls
+set ttyfast
+set mouse=a
+set ttymouse=xterm2
 
-" Use the mouse
-:set ttyfast
-:set mouse=a
-:set ttymouse=xterm2
+" Color Stuff
+syntax on
+set t_Co=256
+colorscheme Tomorrow-Night-Eighties
+"set background=dark
+hi CursorLine cterm=none ctermbg=black
 
-" Color Scheme to 256 colors
-" :set colorscheme
-:set t_Co=256
-:colorscheme Tomorrow-Night-Eighties
+" Soft Wrap
+set wrap!
+nmap <Leader>w :set wrap!<CR>
 
-" Set softwrap to false
-" Set wrap toggle to <Leader>w
-:set wrap!
-:nmap <Leader>w :set wrap!<CR>
+" Enable Backspace
+set backspace=indent,eol,start
 
-" CODE FOLDS
-:set foldmethod=indent
-:set foldlevelstart=3
+" qq to quit in Insert
+imap qq <Esc>
+map q <Nop>
 
-" auto complete
-:set omnifunc=syntaxcomplete#Complete
-let OmniCpp_NamespaceSearch = 2
-:imap <Leader><Leader> <C-X><C-O>
-
-" buffnext / buffprevious
-:nnoremap <Leader>n :bnext<CR>
-:nnoremap <Leader>p :bprev<CR>
-
-" Backspace
-:set backspace=indent,eol,start
-
-" SET qq to quit while in Insert mode
-:imap qq <Esc>
-:map q <Nop>
-
-" Open NERDTree with ,.
-:nmap .<Leader> :NERDTreeToggle<CR>
-
-" Show invisibles
-:set listchars=tab:▸\ ,eol:¬
-:nmap <Leader>l :set list!<CR>
+" invisibles
+set listchars=tab:▸\ ,eol:¬
+nmap <Leader>l set list!<CR>
 
 " Show Line Numbers
-:set nu
+set nu
 
-"Show CursorLine
-:set cursorline
+" Show cursor line
+set cursorline
 
-" Bind $$ to end of line
-:imap $$ <Esc>$a
-
-" Set Split stuff
-:set splitbelow
-:set splitright
-
-" CtrlP Excludes
-let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules'
-  \ }
-
-" Clipboard visual to system
-:set clipboard=unnamed
-
-" STATUSLINE STUFF
-:set laststatus=2
-:set statusline=%f
-:set statusline+=%=FileType:\ %y\ \|\ %l/%L\ -\ %c
+" Visual clipboard to system
+set clipboard=unnamed
 
 " Highlight Whitespace
 match ErrorMsg '\s\+$'
 
-" Remove White Space
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
+" ctrl-p ignore
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]node_modules|\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+
+" neo complete
+let g:neocomplete#enable_at_startup = 1
+
+" NERDTree hotkey
+map <Leader>t :NERDTreeToggle<CR>
+
+" Airline
+set noshowmode
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:bufferline_echo = 0
+let g:airline_theme = 'base16_eighties'
 
