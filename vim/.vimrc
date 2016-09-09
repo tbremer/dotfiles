@@ -8,6 +8,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/syntastic'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 call plug#end()
 
 let mapleader = ","
@@ -41,6 +43,9 @@ set backspace=indent,eol,start
 imap qq <Esc>
 map q <Nop>
 
+" Bind $$ to end of line
+:imap $$ <Esc>$a
+
 " buffnext / buffprevious
 :nnoremap <Leader>n :bnext<CR>
 :nnoremap <Leader>p :bprev<CR>
@@ -50,6 +55,11 @@ set listchars=tab:▸\ ,eol:¬
 nmap <Leader>l :set list!<CR>
 set list!
 
+" Remove White Space
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 " ctrl-p ignore
 let g:ctrlp_custom_ignore = {
@@ -70,9 +80,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 let g:airline_theme = 'base16_eighties'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" Remove White Space
-function! TrimWhiteSpace()
-  %s/\s\+$//e
-endfunction
-autocmd BufWritePre * :call TrimWhiteSpace()
+" Syntasttic
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+:let g:syntastic_loc_list_height=3
