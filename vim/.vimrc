@@ -13,6 +13,11 @@ call plug#end()
 let mapleader = ","
 nmap ; :
 set noswapfile
+nnoremap Q <nop>
+set nu
+set cursorline
+set clipboard=unnamed
+match ErrorMsg '\s\+$'
 
 " Mouse controls
 set ttyfast
@@ -23,8 +28,7 @@ set ttymouse=xterm2
 syntax on
 set t_Co=256
 colorscheme Tomorrow-Night-Eighties
-"set background=dark
-hi CursorLine cterm=none ctermbg=black
+hi CursorLine cterm=none ctermbg=238
 
 " Soft Wrap
 set wrap!
@@ -37,21 +41,14 @@ set backspace=indent,eol,start
 imap qq <Esc>
 map q <Nop>
 
+" buffnext / buffprevious
+:nnoremap <Leader>n :bnext<CR>
+:nnoremap <Leader>p :bprev<CR>
+
 " invisibles
 set listchars=tab:▸\ ,eol:¬
 nmap <Leader>l set list!<CR>
 
-" Show Line Numbers
-set nu
-
-" Show cursor line
-set cursorline
-
-" Visual clipboard to system
-set clipboard=unnamed
-
-" Highlight Whitespace
-match ErrorMsg '\s\+$'
 
 " ctrl-p ignore
 let g:ctrlp_custom_ignore = {
