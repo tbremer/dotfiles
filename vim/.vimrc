@@ -47,7 +47,8 @@ map q <Nop>
 
 " invisibles
 set listchars=tab:▸\ ,eol:¬
-nmap <Leader>l set list!<CR>
+nmap <Leader>l :set list!<CR>
+set list!
 
 
 " ctrl-p ignore
@@ -70,3 +71,8 @@ let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 let g:airline_theme = 'base16_eighties'
 
+" Remove White Space
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
