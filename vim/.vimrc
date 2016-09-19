@@ -32,6 +32,9 @@ set t_Co=256
 colorscheme Tomorrow-Night-Eighties
 hi CursorLine cterm=none ctermbg=238
 
+" Fold setup
+autocmd FileType javascript,json setlocal foldmethod=indent
+
 " Soft Wrap
 set wrap!
 nmap <Leader>w :set wrap!<CR>
@@ -72,6 +75,9 @@ let g:neocomplete#enable_at_startup = 1
 
 " NERDTree hotkey
 map <Leader>t :NERDTreeToggle<CR>
+
+" Pretty Print JSON
+:command JsonPretty :%!python -m json.tool
 
 " Airline
 set noshowmode
