@@ -32,6 +32,12 @@ set t_Co=256
 colorscheme Tomorrow-Night-Eighties
 hi CursorLine cterm=none ctermbg=238
 
+" MacVim work
+if has("gui_running")
+	set encoding=utf-8
+	set guifont=Literation\ Mono\ Powerline:h12
+endif
+
 " Fold setup
 autocmd FileType javascript,json setlocal foldmethod=indent
 
@@ -78,6 +84,7 @@ map <Leader>t :NERDTreeToggle<CR>
 
 " Pretty Print JSON
 :command JsonPretty :%!python -m json.tool
+:command JsonMinify :%!python -c "import json,sys;print(json.dumps(json.load(sys.stdin)))"
 
 " Airline
 set noshowmode
