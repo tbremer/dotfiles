@@ -10,6 +10,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/syntastic'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-two-firewatch'
 call plug#end()
 
 let mapleader = ","
@@ -29,8 +31,14 @@ set ttymouse=xterm2
 " Color Stuff
 syntax on
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+let g:two_firewatch_italics=1
+colo two-firewatch
 hi CursorLine cterm=none ctermbg=238
+if strftime("%H") < 15
+  set background=light
+else
+  set background=dark
+endif
 
 " MacVim work
 if has("gui_running")
@@ -104,7 +112,8 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
-let g:airline_theme = 'base16_eighties'
+"let g:airline_theme = 'base16_eighties'
+let g:airline_theme='twofirewatch'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Syntasttic
@@ -112,3 +121,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
+
+" JSX
+let g:jsx_ext_required = 0
