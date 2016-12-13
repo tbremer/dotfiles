@@ -6,8 +6,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME="muse"a
-#ZSH_THEME="xiong-chiamiov-plus"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git yarn npm)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -72,7 +70,6 @@ alias code="cd $CODE";
 source $DOTFILES/bash/aliases.sh
 source $DOTFILES/ohmyzsh/battery-prompt.sh
 source $ZSH/oh-my-zsh.sh
-source <(npm completion)
 
 # POWERLINE 9K Stuff
 prompt_show_branch() {
