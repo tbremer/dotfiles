@@ -12,6 +12,7 @@ Plug 'scrooloose/syntastic'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-two-firewatch'
+Plug 'schickling/vim-bufonly'
 call plug#end()
 
 let mapleader = ","
@@ -31,19 +32,18 @@ set ttymouse=xterm2
 " Color Stuff
 syntax on
 set t_Co=256
+set encoding=utf-8
 let g:two_firewatch_italics=1
-colo two-firewatch
 hi CursorLine cterm=none ctermbg=238
-if strftime("%H") < 15
-  set background=light
-else
-  set background=dark
-endif
+set background=dark
 
 " MacVim work
 if has("gui_running")
-	set encoding=utf-8
-	set guifont=Literation\ Mono\ Powerline:h12
+	set guifont=Operator\ Mono\ for\ Powerline:h12
+	colo two-firewatch
+	"set transparency=5
+else
+	colo OceanicNext
 endif
 
 " Fold setup
@@ -86,15 +86,15 @@ set list!
 
 " Remove White Space
 function! TrimWhiteSpace()
-  %s/\s\+$//e
+	%s/\s\+$//e
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
 
 " ctrl-p ignore
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]node_modules|\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
+			\ 'dir': '\v[\/]node_modules|\.(git|hg|svn)$',
+			\ 'file': '\v\.(exe|so|dll)$',
+			\ }
 
 " neo complete
 let g:neocomplete#enable_at_startup = 1
@@ -112,7 +112,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
-"let g:airline_theme = 'base16_eighties'
 let g:airline_theme='twofirewatch'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
