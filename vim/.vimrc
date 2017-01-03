@@ -41,7 +41,6 @@ set background=dark
 if has("gui_running")
 	set guifont=Operator\ Mono\ for\ Powerline:h12
 	colo two-firewatch
-	"set transparency=5
 else
 	colo OceanicNext
 endif

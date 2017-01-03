@@ -1,5 +1,6 @@
 # BASH ALIASES
 alias resource='source ~/.zshrc'
+alias download='curl -O -J'
 
 # GIT ALIASES
 alias sta='git status'
@@ -55,5 +56,7 @@ function diff {
 		git diff $BRANCH $FILE;
 	done;
 }
+
+
 
 echo "== ALIASES LOADED\n"
