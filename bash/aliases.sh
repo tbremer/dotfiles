@@ -1,6 +1,7 @@
 # BASH ALIASES
 alias resource='source ~/.zshrc'
 alias download='curl -O -J'
+alias dl='curl -O -J'
 
 # GIT ALIASES
 alias sta='git status'
