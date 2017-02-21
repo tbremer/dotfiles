@@ -8,6 +8,7 @@ Plug 'ap/vim-buftabline'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-syntastic/syntastic'
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'shougo/neocomplete.vim'
 call plug#end()
 
 " Enable Line Numbers
@@ -100,3 +101,7 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+
