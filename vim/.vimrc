@@ -7,8 +7,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-buftabline'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-syntastic/syntastic'
-Plug 'mtscout6/syntastic-local-eslint.vim'
+"Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'shougo/neocomplete.vim'
+Plug 'guns/xterm-color-table.vim'
 call plug#end()
 
 " Enable Line Numbers
@@ -46,6 +47,22 @@ au BufNewFile,BufRead .babelrc set filetype=json
 hi CursorLine cterm=none ctermbg=8
 set cursorline
 
+" Cursor match color
+hi MatchParen cterm=bold ctermbg=0 ctermfg=3
+
+" StatusLine Setup and Colors
+set laststatus=2
+set statusline=%M\ -\ %f\ %y\ 
+
+hi StatusLine ctermfg=0 ctermbg=6
+hi StatusLineNC ctermfg=0 ctermbg=244
+au InsertEnter * hi StatusLine ctermfg=6 ctermbg=0
+au InsertLeave * hi StatusLine ctermfg=0 ctermbg=6
+
+"SignColumn Color
+hi clear SignColumn
+hi SignColumn cterm=bold
+
 " Enable Backspace
 set backspace=indent,eol,start
 
@@ -64,7 +81,7 @@ set foldlevelstart=99
 " NERDTree
 map <Leader>t :NERDTreeToggle<enter>
 
-" JSX Plugin
+"" JSX Plugin
 let g:jsx_ext_required = 0
 
 " BuffTabLine Plugin
@@ -81,6 +98,8 @@ nnoremap <C-P> :bprev<CR>
 let g:vim_markdown_folding_disabled = 1
 
 " Syntastic (http://usevim.com/2016/03/07/linting/)
+
+" Syntastic statusline
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -92,16 +111,28 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_error_symbol = '❌'
+" Point syntastic checker at locally installed `eslint_d` if it exists.
+if executable('node_modules/.bin/eslint_d')
+  let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint_d'
+  autocmd VimLeave * !node_modules/.bin/eslint_d stop
+elseif executable('node_modules/.bin/eslint')
+  let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
+endif
+
+let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+highlight SyntasticErrorSign ctermfg=1
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
+
+" end of default statusline (with ruler)
+set statusline+=%=%(%l,%c%V\ %=\ %P%)
+
 
