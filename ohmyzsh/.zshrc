@@ -1,20 +1,41 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+package_version() {
+  if [[ -f 'package.json' ]]; then
+    echo $(node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)")
+  fi
+}
+
+BULLETTRAIN_TIME_BG=023
+BULLETTRAIN_GIT_BG=030
+BULLETTRAIN_DIR_BG=044
+BULLETTRAIN_GIT_FG=015
+BULLETTRAIN_TIME_FG=015
+BULLETTRAIN_DIR_FG=241
+
+prompt_npm() {
+  local _npm="$(package_version)"
+  [[ -n "$_npm" ]] && prompt_segment 037 white "$_npm"
+}
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
 
 BULLETTRAIN_PROMPT_ORDER=(
+	time
 	git
+	npm
 	status
 	dir
-	time
 )
 
-BULLETTRAIN_PROMPT_CHAR="$ "
+BULLETTRAIN_PROMPT_CHAR="\$ "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

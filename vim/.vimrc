@@ -7,7 +7,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-buftabline'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-syntastic/syntastic'
-"Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mattn/emmet-vim'
 Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
 call plug#end()
