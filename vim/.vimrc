@@ -50,6 +50,13 @@ set cursorline
 " Cursor match color
 hi MatchParen cterm=bold ctermbg=0 ctermfg=3
 
+" Change Cursor Shape
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"inoremap <special> <Esc> <Esc>hl
+
+
 " StatusLine Setup and Colors
 set laststatus=2
 set statusline=%M\ -\ %f\ %y\ 

@@ -27,6 +27,24 @@ prompt_npm() {
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
 
+package_version() {
+  if [[ -f 'package.json' ]]; then
+    echo $(node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)")
+  fi
+}
+
+BULLETTRAIN_TIME_BG=023
+BULLETTRAIN_GIT_BG=030
+BULLETTRAIN_DIR_BG=044
+BULLETTRAIN_GIT_FG=015
+BULLETTRAIN_TIME_FG=015
+BULLETTRAIN_DIR_FG=241
+
+prompt_npm() {
+  local _npm="$(package_version)"
+  [[ -n "$_npm" ]] && prompt_segment 037 white "$_npm"
+}
+
 BULLETTRAIN_PROMPT_ORDER=(
 	time
 	git
