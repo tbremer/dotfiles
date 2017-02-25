@@ -59,7 +59,7 @@ hi MatchParen cterm=bold ctermbg=0 ctermfg=3
 
 " StatusLine Setup and Colors
 set laststatus=2
-set statusline=%M\ -\ %f\ %y\ 
+set statusline=%M\ -\ %f\ %y\
 
 hi StatusLine ctermfg=0 ctermbg=6
 hi StatusLineNC ctermfg=0 ctermbg=244
@@ -84,6 +84,12 @@ highlight NonText ctermfg=208 guifg=#4a4a59
 set fdm=syntax
 set foldlevelstart=99
 
+" Trim White Space on Save
+" Remove White Space
+function! TrimWhiteSpace()
+	%s/\s\+$//e
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
 
 " NERDTree
 map <Leader>t :NERDTreeToggle<enter>
