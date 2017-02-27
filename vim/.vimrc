@@ -10,6 +10,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'mattn/emmet-vim'
 Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'octref/RootIgnore'
 call plug#end()
 
 " Enable Line Numbers
@@ -44,7 +47,7 @@ set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=8
+hi CursorLine cterm=none ctermbg=236
 set cursorline
 
 " Cursor match color
@@ -93,8 +96,11 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 
 " NERDTree
 map <Leader>t :NERDTreeToggle<enter>
+let loaded_netrwPlugin=1
+let NERDTreeRespectWildIgnore=1
+let g:RootIgnoreAgignore = 1
 
-"" JSX Plugin
+" JSX Plugin
 let g:jsx_ext_required = 0
 
 " BuffTabLine Plugin
