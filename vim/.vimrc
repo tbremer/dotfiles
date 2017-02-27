@@ -12,7 +12,7 @@ Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'octref/RootIgnore'
+Plug '~/Documents/dotfiles/vim/GitIgnore'
 call plug#end()
 
 " Enable Line Numbers
@@ -98,7 +98,6 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 map <Leader>t :NERDTreeToggle<enter>
 let loaded_netrwPlugin=1
 let NERDTreeRespectWildIgnore=1
-let g:RootIgnoreAgignore = 1
 
 " JSX Plugin
 let g:jsx_ext_required = 0
