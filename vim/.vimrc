@@ -12,7 +12,7 @@ Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug '~/Documents/dotfiles/vim/GitIgnore'
+Plug '~/Documents/dotfiles/vim/GitWildIgnore'
 call plug#end()
 
 " Enable Line Numbers
@@ -39,6 +39,10 @@ map q <Nop>
 
 " Turn off .swp files
 set noswapfile
+
+" Split to right and below
+set splitright
+set splitbelow
 
 " Enable Syntax Highlighting
 syntax on
