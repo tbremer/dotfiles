@@ -65,10 +65,11 @@ PWRLN_ARW_R='\ue0b1'
 PWRLN_ARW_L_BLK='\ue0b2'
 PWRLN_ARW_L='\ue0b3'
 RT_ARW='\u279c'
+NEWLINE=$'\n'
 
 # User configuration
 RPROMPT='$(battery_pct)'
-PROMPT="(%3~) `status_prompt` %{$FX[bold]%}`prompt $RT_ARW`%{$FX[reset]%} "
+PROMPT="(%3~) `status_prompt`${NEWLINE}%{$FX[bold]%}`prompt $RT_ARW`%{$FX[reset]%} "
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
