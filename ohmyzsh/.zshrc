@@ -4,7 +4,7 @@ export ZSH=/Users/tbremer/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -26,9 +26,35 @@ battery_pct() {
 }
 
 package_version() {
-  if [[ -f 'package.json' ]]; then
-    echo $(node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)")
-  fi
+	if [[ -f 'package.json' ]]; then
+		echo $(node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)")
+	fi
+}
+
+is_git_folder() {
+	git status >/dev/null 2>&1
+
+	if [ $? -eq 0 ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+git_status() {
+	echo git status --short 2> /dev/null | tail -n 1
+}
+
+prompt() {
+	echo -e "$1"
+}
+
+status_prompt() {
+	if [ git_status ]; then
+		prompt '*'
+	else
+		prompt '\u2713'
+	fi
 }
 
 PWRLN_VCS='\ue0a0'
@@ -38,19 +64,11 @@ PWRLN_ARW_BLK_R='\ue0b0'
 PWRLN_ARW_R='\ue0b1'
 PWRLN_ARW_L_BLK='\ue0b2'
 PWRLN_ARW_L='\ue0b3'
-
-powerline() {
-echo U+E0A0		Version control branch
-U+E0A1		LN (line) symbol
-U+E0A2		Closed padlock
-U+E0B0		Rightwards black arrowhead
-U+E0B1		Rightwards arrowhead
-U+E0B2		Leftwards black arrowhead
-U+E0B3		Leftwards arrowhead}
+RT_ARW='\u279c'
 
 # User configuration
-#PROMPT+='%{$BG[002]%}%{$FG[234]%}$(package_version)%{$reset_color%}%\ '
 RPROMPT='$(battery_pct)'
+PROMPT="(%3~) `status_prompt` %{$FX[bold]%}`prompt $RT_ARW`%{$FX[reset]%} "
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
