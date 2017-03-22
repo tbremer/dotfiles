@@ -6,7 +6,7 @@ PWRLN_ARW_BLK_R='\ue0b0'
 PWRLN_ARW_R='\ue0b1'
 PWRLN_ARW_L_BLK='\ue0b2'
 PWRLN_ARW_L='\ue0b3'
-RT_ARW='\u279c'
+ARW='\u2794'
 
 # Special ESC sequences
 NEWLINE=$'\n'
@@ -41,66 +41,16 @@ curprof
 changeTo$PROFILE
 # =====
 
-battery_pct() {
-	PCT=`pmset -g ps | grep -Eow '\d+%'`
-	echo "[ $PCT% ]"
-}
-
 prompt() {
 	echo -e "$1"
 }
 
-package_version() {
-	if [[ -f 'package.json' ]]; then
-		echo $(node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)")
-	fi
-}
-
-is_git_folder() {
-	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-		return 0
-	fi
-
-	return 1
-}
-
-is_tree_dirty() {
-	if is_git_folder; then
-		if ! [[ -z $(git status --short > /dev/null 2>&1 | tail -n1) ]]; then
-			return 0
-		fi
-	fi
-
-	return 1
-}
-
 arrow_prompt() {
-	prompt "%(?:%F{$GREEN}:%F{$RED})$RT_ARW%f"
-}
-
-git_prompt() {
-	if ! is_git_folder; then; return; fi
-
-	local str="[ "
-
-	str+="%B$(git rev-parse --abbrev-ref HEAD)%b "
-
-	# Git is Dirty
-	if is_tree_dirty; then
-		str+="%F{$YELLOW}"
-	else
-		str+="%F{$GREEN}"
-	fi
-
-	str+="$PWRLN_VCS%f"
-
-	str+=' ]'
-
-	prompt $str
+	prompt "%B%(?:%F{$GREEN}:%F{$RED})$ARW%f%b"
 }
 
 function precmd() {
-	PROMPT="$NEWLINE%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
+	PROMPT="%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
 	RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
 }
 
@@ -125,5 +75,7 @@ alias code="cd $CODE";
 
 source $DOTFILES/ohmyzsh/history.zsh
 source $DOTFILES/ohmyzsh/completions.zsh
+source $DOTFILES/ohmyzsh/git-functions.zsh
+source $DOTFILES/ohmyzsh/battery-prompt.zsh
 source $DOTFILES/ohmyzsh/spectrum.zsh
 source $DOTFILES/bash/aliases.sh
