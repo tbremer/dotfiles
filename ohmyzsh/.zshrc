@@ -1,28 +1,53 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/tbremer/.oh-my-zsh
+# Powerline and ASCII Characters
+PWRLN_VCS='\ue0a0'
+PWRLN_LN='\ue0a1'
+PWRLN_LCK='\ue0a2'
+PWRLN_ARW_BLK_R='\ue0b0'
+PWRLN_ARW_R='\ue0b1'
+PWRLN_ARW_L_BLK='\ue0b2'
+PWRLN_ARW_L='\ue0b3'
+RT_ARW='\u279c'
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+# Special ESC sequences
+NEWLINE=$'\n'
+UP_LINE=$'\e[1A'
+DOWN_LINE=$'\e[1B'
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# COLORS!
+RED=001
+GREEN=002
+YELLOW=003
+CYAN=006
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# Default Profile
+PROFILE="Default"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# ===== BEGIN PROFILE TWEAKS
+curprof() {
+	PROFILE=`osascript -e 'tell application "iTerm"
+	get profile name of current session of current tab of current window
+end tell'`
+}
+it2prof() { echo -e "\033]50;SetProfile=$1\a" }
+changeToDefault() {
+	it2prof Default;
+}
 
-source $ZSH/oh-my-zsh.sh
+changeToLight() {
+	it2prof Light;
+}
+
+curprof
+changeTo$PROFILE
+# =====
 
 battery_pct() {
 	PCT=`pmset -g ps | grep -Eow '\d+%'`
 	echo "[ $PCT% ]"
+}
+
+prompt() {
+	echo -e "$1"
 }
 
 package_version() {
@@ -32,44 +57,52 @@ package_version() {
 }
 
 is_git_folder() {
-	git status >/dev/null 2>&1
-
-	if [ $? -eq 0 ]; then
+	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
 		return 0
-	else
-		return 1
 	fi
+
+	return 1
 }
 
-git_status() {
-	echo git status --short 2> /dev/null | tail -n 1
-}
-
-prompt() {
-	echo -e "$1"
-}
-
-status_prompt() {
-	if [ git_status ]; then
-		prompt '*'
-	else
-		prompt '\u2713'
+is_tree_dirty() {
+	if is_git_folder; then
+		if ! [[ -z $(git status --short > /dev/null 2>&1 | tail -n1) ]]; then
+			return 0
+		fi
 	fi
+
+	return 1
 }
 
-PWRLN_VCS='\ue0a0'
-PWRLN_LN='\ue0a1'
-PWRLN_LCK='\ue0a2'
-PWRLN_ARW_BLK_R='\ue0b0'
-PWRLN_ARW_R='\ue0b1'
-PWRLN_ARW_L_BLK='\ue0b2'
-PWRLN_ARW_L='\ue0b3'
-RT_ARW='\u279c'
-NEWLINE=$'\n'
+arrow_prompt() {
+	prompt "%(?:%F{$GREEN}:%F{$RED})$RT_ARW%f"
+}
 
-# User configuration
-RPROMPT='$(battery_pct)'
-PROMPT="(%3~) `status_prompt`${NEWLINE}%{$FX[bold]%}`prompt $RT_ARW`%{$FX[reset]%} "
+git_prompt() {
+	if ! is_git_folder; then; return; fi
+
+	local str="[ "
+
+	str+="%B$(git rev-parse --abbrev-ref HEAD)%b "
+
+	# Git is Dirty
+	if is_tree_dirty; then
+		str+="%F{$YELLOW}"
+	else
+		str+="%F{$GREEN}"
+	fi
+
+	str+="$PWRLN_VCS%f"
+
+	str+=' ]'
+
+	prompt $str
+}
+
+function precmd() {
+	PROMPT="$NEWLINE%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
+	RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
+}
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -90,4 +123,7 @@ fi
 
 alias code="cd $CODE";
 
+source $DOTFILES/ohmyzsh/history.zsh
+source $DOTFILES/ohmyzsh/completions.zsh
+source $DOTFILES/ohmyzsh/spectrum.zsh
 source $DOTFILES/bash/aliases.sh

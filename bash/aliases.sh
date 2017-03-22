@@ -1,4 +1,5 @@
 # BASH ALIASES
+alias l='ls -la'
 alias resource='source ~/.zshrc'
 alias download='curl -O -J'
 alias dl='curl -O -J'
@@ -57,7 +58,5 @@ function diff {
 		git diff $BRANCH $FILE;
 	done;
 }
-
-
 
 echo "== ALIASES LOADED\n"
