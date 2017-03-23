@@ -50,7 +50,7 @@ arrow_prompt() {
 }
 
 function precmd() {
-	PROMPT="%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
+	PROMPT="$NEWLINE%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
 	RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
 }
 
