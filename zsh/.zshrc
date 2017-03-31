@@ -86,6 +86,7 @@ alias code="cd $CODE";
 source $DOTFILES/zsh/history.zsh
 source $DOTFILES/zsh/completions.zsh
 source $DOTFILES/zsh/git-functions.zsh
+source $DOTFILES/zsh/atom-functions.zsh
 source $DOTFILES/zsh/battery-prompt.zsh
 source $DOTFILES/zsh/spectrum.zsh
 source $DOTFILES/bash/aliases.sh
