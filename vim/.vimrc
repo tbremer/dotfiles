@@ -51,7 +51,7 @@ set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=236
+hi CursorLine cterm=none ctermbg=007
 set cursorline
 
 " Cursor match color
