@@ -54,7 +54,17 @@ function precmd() {
 	RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
 }
 
+# PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# ls colors
+autoload -U colors && colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+setopt auto_cd
+setopt multios
+setopt prompt_subst
 
 # INIT RBENV
 eval "$(rbenv init -)"
@@ -73,9 +83,9 @@ fi
 
 alias code="cd $CODE";
 
-source $DOTFILES/ohmyzsh/history.zsh
-source $DOTFILES/ohmyzsh/completions.zsh
-source $DOTFILES/ohmyzsh/git-functions.zsh
-source $DOTFILES/ohmyzsh/battery-prompt.zsh
-source $DOTFILES/ohmyzsh/spectrum.zsh
+source $DOTFILES/zsh/history.zsh
+source $DOTFILES/zsh/completions.zsh
+source $DOTFILES/zsh/git-functions.zsh
+source $DOTFILES/zsh/battery-prompt.zsh
+source $DOTFILES/zsh/spectrum.zsh
 source $DOTFILES/bash/aliases.sh
