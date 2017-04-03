@@ -1,4 +1,5 @@
 zmodload -i zsh/complist
+WORDCHARS=''
 autoload -Uz compinit
 compinit
 unsetopt menu_complete
