@@ -33,11 +33,11 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
 	changeToDefault() {
 		it2prof Default;
 	}
-	
+
 	changeToLight() {
 		it2prof Light;
 	}
-	
+
 	curprof
 	changeTo$PROFILE
 fi
@@ -92,11 +92,3 @@ for plgn in $(ls $DOTFILES/zsh); do
 		source "$DOTFILES/zsh/$plgn"
 	fi
 done
-
-#source $DOTFILES/zsh/history.zsh
-#source $DOTFILES/zsh/completions.zsh
-#source $DOTFILES/zsh/git-functions.zsh
-#source $DOTFILES/zsh/atom-functions.zsh
-#source $DOTFILES/zsh/battery-prompt.zsh
-#source $DOTFILES/zsh/spectrum.zsh
-#source $DOTFILES/bash/aliases.sh
