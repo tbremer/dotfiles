@@ -8,6 +8,7 @@ alias dl='curl -O -J'
 alias sta='git status'
 alias master='git checkout master && git fetch && git pull origin master'
 alias ghash='git rev-parse HEAD'
+alias gname='git rev-parse --abbrev-ref HEAD';
 alias ggraph='git log --graph --oneline --decorate'
 alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
 
@@ -53,9 +54,11 @@ function diff {
 	fi
 
 	git diff $BRANCH --name-status;
+	read -d q -s
 
 	for FILE in $(git diff "$BRANCH" --name-only); do
 		git diff $BRANCH $FILE;
+		read -d q -s
 	done;
 }
 

@@ -18,3 +18,10 @@ function spectrum_bls() {
 		print -P "$code: %K{$code}$ZSH_SPECTRUM_TEXT%k"
   done
 }
+
+function spectrum_256() {
+  for code in {000..256}; do
+		print -P "$code: %K{$code}$ZSH_SPECTRUM_TEXT%k"
+  done
+}
+

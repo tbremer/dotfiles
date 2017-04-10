@@ -51,7 +51,7 @@ set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=007
+hi CursorLine cterm=none ctermbg=235
 set cursorline
 
 " Cursor match color
@@ -157,4 +157,6 @@ let g:neocomplete#enable_at_startup = 1
 " end of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
+" emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 

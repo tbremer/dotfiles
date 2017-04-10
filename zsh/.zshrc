@@ -23,22 +23,24 @@ CYAN=006
 PROFILE="Default"
 
 # ===== BEGIN PROFILE TWEAKS
-curprof() {
-	PROFILE=`osascript -e 'tell application "iTerm"
-	get profile name of current session of current tab of current window
-end tell'`
-}
-it2prof() { echo -e "\033]50;SetProfile=$1\a" }
-changeToDefault() {
-	it2prof Default;
-}
-
-changeToLight() {
-	it2prof Light;
-}
-
-curprof
-changeTo$PROFILE
+if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+	curprof() {
+		PROFILE=`osascript -e 'tell application "iTerm"
+		get profile name of current session of current tab of current window
+	end tell'`
+	}
+	it2prof() { echo -e "\033]50;SetProfile=$1\a" }
+	changeToDefault() {
+		it2prof Default;
+	}
+	
+	changeToLight() {
+		it2prof Light;
+	}
+	
+	curprof
+	changeTo$PROFILE
+fi
 # =====
 
 prompt() {
@@ -61,6 +63,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 autoload -U colors && colors
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+#export LS_COLORS=di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
 
 setopt auto_cd
 setopt multios
@@ -83,10 +86,17 @@ fi
 
 alias code="cd $CODE";
 
-source $DOTFILES/zsh/history.zsh
-source $DOTFILES/zsh/completions.zsh
-source $DOTFILES/zsh/git-functions.zsh
-source $DOTFILES/zsh/atom-functions.zsh
-source $DOTFILES/zsh/battery-prompt.zsh
-source $DOTFILES/zsh/spectrum.zsh
-source $DOTFILES/bash/aliases.sh
+for plgn in $(ls $DOTFILES/zsh); do
+	local file="$DOTFILES/zsh/$plgn"
+	if [[ -f "$file" ]]; then
+		source "$DOTFILES/zsh/$plgn"
+	fi
+done
+
+#source $DOTFILES/zsh/history.zsh
+#source $DOTFILES/zsh/completions.zsh
+#source $DOTFILES/zsh/git-functions.zsh
+#source $DOTFILES/zsh/atom-functions.zsh
+#source $DOTFILES/zsh/battery-prompt.zsh
+#source $DOTFILES/zsh/spectrum.zsh
+#source $DOTFILES/bash/aliases.sh
