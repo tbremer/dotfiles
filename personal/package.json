@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build:elegant": "resume export index --format html --theme elegant",
+    "build": "npm run build:elegant"
+  },
+  "devDependencies": {
+    "jsonresume-theme-elegant": "^1.10.2",
+    "resume-cli": "^0.4.19"
+  }
+}
