@@ -72,6 +72,9 @@ setopt prompt_subst
 # INIT RBENV
 eval "$(rbenv init -)"
 
+# INITI thefuck
+eval $(thefuck --alias)
+
 # SOURCE CONFIGS
 if [ -e $HOME/.bash_profile ] ; then
 	source $HOME/.bash_profile
