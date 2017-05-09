@@ -62,4 +62,6 @@ function diff {
 	done;
 }
 
-echo "== ALIASES LOADED\n"
+echo
+echo "Aliases Loaded 🎉"
+

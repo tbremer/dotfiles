@@ -95,3 +95,9 @@ for plgn in $(ls $DOTFILES/zsh); do
 		source "$DOTFILES/zsh/$plgn"
 	fi
 done
+
+source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+echo "ZSH Loaded 🎉"
+echo "----"
+
