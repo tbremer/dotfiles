@@ -46,7 +46,7 @@ function processes {
 	eval $COMMAND
 }
 
-function diff {
+function gdiff {
 	BRANCH=$1;
 
 	if [ -z "$BRANCH" ]; then;
