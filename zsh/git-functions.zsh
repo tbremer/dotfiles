@@ -1,12 +1,14 @@
 package_version() {
 	if [[ -f 'package.json' ]]; then
-		local pkg=`node -e "var pkg = require('./package.json').version; if (pkg) console.log(pkg)"`
 		local str="(%F{$CYAN} "
+		local PACKAGE_VERSION=$(cat package.json \
+		  | grep version \
+		  | head -1 \
+		  | awk -F: '{ print $2 }' \
+		  | sed 's/[", \t]//g')
 
-		str+="$pkg"
-
+		str+="v$PACKAGE_VERSION"
 		str+="%f )"
-
 		prompt $str
 	fi
 }
