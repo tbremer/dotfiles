@@ -9,59 +9,6 @@ atom-workspace,
 atom-text-editor.mini, atom-text-editor.mini.editor,
 .btn {
   .font();
-  font-size: 1.25rem;
-}
-
-.platformio-ide-terminal .dasdbtn,
-.platformio-ide-terminal.terminal-view .btn-toolbar .btn,
-.terminal {
-  .font() !important;
-}
-
-atom-panel-container.modal {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-
-  atom-panel.modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -75%);
-    padding: 0;
-    box-shadow: 2px 4px 6px 2px rgba(0,0,16, .5);
-    background-color: #fff;
-
-    &:before,
-    &:after { content: none; }
-
-    .editor.mini,
-    .list-group {
-      margin: 0;
-    }
-    .list-group { border: 0; }
-    .editor.mini {
-      height: 3rem;
-      line-height: 3rem;
-      border-radius: 0;
-
-      &.is-focused { box-shadow: none; border: 0; }
-    }
-
-  }
-
-  .command-palette {
-    &:before,
-    &:after { content: none; }
-
-    & > span:not([title]) {
-      display: block;
-      // font-size: 1.5rem;
-      padding: 0.75em 1em;
-    }
-  }
 }
 
 /**
@@ -71,3 +18,6 @@ atom-text-editor.editor .cursors .cursor {
   border-width: 0;
   background-color: rgba(150, 150, 150, .5);
 }
+
+/* turn off toggle button */
+.atom-dock-toggle-button.left { display: none; }

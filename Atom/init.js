@@ -28,6 +28,8 @@ try {
     less.render(data.toString(), (err, css) => {
       if (err) throw err;
 
+      console.log('renderer')
+
       el.setAttribute('source-path', path);
       el.setAttribute('priority', '2');
 
