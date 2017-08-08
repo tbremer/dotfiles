@@ -1,20 +1,41 @@
 battery_pct() {
-	local _PCT=`pmset -g ps | grep -Eow '\d+%'`
-	local PCT=${_PCT:0:-1}
+	if hash pmset 2>/dev/null; then
+		local _PCT=`pmset -g ps | grep -Eow '\d+%'`
+		local PCT=${_PCT:0:-1}
 
-	local str="[ "
+		local str="[ "
 
-	if [[ "$PCT" -ge "75" ]]; then
-		str+="%F{$GREEN}"
-	elif [[ "$PCT" -ge "25" ]]; then
-		str+="%F{$YELLOW}"
-	else
-		str+="%F{$RED}"
+		if [[ "$PCT" -ge "75" ]]; then
+			str+="%F{$GREEN}"
+		elif [[ "$PCT" -ge "25" ]]; then
+			str+="%F{$YELLOW}"
+		else
+			str+="%F{$RED}"
+		fi
+
+		str+="$PCT%%"
+
+		str+=" %f]"
+
+		prompt $str
 	fi
 
-	str+="$PCT%%"
+	if hash upower 2>/dev/null; then
+		local BAT=`upower -e | grep 'BAT'`
+		local PCT=`upower -i "$BAT" | grep -E "percentage" | tr -dc '0-9'`
+		local str="[ "
 
-	str+=" %f]"
+		if [[ "$PCT" -ge "75" ]]; then
+			str+="%F{$GREEN}"
+		elif [[ "$PCT" -ge "25" ]]; then
+			str+="%F{$YELLOW}"
+		else
+			str+="%F{$RED}"
+		fi
 
-	prompt $str
+		str+="$PCT%%"
+		str+=" %f]"
+
+		prompt $str
+	fi
 }
