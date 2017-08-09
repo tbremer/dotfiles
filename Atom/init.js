@@ -20,20 +20,23 @@ atom.commands.add(
 try {
   const less = window.require('less');
   const el = document.createElement('style');
-  const path = require('path').resolve(__dirname, 'styles.less');
+  const resolve = require('path').resolve;
+  const path = resolve(__dirname, 'styles.less');
+  const variablesPath = resolve(process.resourcesPath, 'app', 'static', 'variables');
+  const options = {
+    paths: [ variablesPath ]
+  };
 
   require('fs').readFile(path, (err, data) => {
     if (err) throw err;
 
-    less.render(data.toString(), (err, css) => {
+    less.render(data.toString(), options, (err, css) => {
       if (err) throw err;
-
-      console.log('renderer')
 
       el.setAttribute('source-path', path);
       el.setAttribute('priority', '2');
 
-      el.appendChild(document.createTextNode(css));
+      el.appendChild(document.createTextNode(css.css));
 
       document.querySelector('atom-styles').appendChild(el);
     })

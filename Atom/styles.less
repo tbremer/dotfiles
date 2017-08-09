@@ -1,14 +1,24 @@
+@import 'ui-variables';
+
 .font() {
   font-family: 'Operator Mono for Powerline';
 }
 
 atom-text-editor .gutter .line-number.foldable .icon-right { visibility: visible; }
 
-atom-text-editor,
-atom-workspace,
-atom-text-editor.mini, atom-text-editor.mini.editor,
-.btn {
-  .font();
+atom-dock .tab-bar .tab {
+  max-width: none;
+}
+
+.atom-dock-resize-handle {
+  background-color: darken(@input-border-color, 15%);
+}
+
+/**
+ * toggle
+ */
+.atom-dock-toggle-button {
+  display: none;
 }
 
 /**
@@ -27,3 +37,34 @@ atom-text-editor.editor .cursors .cursor {
 #linter-tooltip linter-message.info { color: @text-color-info; }
 #linter-tooltip linter-message.warning { color: @text-color-warning; }
 #linter-tooltip linter-message.error { color: lighten(saturate(@text-color-error, -75%), 15%); }
+
+html, body,
+atom-panel, atom-text-editor[mini], atom-workspace,
+linter-message,
+.tree-view,
+.tooltip,
+.tab-bar .tab,
+.btn, .status-bar,
+.find-and-replace .find-meta-container,
+.list-group li:hover,
+.list-tree li:hover,
+.list-group li.list-item:hover,
+.list-tree li.list-item:hover,
+.list-group li:not(.list-nested-item),
+.list-tree li:not(.list-nested-item),
+.list-group li.list-nested-item > .list-item,
+.list-tree li.list-nested-item > .list-item,
+.list-group li:not(.list-nested-item).selected,
+.list-tree li:not(.list-nested-item).selected,
+.list-group li.list-nested-item.selected > .list-item,
+.list-tree li.list-nested-item.selected > .list-item,
+select.form-control,
+.settings-view, .settings-view label,
+.settings-view .section .section-heading,
+.settings-view .setting-title, .settings-view .setting-title.themes-label,
+.settings-view .section .sub-section-heading,
+.settings-view .package-card,
+.settings-view .package-card .card-name,
+.inset-panel .panel-heading, .panel-heading {
+  .font();
+}
