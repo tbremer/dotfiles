@@ -24,8 +24,6 @@ atom-text-editor.editor .cursors .cursor {
 
 /* linter message */
 #linter-tooltip linter-message,
-#linter-tooltip linter-message.info,
-#linter-tooltip linter-message.warning,
-#linter-tooltip linter-message.error {
-  color: @text-color-subtle;
-}
+#linter-tooltip linter-message.info { color: @text-color-info; }
+#linter-tooltip linter-message.warning { color: @text-color-warning; }
+#linter-tooltip linter-message.error { color: lighten(saturate(@text-color-error, -75%), 15%); }
