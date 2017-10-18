@@ -51,7 +51,7 @@ set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=235
+hi CursorLine cterm=none ctermbg=008
 set cursorline
 
 " Cursor match color
@@ -90,6 +90,7 @@ highlight NonText ctermfg=208 guifg=#4a4a59
 " Folding
 set fdm=syntax
 set foldlevelstart=99
+hi Folded ctermbg=None ctermfg=15 cterm=bold
 
 " Trim White Space on Save
 " Remove White Space
@@ -109,7 +110,7 @@ let g:jsx_ext_required = 0
 " BuffTabLine Plugin
 let g:buftabline_numbers = 1
 let g:buftabline_separators = 1
-hi TabLineSel cterm=none ctermbg=98 ctermfg=15
+hi TabLineSel cterm=none ctermbg=256 ctermfg=15
 hi TabLine cterm=none ctermbg=236
 hi TabLineFill cterm=none ctermfg=236
 set hidden
