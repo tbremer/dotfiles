@@ -12,6 +12,7 @@ Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
 call plug#end()
 
