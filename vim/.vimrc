@@ -12,6 +12,7 @@ Plug 'shougo/neocomplete.vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
 call plug#end()
 
@@ -51,7 +52,7 @@ set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=235
+hi CursorLine cterm=none ctermbg=008
 set cursorline
 
 " Cursor match color
@@ -160,4 +161,3 @@ set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
 " emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
