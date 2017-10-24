@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Enable Line Numbers
@@ -54,6 +55,10 @@ au BufNewFile,BufRead .babelrc set filetype=json
 " Cursor line color
 hi CursorLine cterm=none ctermbg=008
 set cursorline
+
+" ColumnColor
+hi ColorColumn cterm=none ctermbg=256
+set colorcolumn=80
 
 " Cursor match color
 hi MatchParen cterm=bold ctermbg=0 ctermfg=3
