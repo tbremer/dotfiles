@@ -90,6 +90,7 @@ highlight NonText ctermfg=208 guifg=#4a4a59
 " Folding
 set fdm=syntax
 set foldlevelstart=99
+hi Folded cterm=bold ctermbg=256 ctermfg=007
 
 " Trim White Space on Save
 " Remove White Space
@@ -109,7 +110,7 @@ let g:jsx_ext_required = 0
 " BuffTabLine Plugin
 let g:buftabline_numbers = 1
 let g:buftabline_separators = 1
-hi TabLineSel cterm=none ctermbg=98 ctermfg=15
+hi TabLineSel cterm=none ctermbg=000 ctermfg=098
 hi TabLine cterm=none ctermbg=236
 hi TabLineFill cterm=none ctermfg=236
 set hidden
