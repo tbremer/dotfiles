@@ -11,7 +11,7 @@ atom_install() {
 }
 
 atom_save() {
-  apm list --bare --installed > ~/Documents/dotfiles/Atom/packages.txt
+  apm list --bare --installed | grep '^[^@]\+' -o > ~/Documents/dotfiles/Atom/packages.txt
 }
 
 atom_list() {
