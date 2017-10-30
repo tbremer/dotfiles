@@ -15,5 +15,5 @@ atom_save() {
 }
 
 atom_list() {
-  apm list --bare --installed
+  apm list --bare --installed | grep '^[^@]\+' -o
 }
