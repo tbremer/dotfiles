@@ -13,77 +13,80 @@ alias ggraph='git log --graph --oneline --decorate'
 alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
 
 function push {
-	git add .; git commit -m "$1"; git push;
+  git add .; git commit -m "$1"; git push;
 }
 
 function processes {
-	COMMAND="ps -ax"
+  COMMAND="ps -ax"
 
-	while [[ $# > 1 ]]
-	do
-	key="$1"
+  while [[ $# > 1 ]]
+  do
+    key="$1"
 
-	case $key in
-		-x|--except)
-		EXCEPT="$2"
-		shift # past argument
-		;;
-		*)
-						# unknown option
-		;;
-	esac
-	shift # past argument or value
-	done
+    case $key in
+      -x|--except)
+        EXCEPT="$2"
+        shift # past argument
+        ;;
+      *)
+        # unknown option
+        ;;
+    esac
+    shift # past argument or value
+  done
 
-	if [ EXCEPT ]; then
-		COMMAND="$COMMAND | grep -v $EXCEPT"
-	fi
+  if [ -n "$EXCEPT" ]; then
+    echo "the exception: $EXCEPT"
+    COMMAND="$COMMAND | grep -v $EXCEPT"
+  fi
 
-	if [[ -n $1 ]]; then
-		COMMAND="$COMMAND | grep $1"
-	fi
+  if [[ -n $1 ]]; then
+    COMMAND="$COMMAND | grep $1"
+  fi
 
-	eval $COMMAND
+  echo "the command: $COMMAND"
+
+  eval $COMMAND
 }
 
 function gdiff {
-	BRANCH=$1;
+  BRANCH=$1;
 
-	if [ -z "$BRANCH" ]; then;
-		BRANCH="origin/master"
-	fi
+  if [ -z "$BRANCH" ]; then;
+    BRANCH="origin/master"
+  fi
 
-	git diff $BRANCH --name-status;
-	read -d q -s
+  git diff $BRANCH --name-status;
+  read -d q -s
 
-	for FILE in $(git diff "$BRANCH" --name-only); do
-		git diff $BRANCH $FILE;
-		read -d q -s
-	done;
+  for FILE in $(git diff "$BRANCH" --name-only); do
+    git diff $BRANCH $FILE;
+    read -d q -s
+  done;
 }
 
 function resethistory {
-	echo -n 'Old Email: '
-	read OLD_EMAIL
+  echo -n 'Old Email: '
+  read OLD_EMAIL
 
-	echo -n 'Correct name: '
-	read CORRECT_NAME
+  echo -n 'Correct name: '
+  read CORRECT_NAME
 
-	echo -n 'Correct email: '
-	read CORRECT_EMAIL
+  echo -n 'Correct email: '
+  read CORRECT_EMAIL
 
-	git filter-branch --env-filter '
-if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
-then
+  git filter-branch --env-filter '
+  if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+  then
     export GIT_COMMITTER_NAME="$CORRECT_NAME"
     export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
-fi
-if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
-then
+  fi
+  if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+  then
     export GIT_AUTHOR_NAME="$CORRECT_NAME"
     export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
-fi
-' --tag-name-filter cat -- --branches --tags
+  fi
+  ' --tag-name-filter cat -- --branches --tags
 }
 
 echo
