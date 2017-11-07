@@ -1,6 +1,9 @@
 atom-ide-ui
 autocomplete-js-import
 busy-signal
+city-lights-icons
+city-lights-syntax
+city-lights-ui
 docblockr
 editorconfig
 emmet
@@ -12,6 +15,7 @@ linter
 linter-eslint
 ocean-dark-syntax
 ocean-light-syntax
+pigments
 platformio-ide-terminal
 pure-syntax
 set-syntax
