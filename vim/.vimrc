@@ -94,7 +94,8 @@ set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
 set list
 
 "Invisible character colors
-highlight NonText ctermfg=208 guifg=#4a4a59
+highlight NonText ctermfg=015
+highlight SpecialKey ctermfg=015
 
 " Folding
 set fdm=syntax

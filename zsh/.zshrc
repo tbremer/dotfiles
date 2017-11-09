@@ -73,7 +73,7 @@ setopt prompt_subst
 # INIT RBENV
 eval "$(rbenv init -)"
 
-# INITI thefuck
+# INIT thefuck
 eval $(thefuck --alias)
 
 # SOURCE CONFIGS
@@ -90,6 +90,7 @@ fi
 
 alias code="cd $CODE";
 
+# LOAD PLUGINS
 for plgn in $(ls $DOTFILES/zsh); do
 	local file="$DOTFILES/zsh/$plgn"
 	if [[ -f "$file" ]]; then

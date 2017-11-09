@@ -4,8 +4,8 @@ battery_pct() {
 		local PCT=${_PCT:0:-1}
 		local IS_CHARGING=true;
 
-		if [[ `pmset -g ps | grep -o "'AC Power'"` = "" ]]; then
-			IS_CHARING=false
+		if [[ -z `pmset -g ps | grep -o "'AC Power'"` ]]; then
+			IS_CHARGING=false
 		fi
 
 		local str="[ "
@@ -18,16 +18,14 @@ battery_pct() {
 			str+="%F{$RED}"
 		fi
 
-		str+="$PCT%%"
+		str+="$PCT%%%f"
 
-		str+=" %f"
-
-		if [[ $IS_CHARGING ]]; then
+		if $IS_CHARGING; then
+			osascript -e 'display notification "sunny"'
 			str+="%F{$ORANGE} $SUN %f"
 		fi
 
-		str+=" %f]"
-
+		str+=" ]"
 
 		prompt $str
 	fi
