@@ -2,6 +2,11 @@ battery_pct() {
 	if hash pmset 2>/dev/null; then
 		local _PCT=`pmset -g ps | grep -Eow '\d+%'`
 		local PCT=${_PCT:0:-1}
+		local IS_CHARGING=true;
+
+		if [[ `pmset -g ps | grep -o "'AC Power'"` = "" ]]; then
+			IS_CHARING=false
+		fi
 
 		local str="[ "
 
@@ -15,7 +20,14 @@ battery_pct() {
 
 		str+="$PCT%%"
 
+		str+=" %f"
+
+		if [[ $IS_CHARGING ]]; then
+			str+="%F{$ORANGE} $SUN %f"
+		fi
+
 		str+=" %f]"
+
 
 		prompt $str
 	fi

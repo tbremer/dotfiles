@@ -7,6 +7,7 @@ PWRLN_ARW_R='\ue0b1'
 PWRLN_ARW_L_BLK='\ue0b2'
 PWRLN_ARW_L='\ue0b3'
 ARW='\u2794'
+SUN='\u2600'
 
 # Special ESC sequences
 NEWLINE=$'\n'
@@ -18,6 +19,7 @@ RED=001
 GREEN=002
 YELLOW=003
 CYAN=006
+ORANGE=214
 
 # Default Profile
 PROFILE="Default"
