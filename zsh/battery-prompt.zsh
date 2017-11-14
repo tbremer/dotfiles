@@ -21,7 +21,6 @@ battery_pct() {
 		str+="$PCT%%%f"
 
 		if $IS_CHARGING; then
-			osascript -e 'display notification "sunny"'
 			str+="%F{$ORANGE} $SUN %f"
 		fi
 
