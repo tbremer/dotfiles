@@ -36,7 +36,7 @@ nmap ; :
 imap $$ <Esc>$a
 
 " `00` to BOL in insert
-imap 00 <Esc>0i
+"imap 00 <Esc>0i
 
 " `qq` to quit in Insert
 imap qq <Esc>

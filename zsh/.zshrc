@@ -88,7 +88,7 @@ else
 	CODE=/Volumes/CODE
 fi
 
-alias code="cd $CODE";
+alias cdcode="cd $CODE";
 
 # LOAD PLUGINS
 for plgn in $(ls $DOTFILES/zsh); do
