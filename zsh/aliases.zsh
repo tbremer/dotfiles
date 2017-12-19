@@ -104,4 +104,4 @@ function dockerded {
 }
 
 echo
-echo "Aliases Loaded 🎉"
+echo "Aliases Loaded!"
