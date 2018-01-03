@@ -1,3 +1,8 @@
+# Ensure 256 on ubuntu
+if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ] ; then
+	TERM=xterm-256color
+fi
+
 # Powerline and ASCII Characters
 PWRLN_VCS='\ue0a0'
 PWRLN_LN='\ue0a1'
@@ -88,7 +93,7 @@ else
 	CODE=/Volumes/CODE
 fi
 
-alias code="cd $CODE";
+alias cdcode="cd $CODE";
 
 # LOAD PLUGINS
 for plgn in $(ls $DOTFILES/zsh); do
@@ -100,5 +105,5 @@ done
 
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-echo "ZSH Loaded 🎉"
+echo "ZSH Loaded!"
 echo "----"

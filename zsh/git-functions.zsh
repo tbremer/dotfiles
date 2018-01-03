@@ -55,3 +55,7 @@ git_prompt() {
 
 	prompt $str
 }
+
+glone() {
+	git clone $1
+}
