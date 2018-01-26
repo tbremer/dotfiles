@@ -15,6 +15,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'flowtype/vim-flow'
 call plug#end()
 
 " Enable Line Numbers

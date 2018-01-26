@@ -57,5 +57,7 @@ git_prompt() {
 }
 
 glone() {
-	git clone $1
+	repo=$1
+	shift
+	git clone "$repo" $@
 }

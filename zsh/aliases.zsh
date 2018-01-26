@@ -1,5 +1,5 @@
 # BASH ALIASES
-alias l='ls -la'
+alias l='ls -lah'
 alias resource='source ~/.zshrc'
 alias download='curl -O -J'
 alias dl='curl -O -J'
