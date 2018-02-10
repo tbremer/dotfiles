@@ -16,6 +16,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flowtype/vim-flow'
+Plug 'leafgarland/typescript-vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'hhsnopek/vim-sugarss'
 call plug#end()
 
 " Enable Line Numbers
@@ -39,6 +42,7 @@ imap $$ <Esc>$a
 " `qq` to quit in Insert
 imap qq <Esc>
 map q <Nop>
+map qq <Nop>
 
 " Turn off .swp files
 set noswapfile
@@ -52,6 +56,9 @@ syntax on
 set t_Co=256
 set encoding=utf-8
 au BufNewFile,BufRead .babelrc set filetype=json
+
+" GUI Font settings
+set guifont=FuraCode\ Nerd\ Font:h12
 
 " Cursor line color
 hi CursorLine cterm=none ctermbg=008
@@ -69,6 +76,11 @@ hi MatchParen cterm=bold ctermbg=0 ctermfg=3
 "let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "inoremap <special> <Esc> <Esc>hl
+
+" Change CursorLine on enter and leave InsertMode
+autocmd InsertEnter * :hi CursorLine cterm=none ctermbg=none
+autocmd InsertLeave * :hi CursorLine cterm=none ctermbg=008
+
 
 
 " StatusLine Setup and Colors
@@ -116,13 +128,24 @@ let NERDTreeRespectWildIgnore=1
 let g:jsx_ext_required = 0
 
 "Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
+let flowpath = '.bin/flow'
+let upward = finddir('node_modules', '.;')
+let downward = finddir('node_modules', '**')
+let local_flow = ''
+
+if upward != ''
+	let local_flow = getcwd() . '/' . upward . '/' . flowpath
+elseif downward != ''
+	let local_flow = getcwd() . '/' . downward . '/' . flowpath
 endif
+
 if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
+
+" Flow config
+let g:flow#autoclose=1
+let g:javascript_plugin_flow = 1
 
 " BuffTabLine Plugin
 let g:buftabline_numbers = 1
@@ -177,3 +200,17 @@ set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
 " emmet
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" devicons
+let g:webdevicons_enable_ctrlp = 1
+
+" sugarss
+autocmd BufReadPre,FileReadPre *.sss call SetSugarOptions()
+
+":setl foldmethod=indent InsertEnter * :hi CursorLine cterm=none ctermbg=none
+
+function SetSugarOptions()
+	setlocal foldmethod=indent
+	setlocal foldlevelstart=1
+endfunction
+
