@@ -48,7 +48,7 @@ ln -s "$DOT_PATH/zsh/.zshrc" ~/
 
 # install vim
 echo "Installing VIM"
-brew install vim --with-lua --with-python3 --with-override-system-vim
+brew install vim --with-lua --with-python3 --with-override-system-vi
 
 # install ruby
 echo "Installing Ruby"
