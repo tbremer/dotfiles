@@ -32,7 +32,7 @@ git config --global user.email "$G_EMAIL"
 
 # clone dotfiles
 echo "Pulling in Dotfiles"
-DOT_PATH="~/Documents/dotfiles"
+DOT_PATH="$HOME/Documents/dotfiles"
 git clone https://github.com/tbremer/dotfiles.git "$DOT_PATH"
 
 # init dotfiles
@@ -58,7 +58,7 @@ rbenv global "$LATEST"
 
 # install node
 echo "Grabbing NodeJS"
-N_PATH="~/Documents/n"
+N_PATH="$HOME/Documents/n"
 git clone https://github.com/tj/n.git "$N_PATH"
 cd "$N_PATH"
 make
