@@ -70,22 +70,17 @@ echo "NPM Version: `npm --version`"
 
 # Brew cask install things
 echo "Installing Casks"
-CASKS="slack\n\
-firefox\n\
-1password\n\
-appcleaner\n\
-atom\n\
-sublime-text\n\
-docker\n\
-sketch\n\
-postico\n\
-moom\n\
-iterm2\n\
-"
-
-for PKG in "$CASKS"; do
-	brew cask install "$PKG"
-done;
+brew cask install slack
+brew cask install firefox
+brew cask install 1password
+brew cask install appcleaner
+brew cask install atom
+brew cask install sublime-text
+brew cask install docker
+brew cask install sketch
+brew cask install postico
+brew cask install moom
+brew cask install iterm2
 
 # Change Shell
 echo "Changing shell to ZSH"
