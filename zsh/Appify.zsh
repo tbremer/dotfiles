@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 filename=$(basename "$fullfile")
 extension="${filename##*.}"
 filename="${filename%.*}"
