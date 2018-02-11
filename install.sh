@@ -15,6 +15,17 @@ brew tap beeftornado/rmtree
 # install the things
 brew install zsh git rbenv thefuck
 
+# Update GIT info
+echo "Grabbing your Git config stuff"
+echo -n "Git user.name: "
+read -n G_UN
+
+echo -n "Git user.email: "
+read -n G_EMAIL
+
+git config --global user.name "$G_UN"
+git config --global user.email "$G_EMAIL"
+
 # clone dotfiles
 DOT_PATH="~/Documents/dotfiles"
 git clone https://github.com/tbremer/dotfiles.git "$DOT_PATH"
