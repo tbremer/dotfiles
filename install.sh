@@ -21,10 +21,10 @@ brew install zsh git rbenv thefuck
 
 # Update GIT info
 echo "Grabbing your Git config stuff"
-echo -n "Git user.name: "
+echo "Git user.name: "
 read G_UN
 
-echo -n "Git user.email: "
+echo "Git user.email: "
 read G_EMAIL
 
 git config --global user.name "$G_UN"
