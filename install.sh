@@ -42,7 +42,8 @@ git submodule update
 cd ~/
 
 # symlink things
-ln -s "$DOT_PATH/vim/.vim*" ~/
+ln -s "$DOT_PATH/vim/.vim" ~/
+ln -s "$DOT_PATH/vim/.vimrc" ~/
 ln -s "$DOT_PATH/zsh/.zshrc" ~/
 
 # install vim
