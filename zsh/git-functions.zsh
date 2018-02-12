@@ -2,10 +2,11 @@ package_version() {
 	if [[ -f 'package.json' ]]; then
 		local str="(%F{$CYAN} "
 		local PACKAGE_VERSION=$(cat package.json \
-		  | grep version \
-		  | head -1 \
-		  | awk -F: '{ print $2 }' \
-		  | sed 's/[", \t]//g')
+			| grep version \
+			| head -1 \
+			| awk -F: '{ print $2 }' \
+			| sed 's/[",]//g' \
+			| tr -d '[[:space:]]')
 
 		str+="v$PACKAGE_VERSION"
 		str+="%f )"
