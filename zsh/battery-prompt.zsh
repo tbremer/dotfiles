@@ -1,6 +1,12 @@
 battery_pct() {
 	if hash pmset 2>/dev/null; then
 		local _PCT=`pmset -g ps | grep -Eow '\d+%'`
+
+		if [ -z "$_PCT" ]; then
+			prompt ""
+			return
+		fi
+
 		local PCT=${_PCT:0:-1}
 		local IS_CHARGING=true;
 
