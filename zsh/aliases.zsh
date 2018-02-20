@@ -17,6 +17,9 @@ alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(whi
 # Add an alias for `unadd`
 git config --global alias.unadd "reset HEAD"
 
+# Alias
+git config --global alias.dig 'diff --ignore-space-at-eol -b -w --ignore-blank-lines'
+
 function push {
 	git add .; git commit -m "$1"; git push;
 }
