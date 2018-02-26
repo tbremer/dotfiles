@@ -69,26 +69,27 @@ set colorcolumn=80
 " Cursor match color
 hi MatchParen cterm=bold ctermbg=0 ctermfg=3
 
-" Change Cursor Shape
-"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-"let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-"inoremap <special> <Esc> <Esc>hl
-
 " Change CursorLine on enter and leave InsertMode
 autocmd InsertEnter * :hi CursorLine cterm=none ctermbg=none
 autocmd InsertLeave * :hi CursorLine cterm=none ctermbg=008
 
-
-
 " StatusLine Setup and Colors
 set laststatus=2
-set statusline=%M\ -\ %f\ %y\
+set statusline=%M\ -\ %f\ %y
 
-hi StatusLine ctermfg=0 ctermbg=6
-hi StatusLineNC ctermfg=0 ctermbg=244
-au InsertEnter * hi StatusLine ctermfg=6 ctermbg=0
-au InsertLeave * hi StatusLine ctermfg=0 ctermbg=6
+" Syntastic statusline
+set statusline+=%#warningmsg#
+set statusline+=\ %{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" End of default statusline (with ruler)
+set statusline+=%=%(%l,%c%V\ %=\ %P%)
+
+" StatusLine Highlighting
+hi StatusLine cterm=none ctermfg=008 ctermbg=006
+hi StatusLineNC cterm=none ctermfg=008 ctermbg=256
+au InsertEnter * hi StatusLine cterm=bold
+au InsertLeave * hi StatusLine cterm=none
 
 "SignColumn Color
 hi clear SignColumn
@@ -136,11 +137,6 @@ set hidden
 " Markdown Plugin
 let g:vim_markdown_folding_disabled = 1
 
-" Syntastic statusline
-set statusline+=%#warningmsg#
-set statusline+=\ %{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
@@ -170,17 +166,14 @@ endif
 
 " Syntastic Symbols
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = ' '
+let g:syntastic_style_error_symbol = ''
 let g:syntastic_warning_symbol = ''
-let g:syntastic_style_warning_symbol = ' '
+let g:syntastic_style_warning_symbol = ''
 
 highlight SyntasticErrorSign ctermfg=1
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
-
-" end of default statusline (with ruler)
-set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
 " devicons
 let g:webdevicons_enable_ctrlp = 1
