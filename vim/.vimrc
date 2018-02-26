@@ -4,21 +4,17 @@ Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'ap/vim-buftabline'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-syntastic/syntastic'
-Plug 'mattn/emmet-vim'
-Plug 'shougo/neocomplete.vim'
-Plug 'guns/xterm-color-table.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug '~/Documents/dotfiles/vim/GitWildIgnore'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'flowtype/vim-flow'
-Plug 'leafgarland/typescript-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'hhsnopek/vim-sugarss'
+Plug 'shougo/neocomplete.vim'
 call plug#end()
 
 " Enable Line Numbers
@@ -55,6 +51,8 @@ set splitbelow
 syntax on
 set t_Co=256
 set encoding=utf-8
+
+" Set babelrc as json filetype
 au BufNewFile,BufRead .babelrc set filetype=json
 
 " GUI Font settings
@@ -127,26 +125,6 @@ let NERDTreeRespectWildIgnore=1
 " JSX Plugin
 let g:jsx_ext_required = 0
 
-"Use locally installed flow
-let flowpath = '.bin/flow'
-let upward = finddir('node_modules', '.;')
-let downward = finddir('node_modules', '**')
-let local_flow = ''
-
-if upward != ''
-	let local_flow = getcwd() . '/' . upward . '/' . flowpath
-elseif downward != ''
-	let local_flow = getcwd() . '/' . downward . '/' . flowpath
-endif
-
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-
-" Flow config
-let g:flow#autoclose=1
-let g:javascript_plugin_flow = 1
-
 " BuffTabLine Plugin
 let g:buftabline_numbers = 1
 let g:buftabline_separators = 1
@@ -154,17 +132,13 @@ hi TabLineSel cterm=none ctermbg=000 ctermfg=098
 hi TabLine cterm=none ctermbg=236
 hi TabLineFill cterm=none ctermfg=236
 set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
 
 " Markdown Plugin
 let g:vim_markdown_folding_disabled = 1
 
-" Syntastic (http://usevim.com/2016/03/07/linting/)
-
 " Syntastic statusline
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=\ %{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -176,21 +150,31 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Point syntastic checker at locally installed `eslint_d` if it exists.
 if executable('node_modules/.bin/eslint_d')
-  let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint_d'
-  autocmd VimLeave * !node_modules/.bin/eslint_d stop
+	let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint_d'
+	autocmd VimLeave * !node_modules/.bin/eslint_d stop
 elseif executable('node_modules/.bin/eslint')
-  let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
+	let g:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
 endif
 
+" Typescript Syntastic
+let local_tslint = finddir('node_modules', 'packages/ordering') . '/.bin/tslint'
+
+if matchstr(local_tslint, "^\/\\w") == ''
+	let local_tslint = getcwd() . "/" . local_tslint
+endif
+
+if executable(local_tslint)
+	let g:syntastic_typescript_tslint_exec = local_tslint
+	let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+endif
+
+" Syntastic Symbols
 let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+let g:syntastic_style_error_symbol = ' '
+let g:syntastic_warning_symbol = ''
+let g:syntastic_style_warning_symbol = ' '
 
 highlight SyntasticErrorSign ctermfg=1
-"highlight link SyntasticWarningSign SignColumn
-"highlight link SyntasticStyleErrorSign SignColumn
-"highlight link SyntasticStyleWarningSign SignColumn
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
@@ -198,19 +182,17 @@ let g:neocomplete#enable_at_startup = 1
 " end of default statusline (with ruler)
 set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
-" emmet
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
 " devicons
 let g:webdevicons_enable_ctrlp = 1
 
 " sugarss
 autocmd BufReadPre,FileReadPre *.sss call SetSugarOptions()
 
-":setl foldmethod=indent InsertEnter * :hi CursorLine cterm=none ctermbg=none
-
-function SetSugarOptions()
+function! SetSugarOptions()
 	setlocal foldmethod=indent
 	setlocal foldlevelstart=1
 endfunction
+
+" Nerdtree Brackets
+let g:webdevicons_conceal_nerdtree_brackets = 1
 
