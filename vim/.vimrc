@@ -75,21 +75,60 @@ autocmd InsertLeave * :hi CursorLine cterm=none ctermbg=008
 
 " StatusLine Setup and Colors
 set laststatus=2
-set statusline=%M\ -\ %f\ %y
-
-" Syntastic statusline
-set statusline+=%#warningmsg#
-set statusline+=\ %{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" End of default statusline (with ruler)
-set statusline+=%=%(%l,%c%V\ %=\ %P%)
 
 " StatusLine Highlighting
 hi StatusLine cterm=none ctermfg=008 ctermbg=006
-hi StatusLineNC cterm=none ctermfg=008 ctermbg=256
+hi StatusLineNC cterm=none ctermfg=008 ctermbg=006
 au InsertEnter * hi StatusLine cterm=bold
 au InsertLeave * hi StatusLine cterm=none
+
+" Syntastic statusline
+hi SynWarn cterm=none,bold ctermfg=256 ctermbg=001
+hi SynWarnInvert cterm=none,bold ctermfg=001 ctermbg=006
+hi SLFileInfo cterm=none ctermfg=015 ctermbg=008
+hi SLBoldGreen cterm=bold ctermfg=006 ctermbg=008
+
+let g:currentmode={
+    \ 'n'  : 'Normal',
+    \ 'no' : 'Normal·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'Replace',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
+    \}
+set stl=
+set stl=%#SynWarn#
+set stl+=%{SyntasticStatuslineFlag()}
+set stl+=%#SynWarnInvert#
+set stl+=%{empty(SyntasticStatuslineFlag())?'':''}
+set stl+=%*
+set statusline+=\ %M " modified?
+set statusline+=%<%f " relative file path
+set statusline+=\ %* " reset color
+set statusline+=%= " Move to end of statusline
+set statusline+=%#SLBoldGreen#\\ " separator
+set statusline+=%#SLFileInfo#
+set statusline+=\ %Y " filetype with brackets
+set statusline+=\ ( " open paren
+set statusline+=%l,%c\/ " line,column
+set statusline+=%P " percentage through file
+set stl+=) " close paren
+set statusline+=%0* " rest color
+set statusline+=%#SLBoldGreen#
+set statusline+=\ %{toupper(get(g:currentmode,mode(),'V-Block'))}
+set statusline+=\ %*"
 
 "SignColumn Color
 hi clear SignColumn
@@ -170,7 +209,7 @@ let g:syntastic_style_error_symbol = ''
 let g:syntastic_warning_symbol = ''
 let g:syntastic_style_warning_symbol = ''
 
-highlight SyntasticErrorSign ctermfg=1
+"highlight SyntasticErrorSign ctermfg=1
 
 " NeoComplete
 let g:neocomplete#enable_at_startup = 1
@@ -185,6 +224,12 @@ function! SetSugarOptions()
 	setlocal foldmethod=indent
 	setlocal foldlevelstart=1
 endfunction
+
+function! SetTypeScriptOptions()
+	setl shiftwidth=2
+	setl expandtab
+endfunction
+
 
 " Nerdtree Brackets
 let g:webdevicons_conceal_nerdtree_brackets = 1
