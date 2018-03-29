@@ -219,6 +219,9 @@ let g:neocomplete#enable_at_startup = 1
 " devicons
 let g:webdevicons_enable_ctrlp = 1
 
+" ctrl-p config
+let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|.rvm$|.bundle$\|vendor|node_modules'
+
 " sugarss
 autocmd BufReadPre,FileReadPre *.sss call SetSugarOptions()
 
