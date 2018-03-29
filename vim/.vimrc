@@ -78,7 +78,7 @@ set laststatus=2
 
 " StatusLine Highlighting
 hi StatusLine cterm=bold ctermfg=008 ctermbg=006
-hi StatusLineNC cterm=none ctermfg=008 ctermbg=006
+hi StatusLineNC cterm=none ctermfg=007 ctermbg=006
 au InsertEnter * hi StatusLine cterm=bold
 au InsertLeave * hi StatusLine cterm=none
 
