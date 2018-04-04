@@ -1,6 +1,14 @@
-@import 'ui-variables';
+.tab-bar .tab[data-type="TreeView"] {
+  border-color: transparent !important;
+  flex: 1 0 auto !important;
+  max-width: none !important;
+}
 
-/* linter message */
-#linter-tooltip linter-message, #linter-tooltip linter-message.info { color: @text-color-info; }
-#linter-tooltip linter-message.warning { color: @text-color-warning; }
-#linter-tooltip linter-message.error { color: @text-color-error }
+.tooltip div {
+  color: @text-color-subtle !important;
+}
+
+.nuclide-ui-code-snippet atom-text-editor[mini] {
+  height: 100%;
+  box-shadow: none;
+}
