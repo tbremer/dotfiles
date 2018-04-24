@@ -1,4 +1,5 @@
 atom-ide-ui
+<<<<<<< HEAD
 docblockr
 duotone-dark-earth-syntax
 duotone-dark-forest-syntax
@@ -15,6 +16,21 @@ isotope-light-ui
 isotope-ui
 linter-eslint
 pigments
+=======
+autocomplete-js-import
+docblockr
+duotone-dark-syntax
+duotone-light-syntax
+editorconfig
+file-icons
+highlight-selected
+ide-json
+ide-typescript
+isotope-light-ui
+linter-eslint
+pure-syntax
+scratch
+>>>>>>> d89a0396fc5a786ebae4176470cc8dbfd2e1d4eb
 set-syntax
 tester
 tester-jest

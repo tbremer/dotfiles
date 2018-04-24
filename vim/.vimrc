@@ -77,8 +77,8 @@ autocmd InsertLeave * :hi CursorLine cterm=none ctermbg=008
 set laststatus=2
 
 " StatusLine Highlighting
-hi StatusLine cterm=none ctermfg=008 ctermbg=006
-hi StatusLineNC cterm=none ctermfg=008 ctermbg=006
+hi StatusLine cterm=bold ctermfg=008 ctermbg=006
+hi StatusLineNC cterm=none ctermfg=007 ctermbg=006
 au InsertEnter * hi StatusLine cterm=bold
 au InsertLeave * hi StatusLine cterm=none
 
@@ -88,6 +88,7 @@ hi SynWarnInvert cterm=none,bold ctermfg=001 ctermbg=006
 hi SLFileInfo cterm=none ctermfg=015 ctermbg=008
 hi SLBoldGreen cterm=bold ctermfg=006 ctermbg=008
 
+" setup current modes
 let g:currentmode={
     \ 'n'  : 'Normal',
     \ 'no' : 'Normal·Operator Pending',
@@ -108,27 +109,28 @@ let g:currentmode={
     \ '!'  : 'Shell',
     \ 't'  : 'Terminal'
     \}
-set stl=
-set stl=%#SynWarn#
-set stl+=%{SyntasticStatuslineFlag()}
-set stl+=%#SynWarnInvert#
-set stl+=%{empty(SyntasticStatuslineFlag())?'':''}
-set stl+=%*
-set statusline+=\ %M " modified?
-set statusline+=%<%f " relative file path
-set statusline+=\ %* " reset color
-set statusline+=%= " Move to end of statusline
-set statusline+=%#SLBoldGreen#\\ " separator
-set statusline+=%#SLFileInfo#
-set statusline+=\ %Y " filetype with brackets
-set statusline+=\ ( " open paren
-set statusline+=%l,%c\/ " line,column
-set statusline+=%P " percentage through file
+
+" Build statusline
+set stl=%#SynWarn# " Warning highlight group
+set stl+=%{SyntasticStatuslineFlag()} " get syntastic flag
+set stl+=%#SynWarnInvert# " invert group
+set stl+=%{empty(SyntasticStatuslineFlag())?'':''} " apply separator
+set stl+=%* " reset color
+set stl+=\ %M " modified?
+set stl+=%<%f " relative file path
+set stl+=\ %* " reset color
+set stl+=%= " Move to end of statusline
+set stl+=%#SLBoldGreen#\\ " separator
+set stl+=%#SLFileInfo# " SLFileInfo color group
+set stl+=\ %Y " filetype with brackets
+set stl+=\ ( " open paren
+set stl+=%l,%c\/ " line,column
+set stl+=%P " percentage through file
 set stl+=) " close paren
-set statusline+=%0* " rest color
-set statusline+=%#SLBoldGreen#
-set statusline+=\ %{toupper(get(g:currentmode,mode(),'V-Block'))}
-set statusline+=\ %*"
+set stl+=%* " rest color
+set stl+=%#SLBoldGreen#
+set stl+=\ %{toupper(get(g:currentmode,mode(),'V-Block'))}
+set stl+=\ %*"
 
 "SignColumn Color
 hi clear SignColumn
@@ -216,6 +218,9 @@ let g:neocomplete#enable_at_startup = 1
 
 " devicons
 let g:webdevicons_enable_ctrlp = 1
+
+" ctrl-p config
+let g:ctrlp_custom_ignore = 'tmp$\|\.git$\|\.hg$\|\.svn$\|.rvm$|.bundle$\|vendor|node_modules'
 
 " sugarss
 autocmd BufReadPre,FileReadPre *.sss call SetSugarOptions()
