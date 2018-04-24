@@ -3,6 +3,10 @@ if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ] ; 
 	TERM=xterm-256color
 fi
 
+# ENSURE DELETE KEY WORKS AS ASSUMED
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+
 # Powerline and ASCII Characters
 PWRLN_VCS='\ue0a0'
 PWRLN_LN='\ue0a1'
@@ -103,6 +107,7 @@ for plgn in $(ls $DOTFILES/zsh); do
 	fi
 done
 
+# LOAD AUTO SUGGEST PLUGIN
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 echo "ZSH Loaded!"
