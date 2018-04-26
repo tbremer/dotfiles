@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Static file server with History API fallbacl
+Static file server with History API fallback
 """
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
