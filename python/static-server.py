@@ -8,6 +8,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 import sys
 import urllib
+import time
 
 host = '0.0.0.0'
 
@@ -33,13 +34,20 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(file.read())
 
 myServer = HTTPServer((host, port), Handler)
+print(time.asctime(time.localtime()))
 print("Server Starts - http://%s:%s" % (host, port))
+print("----")
 
 
 try:
   myServer.serve_forever()
 except KeyboardInterrupt:
+  print("")
   pass
 
 myServer.server_close()
+
+print("----")
+print(time.asctime(time.localtime()))
 print("Server Stopped - http://%s:%s" % (host, port))
+print("----")
