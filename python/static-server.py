@@ -1,9 +1,7 @@
 #!/usr/bin/env python
+
 """
-Modification of `python -m SimpleHTTPServer` with a fallback to /index.html
-on requests for non-existing files.
-This is useful when serving a static single page application using the HTML5
-history API.
+Static file server with History API fallbacl
 """
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
