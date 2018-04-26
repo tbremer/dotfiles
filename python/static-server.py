@@ -9,29 +9,34 @@ import os
 import sys
 import urllib
 import time
+import mimetypes
 
 host = '0.0.0.0'
 
 try:
-  port = int(sys.argv[1])
+    port = int(sys.argv[1])
 except IndexError:
-  port = 8000
+    port = 8000
 
 class Handler(BaseHTTPRequestHandler):
-  def do_GET(self):
-    self.send_response(200)
-    self.send_header("Content-type", "text/html")
-    self.end_headers()
+    def do_GET(self):
+        urlparts = urllib.parse.urlparse(self.path)
+        request_file_path = urlparts.path.strip('/')
 
-    urlparts = urllib.parse.urlparse(self.path)
-    request_file_path = urlparts.path.strip('/')
+        try:
+            with open(request_file_path, 'rb') as file:
+                filecontents = file.read()
+                mime = mimetypes.guess_type(request_file_path)
+        except Exception:
+            with open('index.html', 'rb') as file:
+                mime = "text/html"
+                filecontents = file.read()
 
-    try:
-      with open(request_file_path, 'rb') as file:
-        self.wfile.write(file.read())
-    except Exception as e:
-      with open('index.html', 'rb') as file:
-        self.wfile.write(file.read())
+        self.send_response(200)
+        self.send_header("Content-Type", mime[0])
+        self.end_headers()
+
+        self.wfile.write(filecontents)
 
 myServer = HTTPServer((host, port), Handler)
 print(time.asctime(time.localtime()))
@@ -40,10 +45,10 @@ print("----")
 
 
 try:
-  myServer.serve_forever()
+    myServer.serve_forever()
 except KeyboardInterrupt:
-  print("")
-  pass
+    print("")
+pass
 
 myServer.server_close()
 
