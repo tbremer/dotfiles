@@ -20,6 +20,9 @@ git config --global alias.unadd "reset HEAD"
 # Alias
 git config --global alias.dig 'diff --ignore-space-at-eol -b -w --ignore-blank-lines'
 
+# Static file server with history API
+alias pyserv="python3 $DOTFILES/python/static-server.py";
+
 function push {
 	git add .; git commit -m "$1"; git push;
 }
