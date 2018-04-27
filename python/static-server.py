@@ -48,7 +48,7 @@ print("----")
 try:
     try:
         myServer.socket = ssl.wrap_socket(myServer.socket, certfile='./server.pem', server_side=True)
-    except
+    except:
         pass
     myServer.serve_forever()
 except KeyboardInterrupt:
