@@ -5,6 +5,7 @@ Static file server with History API fallback
 """
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import ssl
 import os
 import sys
 import urllib
@@ -45,6 +46,10 @@ print("----")
 
 
 try:
+    try:
+        myServer.socket = ssl.wrap_socket(myServer.socket, certfile='./server.pem', server_side=True)
+    except
+        pass
     myServer.serve_forever()
 except KeyboardInterrupt:
     print("")
