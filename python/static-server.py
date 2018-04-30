@@ -12,12 +12,12 @@ import urllib
 import time
 import mimetypes
 
-host = '0.0.0.0'
+host = 'localhost'
 
 try:
     port = int(sys.argv[1])
 except IndexError:
-    port = 8000
+    port = 4443
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
