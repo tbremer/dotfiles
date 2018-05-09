@@ -15,7 +15,9 @@ package_version() {
 }
 
 is_git_folder() {
-	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+	local intree=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+
+	if [ $intree ]; then
 		return 0
 	fi
 
@@ -32,12 +34,28 @@ is_tree_dirty() {
 	return 1
 }
 
+has_heads() {
+	if is_git_folder; then;
+		echo ""
+		if [ -n "$(ls -A .git/refs/heads 2>/dev/null)" ]; then
+			return 0
+		fi
+		return 1
+	fi
+
+	return 1
+}
+
 git_prompt() {
 	if ! is_git_folder; then; return; fi
 
 	local str="[ "
 
-	str+="%B$(git rev-parse --abbrev-ref HEAD)%b "
+	if has_heads; then
+		str+="%B$(git rev-parse --abbrev-ref HEAD)%b "
+	else
+		str+="%BNO HEAD%b "
+	fi
 
 	# Git is Dirty
 	if is_tree_dirty; then

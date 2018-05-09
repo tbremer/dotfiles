@@ -30,30 +30,6 @@ YELLOW=003
 CYAN=006
 ORANGE=214
 
-# Default Profile
-PROFILE="Default"
-
-# ===== BEGIN PROFILE TWEAKS
-if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-	curprof() {
-		PROFILE=`osascript -e 'tell application "iTerm"
-		get profile name of current session of current tab of current window
-	end tell'`
-	}
-	it2prof() { echo -e "\033]50;SetProfile=$1\a" }
-	changeToDefault() {
-		it2prof Default;
-	}
-
-	changeToLight() {
-		it2prof Light;
-	}
-
-	curprof
-	changeTo$PROFILE
-fi
-# =====
-
 prompt() {
 	echo -e "$1"
 }
