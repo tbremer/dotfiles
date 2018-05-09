@@ -8,9 +8,11 @@ go-plus
 highlight-selected
 ide-go
 ide-json
+ide-rust
 ide-typescript
 isotope-light-ui
 isotope-ui
+language-rust
 linter-eslint
 pigments
 pure-syntax
