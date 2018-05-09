@@ -36,7 +36,6 @@ is_tree_dirty() {
 
 has_heads() {
 	if is_git_folder; then;
-		echo ""
 		if [ -n "$(ls -A .git/refs/heads 2>/dev/null)" ]; then
 			return 0
 		fi
