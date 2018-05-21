@@ -36,7 +36,8 @@ is_tree_dirty() {
 
 has_heads() {
 	if is_git_folder; then;
-		if [ -n "$(ls -A .git/refs/heads 2>/dev/null)" ]; then
+		local git_dir=$(git rev-parse --git-dir)
+		if [ -n "$(ls -A $git_dir/refs/heads 2>/dev/null)" ]; then
 			return 0
 		fi
 		return 1
