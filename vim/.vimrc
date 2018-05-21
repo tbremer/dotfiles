@@ -54,6 +54,8 @@ set encoding=utf-8
 
 " Set babelrc as json filetype
 au BufNewFile,BufRead .babelrc set filetype=json
+au BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .prettierrc set filetype=json
 
 " GUI Font settings
 set guifont=FuraCode\ Nerd\ Font:h12

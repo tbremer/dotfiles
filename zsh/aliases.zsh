@@ -121,5 +121,28 @@ function dockerded {
 	docker volume rm $(docker volume ls -f dangling=true -q)
 }
 
+function mkfile {
+	while [[ $# > 0 ]]
+	do
+		local ARGUMENT="$1"
+		local directory=`dirname "$ARGUMENT"`
+		local filename=`basename "$ARGUMENT"`
+		local extension="${filename##*.}"
+
+		# if directory = "." and filename == "$dir$extension" is dot file
+
+		mkdir -p "$directory"
+		touch "$directory/$filename"
+
+		#echo "dir: $directory"
+		#echo "file: $filename"
+		#echo "ext: $extension"
+		#echo "test: $directory$extension"
+		#echo ""
+
+		shift
+	done
+}
+
 echo
 echo "Aliases Loaded!"
