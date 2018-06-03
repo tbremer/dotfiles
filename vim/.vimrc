@@ -10,6 +10,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+echo "iterm:" . $ITERM_PROFILE
+
+" Background
+set background=dark
+
 " Enable Line Numbers
 set number
 
@@ -47,8 +52,8 @@ set encoding=utf-8
 
 " ALE Config
 let g:ale_linters = {
-\ 'rust': ['rls']
-\}
+      \ 'rust': ['rls']
+      \}
 "let g:ale_rust_rls_toolchain = 'stable'
 
 " NERDTree
@@ -62,7 +67,15 @@ au BufNewFile,BufRead .eslintrc set filetype=json
 au BufNewFile,BufRead .prettierrc set filetype=json
 
 " Cursor line color
-hi CursorLine cterm=none ctermbg=253
+function! SetCursorLineBasedOnBG() abort
+  if &bg=="light"
+    hi CursorLine cterm=none ctermbg=253
+  else
+    hi CursorLine cterm=none ctermbg=008
+  endif
+endfunction
+autocmd OptionSet * :call SetCursorLineBasedOnBG()
+call SetCursorLineBasedOnBG()
 set cursorline
 
 " ColumnColor
@@ -92,44 +105,44 @@ hi SLBoldGreen cterm=bold ctermfg=006 ctermbg=008
 
 " setup current modes
 let g:currentmode={
-    \ 'n'  : 'Normal',
-    \ 'no' : 'Normal·Operator Pending',
-    \ 'v'  : 'Visual',
-    \ 'V'  : 'V·Line',
-    \ 's'  : 'Select',
-    \ 'S'  : 'S·Line',
-    \ '^S' : 'S·Block',
-    \ 'i'  : 'Insert',
-    \ 'R'  : 'Replace',
-    \ 'Rv' : 'V·Replace',
-    \ 'c'  : 'Command',
-    \ 'cv' : 'Vim Ex',
-    \ 'ce' : 'Ex',
-    \ 'r'  : 'Prompt',
-    \ 'rm' : 'More',
-    \ 'r?' : 'Confirm',
-    \ '!'  : 'Shell',
-    \ 't'  : 'Terminal'
-    \}
+      \ 'n'  : 'Normal',
+      \ 'no' : 'Normal·Operator Pending',
+      \ 'v'  : 'Visual',
+      \ 'V'  : 'V·Line',
+      \ 's'  : 'Select',
+      \ 'S'  : 'S·Line',
+      \ '^S' : 'S·Block',
+      \ 'i'  : 'Insert',
+      \ 'R'  : 'Replace',
+      \ 'Rv' : 'V·Replace',
+      \ 'c'  : 'Command',
+      \ 'cv' : 'Vim Ex',
+      \ 'ce' : 'Ex',
+      \ 'r'  : 'Prompt',
+      \ 'rm' : 'More',
+      \ 'r?' : 'Confirm',
+      \ '!'  : 'Shell',
+      \ 't'  : 'Terminal'
+      \}
 function! LinterCount() abort
-	let l:counts = ale#statusline#Count(bufnr(''))
+  let l:counts = ale#statusline#Count(bufnr(''))
 
-	"echo l:counts
+  "echo l:counts
 
-	return l:counts.total
+  return l:counts.total
 endfunction
 
 function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
+  let l:counts = ale#statusline#Count(bufnr(''))
 
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
 
-    return l:counts.total == 0 ? '' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
+  return l:counts.total == 0 ? '' : printf(
+        \   '%dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
 endfunction
 
 " Build statusline
@@ -174,7 +187,7 @@ highlight SpecialKey ctermfg=015
 " Trim White Space on Save
 " Remove White Space
 function! TrimWhiteSpace()
-	%s/\s\+$//e
+  %s/\s\+$//e
 endfunction
 autocmd BufWritePre * :call TrimWhiteSpace()
 
