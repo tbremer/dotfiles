@@ -10,8 +10,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-echo "iterm:" . $ITERM_PROFILE
-
 " Background
 set background=dark
 
