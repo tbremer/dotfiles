@@ -52,7 +52,7 @@ brew install vim --with-lua --with-python3 --with-override-system-vi
 
 # install ruby
 echo "Installing Ruby"
-LATEST=`rbenv install -l | grep -v - | tail -1`
+LATEST=`rbenv install -l | grep -v - | tail -1 | tr -d '[:space:]'`
 rbenv install "$LATEST"
 rbenv global "$LATEST"
 

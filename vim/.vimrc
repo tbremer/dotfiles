@@ -8,6 +8,12 @@ Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug '~/Documents/dotfiles/vim/GitWildIgnore'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Background
@@ -48,11 +54,29 @@ syntax on
 set t_Co=256
 set encoding=utf-8
 
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+
 " ALE Config
 let g:ale_linters = {
-      \ 'rust': ['rls']
-      \}
-"let g:ale_rust_rls_toolchain = 'stable'
+\ 'rust': ['rls']
+\}
+let g:ale_fixers = {
+\'javascript': ['prettier', 'eslint'],
+\'css': ['prettier']
+\}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+
+" Deoplete Config
+let g:deoplete#enable_at_startup = 1
+let g:tern_path = StrTrim(system('PATH=$(npm bin):$PATH && which tern'))
+if g:tern_path != 'tern not found'
+  let g:deoplete#sources#ternjs#tern_bin = g:tern_path
+endif
+" <TAB /> completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " NERDTree
 map <Leader>t :NERDTreeToggle<enter>
@@ -79,7 +103,7 @@ set cursorline
 " ColumnColor
 hi ColorColumn cterm=none ctermbg=253
 hi Visual cterm=none ctermbg=253
-set colorcolumn=80
+"set colorcolumn=80
 
 " Cursor match color
 hi MatchParen cterm=bold ctermbg=008 ctermfg=003
@@ -92,8 +116,8 @@ hi MatchParen cterm=bold ctermbg=008 ctermfg=003
 set laststatus=2
 
 " StatusLine Highlighting
-hi StatusLine cterm=none ctermfg=007 ctermbg=006
-hi StatusLineNC cterm=none ctermfg=008 ctermbg=006
+hi StatusLine cterm=none ctermfg=255 ctermbg=006
+hi StatusLineNC cterm=none ctermfg=250 ctermbg=006
 au InsertEnter * hi StatusLine cterm=bold
 au InsertLeave * hi StatusLine cterm=none
 hi SynWarn cterm=none,bold ctermfg=256 ctermbg=001
@@ -191,9 +215,16 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 
 " BuffTabLine Plugin
 let g:buftabline_numbers = 1
-let g:buftabline_separators = 1
-hi TabLineSel cterm=bold ctermbg=014 ctermfg=007
-hi TabLine cterm=none ctermbg=006 ctermfg=008
-hi TabLineFill cterm=none ctermfg=006 ctermbg=006
+"let g:buftabline_separators = 1
+"hi TabLine cterm=none ctermfg=001 ctermbg=001
+":hi TabLineSel cterm=bold ctermfg=255 ctermbg=014
+hi TabLineFill ctermfg=006
+hi BufTabLineCurrent cterm=bold ctermfg=255 ctermbg=005
+hi BufTabLineActive cterm=none ctermfg=250 ctermbg=006
+hi BufTabLineHidden cterm=none ctermfg=250 ctermbg=006
+hi BuffTabLineFill cterm=none ctermfg=001 ctermbg=001
+
 set hidden
 
+" Nerdtree Brackets
+let g:webdevicons_conceal_nerdtree_brackets = 1
