@@ -17,7 +17,7 @@ brew tap beeftornado/rmtree
 
 # install the things
 echo "Installing all the Brews"
-brew install zsh git rbenv thefuck
+brew install zsh git rbenv thefuck neovim
 
 # Update GIT info
 echo "Grabbing your Git config stuff"
@@ -42,13 +42,11 @@ git submodule update
 cd ~/
 
 # symlink things
-ln -s "$DOT_PATH/vim/.vim" ~/
-ln -s "$DOT_PATH/vim/.vimrc" ~/
+local CONFIG_PATH="$HOME/.config/nvmim"
+mkdir -p "$CONFIG_PATH"
+# ln -s "$DOT_PATH/vim/.vim" ~/
+ln -s "$DOT_PATH/vim/.vimrc" mkdir -p "$CONFIG_PATH/init.vim"
 ln -s "$DOT_PATH/zsh/.zshrc" ~/
-
-# install vim
-echo "Installing VIM"
-brew install vim --with-lua --with-python3 --with-override-system-vi
 
 # install ruby
 echo "Installing Ruby"
@@ -70,17 +68,13 @@ echo "NPM Version: `npm --version`"
 
 # Brew cask install things
 echo "Installing Casks"
-brew cask install slack
-brew cask install firefox
-brew cask install 1password
 brew cask install appcleaner
-brew cask install atom
 brew cask install sublime-text
 brew cask install docker
 brew cask install sketch
 brew cask install postico
 brew cask install moom
-brew cask install iterm2
+brew cask install hyper
 
 # Change Shell
 echo "Changing shell to ZSH"
