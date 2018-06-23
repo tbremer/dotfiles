@@ -42,7 +42,7 @@ git submodule update
 cd ~/
 
 # symlink things
-local CONFIG_PATH="$HOME/.config/nvmim"
+local CONFIG_PATH="$HOME/.config/nvim"
 mkdir -p "$CONFIG_PATH"
 # ln -s "$DOT_PATH/vim/.vim" ~/
 ln -s "$DOT_PATH/vim/.vimrc" mkdir -p "$CONFIG_PATH/init.vim"
