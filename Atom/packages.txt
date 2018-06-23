@@ -10,7 +10,7 @@ highlight-selected
 ide-go
 ide-json
 ide-rust
-ide-typescript
+ide-flowtype
 isotope-light-ui
 isotope-ui
 language-rust
