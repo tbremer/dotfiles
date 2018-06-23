@@ -10,7 +10,7 @@ alias sta='git status'
 alias master='git checkout master && git fetch && git pull origin master'
 alias ghash='git rev-parse HEAD'
 alias gname='git rev-parse --abbrev-ref HEAD';
-alias glog="git log --pretty=format:'%C(yellow)%h%C(reset)%x09%an%x09%C(cyan)%s%Creset'"
+alias glog="git log --pretty=format:'%C(yellow)%h%C(reset)%x09%an(%ae)%x09%C(cyan)%s%Creset'"
 alias ggraph='git log --graph --oneline --decorate'
 alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
 
@@ -83,28 +83,32 @@ function gdiff {
 	done;
 }
 
-function resethistory {
-	echo -n 'Old Email: '
+function gitresetemail {
+	local OLD_EMAIL CORRECT_EMAIL SHOULD_PUSH
+	echo -n "Old Email: "
 	read OLD_EMAIL
 
-	echo -n 'Correct name: '
-	read CORRECT_NAME
-
-	echo -n 'Correct email: '
+	echo -n "Correct email: "
 	read CORRECT_EMAIL
 
-	git filter-branch -f --env-filter '
-	if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
-	then
-		export GIT_COMMITTER_NAME="$CORRECT_NAME"
-		export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+	echo -n "Should push changes [Y/n]: "
+	read SHOULD_PUSH
+	SHOULD_PUSH=${SHOULD_PUSH:-Y}
+
+	local CMD="git filter-branch -f --env-filter ' \
+	if [ "\$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]; \
+	then \
+		export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"; \
+	fi; \
+	if [ "\$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]; then \
+		export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"; \
+	fi' --tag-name-filter cat -- --branches --tags"
+
+	eval $CMD
+
+	if [ "$SHOULD_PUSH" = "Y" ]; then
+		git push --force --tags origin 'refs/heads/*'
 	fi
-	if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
-	then
-		export GIT_AUTHOR_NAME="$CORRECT_NAME"
-		export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
-	fi
-	' --tag-name-filter cat -- --branches --tags
 }
 
 function dockerded {
