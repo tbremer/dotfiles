@@ -201,7 +201,7 @@ set stl+=\ %M " modified?
 set stl+=%<%f " relative file path
 set stl+=\ %* " reset color
 set stl+=%= " Move to end of statusline
-set stl+=%#SLBoldGreen#\\ " separator
+set stl+=%#SLBoldGreen#\ " separator
 set stl+=%#SLFileInfo# " SLFileInfo color group
 set stl+=\ %Y " filetype with brackets
 set stl+=\ ( " open paren
