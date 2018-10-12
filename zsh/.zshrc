@@ -1,6 +1,6 @@
 # Ensure 256 on ubuntu
 if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ] ; then
-	TERM=xterm-256color
+  TERM=xterm-256color
 fi
 
 # ENSURE DELETE KEY WORKS AS ASSUMED
@@ -31,16 +31,16 @@ CYAN=006
 ORANGE=214
 
 prompt() {
-	echo -e "$1"
+  echo -e "$1"
 }
 
 arrow_prompt() {
-	prompt "%B%(?:%F{$GREEN}:%F{$RED})$ARW%f%b"
+  prompt "%B%(?:%F{$GREEN}:%F{$RED})$ARW%f%b"
 }
 
 function precmd() {
-	PROMPT="$NEWLINE%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
-	RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
+  PROMPT="$NEWLINE%F{$CYAN}(%f%3~%F{$CYAN})%f $(git_prompt)$NEWLINE$(arrow_prompt) "
+  RPROMPT="%{${UP_LINE}%}$(battery_pct)%{${DOWN_LINE}%}"
 }
 
 # PATH
@@ -51,9 +51,12 @@ autoload -U colors && colors
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-setopt auto_cd
-setopt multios
-setopt prompt_subst
+#setopt auto_cd
+#setopt multios
+#setopt prompt_subst
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
 
 # INIT RBENV
 eval "$(rbenv init -)"
@@ -63,24 +66,24 @@ eval $(thefuck --alias)
 
 # SOURCE CONFIGS
 if [ -e $HOME/.bash_profile ] ; then
-	source $HOME/.bash_profile
+  source $HOME/.bash_profile
 fi
 
 if [ -e $HOME/.dotfilesrc ] ; then
-	source $HOME/.dotfilesrc
+  source $HOME/.dotfilesrc
 else
-	DOTFILES=$HOME/Documents/dotfiles
-	CODE=/Volumes/CODE
+  DOTFILES=$HOME/Documents/dotfiles
+  CODE=/Volumes/CODE
 fi
 
 alias cdcode="cd $CODE";
 
 # LOAD PLUGINS
 for plgn in $(ls $DOTFILES/zsh); do
-	local file="$DOTFILES/zsh/$plgn"
-	if [[ -f "$file" ]]; then
-		source "$DOTFILES/zsh/$plgn"
-	fi
+  local file="$DOTFILES/zsh/$plgn"
+  if [[ -f "$file" ]]; then
+    source "$DOTFILES/zsh/$plgn"
+  fi
 done
 
 # LOAD AUTO SUGGEST PLUGIN

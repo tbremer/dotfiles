@@ -46,6 +46,10 @@ imap qq <Esc>
 map q <Nop>
 map qq <Nop>
 
+" Map movement keys separately
+noremap j k
+noremap k j
+
 " Turn off .swp files
 set noswapfile
 
@@ -84,6 +88,7 @@ let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
 if g:flow_path != 'flow not found'
 	let g:deoplete#sources#flow#flow_bin = g:flow_path
 endif
+
 " <TAB /> completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " <CR /> adds but does not create newline
@@ -195,13 +200,13 @@ set stl+=%{LinterCount()==0?'':'\ '}
 set stl+=%{LinterCount()==0?'':LinterStatus()} " get ALE status
 set stl+=%{LinterCount()==0?'':'\ '}
 set stl+=%#SynWarnInvert# " invert group
-set stl+=%{LinterCount()==0?'':''} " apply separator
+set stl+=%{LinterCount()==0?'':''} " apply separator
 set stl+=%* " reset color
 set stl+=\ %M " modified?
 set stl+=%<%f " relative file path
 set stl+=\ %* " reset color
 set stl+=%= " Move to end of statusline
-set stl+=%#SLBoldGreen#\ " separator
+set stl+=%#SLBoldGreen#\ " separator
 set stl+=%#SLFileInfo# " SLFileInfo color group
 set stl+=\ %Y " filetype with brackets
 set stl+=\ ( " open paren
