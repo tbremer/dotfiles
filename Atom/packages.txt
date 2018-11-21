@@ -8,10 +8,7 @@ dracula-syntax
 editor-stats
 editorconfig
 emmet
-ex-mode
 file-icons
-flow-ide
-git-blame
 highlight-selected
 hyperclick
 ide-flowtype
@@ -34,4 +31,3 @@ prettier-atom
 px-rem-tooltip
 set-syntax
 tomorrow-night-eighties-syntax
-vim-mode-plus
