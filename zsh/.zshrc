@@ -59,10 +59,15 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # INIT RBENV
-eval "$(rbenv init -)"
+if [ -x "$(command -v rbenv)" ]; then
+  echo "hello"
+  eval "$(rbenv init -)"
+fi
 
 # INIT thefuck
-eval $(thefuck --alias)
+if [ -x "$(command -v thefuck)" ]; then
+  eval $(thefuck --alias)
+fi
 
 # SOURCE CONFIGS
 if [ -e $HOME/.bash_profile ] ; then
