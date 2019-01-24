@@ -69,11 +69,6 @@ if [ -x "$(command -v thefuck)" ]; then
   eval $(thefuck --alias)
 fi
 
-# SOURCE CONFIGS
-if [ -e $HOME/.bash_profile ] ; then
-  source $HOME/.bash_profile
-fi
-
 if [ -e $HOME/.dotfilesrc ] ; then
   source $HOME/.dotfilesrc
 else
@@ -93,6 +88,11 @@ done
 
 # LOAD AUTO SUGGEST PLUGIN
 source $DOTFILES/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# SOURCE CONFIGS
+if [ -e $HOME/.bash_profile ] ; then
+  source $HOME/.bash_profile
+fi
 
 echo "ZSH Loaded!"
 echo "----"
