@@ -80,3 +80,36 @@ glone() {
 	shift
 	git clone "$repo" $@
 }
+
+function glc {
+	local COMMAND="git ls-files"
+	local INCLUSIONS=()
+
+	while [[ $# > 1 ]]
+	do
+		key="$1"
+
+		case $key in
+			-i|--include)
+				# build exceptions array
+				INCLUSIONS+=("$2")
+				shift # past argument
+				;;
+			*)
+				# unknown option
+				;;
+		esac
+		shift # past argument or value
+	done
+
+	# if exceptions exist build the command up
+	if [ ${#INCLUSIONS[@]} -gt 0 ]; then
+		for EXCEPT in "${INCLUSIONS[@]}"; do
+			COMMAND="$COMMAND | grep $EXCEPT"
+		done
+	fi
+
+	COMMAND="$COMMAND | xargs wc -l"
+
+	eval $COMMAND
+}
