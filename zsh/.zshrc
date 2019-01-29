@@ -60,7 +60,6 @@ setopt pushdminus
 
 # INIT RBENV
 if [ -x "$(command -v rbenv)" ]; then
-  echo "hello"
   eval "$(rbenv init -)"
 fi
 
