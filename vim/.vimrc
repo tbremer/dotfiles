@@ -15,6 +15,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'steelsojka/deoplete-flow'
 Plug 'wokalski/autocomplete-flow'
+Plug 'rust-lang/rust.vim'
+"Plug 'sebastianmarkow/deoplete-rust'
 call plug#end()
 
 " Set BG
