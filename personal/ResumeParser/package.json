@@ -1,5 +1,5 @@
 {
-  "name": "personal",
+  "name": "ResumeParser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsonresume-theme-elegant": "^1.12.1",
-    "resume-cli": "^1.2.7"
+    "jsx-runtime": "^1.2.0",
+    "jsx-to-string": "^1.4.0",
+    "prettier": "^1.18.2",
+    "undom": "^0.4.0"
   }
 }

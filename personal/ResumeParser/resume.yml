@@ -1,0 +1,100 @@
+basics:
+  name: Tom Bremer
+  label: Frontend Engineer
+  picture: https://avatars2.githubusercontent.com/u/2998575
+  email: tom@tbremer.com
+  phone: 314.971.7758
+  website: http://tbremer.com
+  summary:
+    I am a web developer and user advocate. I believe in in making the web accessible, performant, and easy to use.
+
+    I am more generally interested in unique programming languages, compilers, and light weight or vanilla solutions.
+  location:
+    city: Saint Louis
+    countryCode: US
+    region: Missouri
+
+profiles:
+  - network: GitHub
+    username: tbremer
+    url: https://github.com/tbremer
+  - network: Twitter
+    username: _tbremer
+    url: http://twitter.com/_tbremer
+  - network: CodePen
+    username: tbremer
+    url: http://codepen.io/tbremer/
+
+work:
+  - company: 'World Wide Technology: Application Services'
+    position: Senior Front End Engineer
+    website: https://wwt.com
+    startDate: '2015-07-06'
+    summary: Front End Engineer, User Experience Research.
+    highlights:
+      - Deploy Enterprise web applications across web and native mobile devices
+      - Promote web accessibility standards throughout new and existing teams
+      - Mentor designers and developers across a range of experience levels in JavavScript,
+        CSS, PostCSS, Sass, HTML, and the NodeJS ecosystem
+      - Encourage and coach teams on best practices regarding performance tuning web applications
+      - Facilitate lunch and learns over new and existing web technologies
+      - Help incorporate latest web technologies and tools within the organization
+  - company: Answers.com / Multiply
+    position: Software Engineer II
+    website: https://answers.com
+    startDate: '2013-04-15'
+    endDate: '2015-06-30'
+    summary: User Experience developer, A/B Test Engineer, UX Tech Stack
+    highlights:
+      - Integral in a full site redesign
+      - Created CSS and SASS based solutions to elemenate reliance on Javascript DOM manipulations
+        and animations
+      - Development and support of code styleguide
+      - Development of modern workflow utilizing GruntJS
+      - Writing a new framework / pattern library for UX and Backend developers
+      - Researching TTFB and TTLB optimization
+      - A large array of user expierence tests with content varience
+      - Standing up new domains for long term tests
+
+education:
+  - institution: University of Missouri Saint Louis
+    area: Fine Arts
+    studyType: Bachelor
+    startDate: '2006-09-01'
+    endDate: '2012-05-01'
+
+awards:
+  - title: Outstanding Contributor
+    date: '2014-10-01'
+    awarder: Answers.com
+    summary: For contributions on the site wide redesign as well as the A/B Testing
+      team
+
+skills:
+  - name: Front End Development
+    keywords:
+      - JS & CSS Preprocessors
+      - HTML
+      - CSS
+      - Current ECMAScript standards
+      - a11y & aria
+      - NodeJS
+      - webpack
+  - name: Web / App Development
+    keywords:
+      - NodeJS
+      - GraphQL
+      - React / ReactNative
+      - Rust
+      - OCaml / ReasonML
+      - PHP
+      - PostgreSQL, MySQL
+      - nginx
+      - graph databases
+
+languages:
+  - language: English
+    fluency: Native
+    abilities:
+      - Written
+      - Spoken

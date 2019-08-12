@@ -1,113 +1,115 @@
 {
   "basics": {
-    "name": "Tom Bremer",
-    "label": "UX Developer, Software Engineer",
-    "picture": "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/16195187_10154420633083915_5979649153007603255_n.jpg?oh=0e4bc8f97b1882c97e7b83c7cb2e3fe8&oe=59C06067",
     "email": "tom@tbremer.com",
-    "phone": "314.971.7758",
-    "website": "http://tbremer.com",
-    "summary": "Front End, User Experience, and Interaction Developer. Open Source evangelist, Fine Arts Background. ['vinyl', 'coffee', 'beer'] nerd",
+    "label": "Frontend Engineer",
     "location": {
       "city": "Saint Louis",
-      "contryCode": "US",
+      "countryCode": "US",
       "region": "Missouri"
     },
+    "name": "Tom Bremer",
+    "phone": "314.971.7758",
+    "picture": "https://avatars2.githubusercontent.com/u/2998575",
+    "summary": "I am a web developer and user advocate. I believe in in making the web accessible, performant, and easy to use.\nI am more generally interested in unique programming languages, compilers, and light weight or vanilla solutions.",
+    "website": "http://tbremer.com",
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "_tbremer",
-        "url": "http://twitter.com/_tbremer"
+        "network": "GitHub",
+        "url": "https://github.com/tbremer",
+        "username": "tbremer"
       },
       {
-        "network": "GitHub",
-        "username": "tbremer",
-        "url": "https://github.com/tbremer"
+        "network": "Twitter",
+        "url": "http://twitter.com/_tbremer",
+        "username": "_tbremer"
       },
       {
         "network": "CodePen",
-        "username": "tbremer",
-        "url": "http://codepen.io/tbremer/"
+        "url": "http://codepen.io/tbremer/",
+        "username": "tbremer"
       }
     ]
   },
-  "work": [
-    {
-      "company": "Asynchrony Labs",
-      "position": "Front End Engineer",
-      "website": "//asynchrony.com",
-      "startDate": "2015-07-06",
-      "summary": "Front End Engineer, User Experience Research.",
-      "highlights": [
-        "Deploy Enterprise Level NodeJS web applications across Web and iOS Devices",
-        "Facilitate lunch and learns over new and existing web technologies",
-        "Mentor designers and developers across a range of experience levels in Javavscript, CSS, PostCSS, Sass, HTML, and the NodeJS ecosystem",
-        "Promote web accessibility standards throughout new and existing teams",
-        "Encourage and coach teams on best practices regarding performance tuning web applications",
-        "Help incorporate latest web technologies and tools within the organization"
-      ]
-    },
-    {
-      "company": "Answers.com",
-      "position": "Software Engineer II",
-      "website": "//answers.com",
-      "startDate": "2013-04-15",
-      "endDate": "2015-06-30",
-      "summary": "User Experience developer, A/B Test Engineer, UX Tech Stack",
-      "highlights": [
-        "Integral in a full site redesign",
-        "Created CSS and SASS based solutions to elemenate reliance on Javascript DOM manipulations and animations",
-        "Development and support of code styleguide",
-        "Development of modern workflow utilizing GruntJS",
-        "Writing a new framework / pattern library for UX and Backend developers",
-        "Researching TTFB and TTLB optimization",
-        "A large array of user expierence tests with content varience",
-        "Standing up new domains for long term tests"
-      ]
-    }
-  ],
   "education": [
     {
-      "institution": "University of Missouri Saint Louis",
       "area": "Fine Arts",
-      "studyType": "Bachelor",
+      "endDate": "2012-05-01",
+      "institution": "University of Missouri Saint Louis",
       "startDate": "2006-09-01",
-      "endDate": "2012-05-01"
-    }
-  ],
-  "awards": [
-    {
-      "title": "Outstanding Contributor",
-      "date": "2014-10-01",
-      "awarder": "Answers.com",
-      "summary": "For contributions on the site wide redesign as well as the A/B Testing team"
-    }
-  ],
-  "skills": [
-    {
-      "name": "Front End Development",
-      "keywords": [
-        "HTML",
-        "CSS",
-        "Current ECMAScript standards",
-        "JS & CSS Preprocessors",
-        "NodeJS"
-      ]
-    },
-    {
-      "name": "Web / App Development",
-      "keywords": [
-        "NodeJS",
-        "PHP",
-        "MySQL",
-        "nginx",
-        "graph databases"
-      ]
+      "studyType": "Bachelor"
     }
   ],
   "languages": [
     {
-      "language": "English",
-      "fluency": "Native speaker"
+      "abilities": [
+        "Written",
+        "Spoken"
+      ],
+      "fluency": "Native",
+      "language": "English"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "JS & CSS Preprocessors",
+        "HTML",
+        "CSS",
+        "Current ECMAScript standards",
+        "a11y & aria",
+        "NodeJS",
+        "webpack"
+      ],
+      "name": "Front End Development"
+    },
+    {
+      "keywords": [
+        "NodeJS",
+        "GraphQL",
+        "React / ReactNative",
+        "Rust",
+        "OCaml / ReasonML",
+        "PHP",
+        "PostgreSQL, MySQL",
+        "nginx",
+        "graph databases"
+      ],
+      "name": "Web / App Development"
+    }
+  ],
+  "work": [
+    {
+      "company": "World Wide Technology: Application Services",
+      "highlights": [
+        "Deploy Enterprise web applications across web and native mobile devices",
+        "Promote web accessibility standards throughout new and existing teams",
+        "Mentor designers and developers across a range of experience levels in JavaScript, CSS, PostCSS, Sass, HTML, and the NodeJS ecosystem",
+        "Encourage and coach teams on best practices regarding performance tuning web applications",
+        "Facilitate lunch and learns over new and existing web technologies",
+        "Help incorporate latest web technologies and tools within the organization"
+      ],
+      "position": "Senior Front End Engineer",
+      "startDate": "2015-07-06",
+      "summary": "Front End Engineer, User Experience Research.",
+      "website": "https://wwt.com"
+    },
+    {
+      "company": "Answers.com / Multiply",
+      "endDate": "2015-06-30",
+      "highlights": [
+        "Integral in a full site redesign",
+        "Created CSS and SASS based solutions to eliminate reliance on Javascript DOM manipulations and animations",
+        "Development and support of code styleguide",
+        "Development of modern workflow utilizing GruntJS",
+        "Writing a new framework / pattern library for UX and Backend developers",
+        "Researching TTFB and TTLB optimization",
+        "A large array of user experience tests with content variance",
+        "Standing up new domains for long term tests"
+      ],
+      "position": "Software Engineer II",
+      "startDate": "2013-04-15",
+      "summary": "User Experience developer, A/B Test Engineer, UX Tech Stack",
+      "website": "https://answers.com"
     }
   ]
 }
