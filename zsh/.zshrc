@@ -76,6 +76,12 @@ else
 fi
 
 alias cdcode="cd $CODE";
+#alias yq="docker run --rm -v ${PWD}:/workdir mikefarah/yq yq"
+alias mm="open $DOTFILES/mutemic.app"
+yq() {
+  docker run --rm -i -v ${PWD}:/workdir mikefarah/yq yq $@
+}
+
 
 # LOAD PLUGINS
 for plgn in $(ls $DOTFILES/zsh); do
