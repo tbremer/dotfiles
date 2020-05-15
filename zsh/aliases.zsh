@@ -133,16 +133,8 @@ function mkfile {
 		local filename=`basename "$ARGUMENT"`
 		local extension="${filename##*.}"
 
-		# if directory = "." and filename == "$dir$extension" is dot file
-
 		mkdir -p "$directory"
 		touch "$directory/$filename"
-
-		#echo "dir: $directory"
-		#echo "file: $filename"
-		#echo "ext: $extension"
-		#echo "test: $directory$extension"
-		#echo ""
 
 		shift
 	done
