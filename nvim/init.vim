@@ -37,6 +37,7 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 20
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
+let g:netrw_altv = 1
 "nmap <Leader>t QuitOrOpenNetrw()
 nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
 
@@ -48,7 +49,8 @@ function! QuitOrOpenNetrw()
     endif
   endfor
 
-  execute 'Vexplore'
+  execute 'Vexplore ' . getcwd()
+
 endfunction
 
 " Buffer stuff
