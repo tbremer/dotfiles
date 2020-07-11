@@ -5,21 +5,22 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 Plug 'pangloss/vim-javascript'
+Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
 call plug#end()
 
 """""""""""""""""
 " UNSORTED MAPS "
 """""""""""""""""
 
-  " Turn on mouse support
-  set mouse=a
-  
-  " Map leader and semicolon
-  let mapleader=","
-  nmap ; :
-  
-  " $$ to eol when in insertmode
-  imap $$ <Esc>$a
+" Turn on mouse support
+set mouse=a
+
+" Map leader and semicolon
+let mapleader=","
+nmap ; :
+
+" $$ to eol when in insertmode
+imap $$ <Esc>$a
 
 """""""""""""""""""""
 " END UNSORTED MAPS "
@@ -41,15 +42,13 @@ nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
 
 function! QuitOrOpenNetrw()
   for i in range(1, bufnr('$'))
-    "if buflisted(i)
-      if getbufvar(i, '&filetype') == "netrw"
-	silent exe 'bwipeout ' . i
-	return
-      endif
-    "endif
- endfor
+    if getbufvar(i, '&filetype') == "netrw"
+      silent exe 'bwipeout ' . i
+      return
+    endif
+  endfor
 
- execute 'Vexplore'
+  execute 'Vexplore'
 endfunction
 
 " Buffer stuff
@@ -65,6 +64,7 @@ set foldmethod=indent
 set foldcolumn=2
 set shiftwidth=2
 hi Folded cterm=italic ctermfg=Grey ctermbg=0
+autocmd BufRead,BufNewFile *.vim set nofoldenable
 
 " Invisibles
 set noeol
@@ -76,7 +76,7 @@ highlight SpecialKey ctermfg=242
 """""""""""""""""""
 " UNSORTED COLORS "
 """""""""""""""""""
-" Set BG
+colorscheme dracula_pro_van_helsing
 set bg=dark
 hi Pmenu ctermfg=248 ctermbg=0
 hi PmenuSel ctermfg=White ctermbg=DarkGrey
@@ -85,15 +85,8 @@ hi StatusLine cterm=none ctermfg=4 ctermbg=238
 hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
 
 " coc-prettier setup
- command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-"command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " CtrlP
 nmap <Leader>p :CtrlP<CR>
-"let g:ctrlp_custom_ignore = {
-"  \ 'dir':  '\v[\/]\.(git|node_modules|hg|svn)$',
-"  \ 'file': '\v\.(exe|so|dll|DS_STORE)$',
-"  \ 'link': '',
-"  \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
