@@ -5,21 +5,22 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 Plug 'pangloss/vim-javascript'
+Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
 call plug#end()
 
 """""""""""""""""
 " UNSORTED MAPS "
 """""""""""""""""
 
-  " Turn on mouse support
-  set mouse=a
-  
-  " Map leader and semicolon
-  let mapleader=","
-  nmap ; :
-  
-  " $$ to eol when in insertmode
-  imap $$ <Esc>$a
+" Turn on mouse support
+set mouse=a
+
+" Map leader and semicolon
+let mapleader=","
+nmap ; :
+
+" $$ to eol when in insertmode
+imap $$ <Esc>$a
 
 """""""""""""""""""""
 " END UNSORTED MAPS "
@@ -78,6 +79,7 @@ highlight SpecialKey ctermfg=242
 """""""""""""""""""
 " Set BG
 set bg=dark
+silent! colorscheme dracula_pro_van_helsing
 hi Pmenu ctermfg=248 ctermbg=0
 hi PmenuSel ctermfg=White ctermbg=DarkGrey
 hi MatchParen ctermbg=DarkGrey
@@ -86,8 +88,6 @@ hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
 
 " coc-prettier setup
  command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-"command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " CtrlP
 nmap <Leader>p :CtrlP<CR>
