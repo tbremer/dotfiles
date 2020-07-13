@@ -2,3 +2,7 @@
 *.swp
 plugged
 node_modules
+
+# nvim ignores
+nvim/.netrwhist
+nvim/plugged

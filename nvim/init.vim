@@ -78,7 +78,7 @@ highlight SpecialKey ctermfg=242
 """""""""""""""""""
 " UNSORTED COLORS "
 """""""""""""""""""
-colorscheme dracula_pro_van_helsing
+silent! colorscheme dracula_pro_van_helsing
 set bg=dark
 hi Pmenu ctermfg=248 ctermbg=0
 hi PmenuSel ctermfg=White ctermbg=DarkGrey
