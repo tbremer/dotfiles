@@ -5,9 +5,23 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
+
+" Javascript Specific
 Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+" Colorscheme Stuff
 Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
 call plug#end()
+
+""""""""""""""""
+" TESTING AREA "
+""""""""""""""""
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+set statusline+=%{SyntaxItem()}
+autocmd BufRead,BufNewFile */pages/*.js set syntax=javascriptreact
 
 """""""""""""""""
 " UNSORTED MAPS "
