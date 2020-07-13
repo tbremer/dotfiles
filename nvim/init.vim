@@ -2,6 +2,7 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-vinegar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 Plug 'pangloss/vim-javascript'
@@ -26,6 +27,13 @@ imap $$ <Esc>$a
 " END UNSORTED MAPS "
 """""""""""""""""""""
 
+" Colorscheme info
+set bg=dark
+silent! colorscheme dracula_pro_van_helsing
+
+" No swap files
+set noswapfile
+
 " Default to linenubmers on
 set number
 
@@ -49,7 +57,7 @@ function! QuitOrOpenNetrw()
     endif
   endfor
 
-  execute 'Vexplore ' . getcwd()
+  execute 'Lexplore ' . getcwd()
 
 endfunction
 
@@ -59,7 +67,7 @@ let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 hi TabLineFill cterm=none ctermbg=0
 hi TabLineSel ctermbg=White ctermfg=0
-hi TabLine cterm=none ctermfg=245 ctermbg=0
+hi TabLine cterm=none ctermfg=246 ctermbg=0
 
 " Folding
 set foldmethod=indent
@@ -72,19 +80,19 @@ autocmd BufRead,BufNewFile *.vim set nofoldenable
 set noeol
 set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
 set list
+set cc=80
 highlight NonText ctermfg=242
 highlight SpecialKey ctermfg=242
 
 """""""""""""""""""
 " UNSORTED COLORS "
 """""""""""""""""""
-silent! colorscheme dracula_pro_van_helsing
-set bg=dark
 hi Pmenu ctermfg=248 ctermbg=0
 hi PmenuSel ctermfg=White ctermbg=DarkGrey
 hi MatchParen ctermbg=DarkGrey
 hi StatusLine cterm=none ctermfg=4 ctermbg=238
 hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
+hi ColorColumn ctermbg=0
 
 " coc-prettier setup
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
