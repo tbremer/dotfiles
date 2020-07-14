@@ -2,7 +2,6 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-vinegar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 
@@ -54,14 +53,20 @@ set number
 " allow splits to be unequal sizes.
 set noequalalways
 
+" with popup visible we can use <Tab> to navigate
+inoremap <expr> <Tab> pumvisible() ? "\<Down>" : "\<Tab>"
+
 " netrw support
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
+hi netrwTreeBar ctermfg=242
 "nmap <Leader>t QuitOrOpenNetrw()
 nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
+
+
 
 function! QuitOrOpenNetrw()
   for i in range(1, bufnr('$'))
@@ -72,7 +77,6 @@ function! QuitOrOpenNetrw()
   endfor
 
   execute 'Lexplore ' . getcwd()
-
 endfunction
 
 " Buffer stuff
@@ -92,7 +96,7 @@ autocmd BufRead,BufNewFile *.vim set nofoldenable
 
 " Invisibles
 set noeol
-set listchars=eol:¬,tab:▸\ ,trail:~,extends:>,precedes:<
+set listchars=eol:¬,tab:▸\ ,trail:•,extends:>,precedes:<
 set list
 set cc=80
 highlight NonText ctermfg=242
