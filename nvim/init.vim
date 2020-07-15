@@ -16,15 +16,23 @@ call plug#end()
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-set statusline+=%{SyntaxItem()}
+"function! SyntaxItem()
+"  return synIDattr(synID(line("."),col("."),1),"name")
+"endfunction
+"set statusline+=%{SyntaxItem()}
 autocmd BufRead,BufNewFile */pages/*.js set syntax=javascriptreact
 
 """""""""""""""""
 " UNSORTED MAPS "
 """""""""""""""""
+
+" Vertical splits resize with + / _
+nn = 5<C-W>>
+nn - 5<C-W><
+
+" Horizontal splits resize with - / =
+nn + 5<C-W>+
+nn _ 5<C-W>-
 
 " Turn on mouse support
 set mouse=a
@@ -63,10 +71,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 hi netrwTreeBar ctermfg=242
-"nmap <Leader>t QuitOrOpenNetrw()
+autocmd filetype netrw  noremap <buffer> - 5<C-W><
 nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
-
-
 
 function! QuitOrOpenNetrw()
   for i in range(1, bufnr('$'))
