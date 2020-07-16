@@ -16,11 +16,16 @@ call plug#end()
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
+vmap Y "*y
 "function! SyntaxItem()
 "  return synIDattr(synID(line("."),col("."),1),"name")
 "endfunction
 "set statusline+=%{SyntaxItem()}
+
+" set certain files as types
 autocmd BufRead,BufNewFile */pages/*.js set syntax=javascriptreact
+autocmd BufNewFile,BufRead .babelrc set filetype=json
+autocmd BufNewFile,BufRead .prettierrc set filetype=json
 
 """""""""""""""""
 " UNSORTED MAPS "
@@ -118,8 +123,9 @@ hi StatusLine cterm=none ctermfg=4 ctermbg=238
 hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
 hi ColorColumn ctermbg=0
 
-" coc-prettier setup
+" coc setup
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 
 " CtrlP
 nmap <Leader>p :CtrlP<CR>
