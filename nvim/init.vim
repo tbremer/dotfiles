@@ -1,11 +1,17 @@
+" coc setup -- needs to be before Plug for install to work
+let g:coc_global_extensions = ['coc-prettier', 'coc-jest', 'coc-tsserver', 'coc-json']
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
 " Plug!
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 
-" Javascript Specific
+" Javascript & Typescript Specific
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
@@ -16,20 +22,32 @@ call plug#end()
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
-vmap Y "*y
 "function! SyntaxItem()
 "  return synIDattr(synID(line("."),col("."),1),"name")
 "endfunction
 "set statusline+=%{SyntaxItem()}
+
+
+"""""""""""""""""
+" UNSORTED MAPS "
+"""""""""""""""""
+
+" Y to yank to clipboard
+vmap Y "*y
 
 " set certain files as types
 autocmd BufRead,BufNewFile */pages/*.js set syntax=javascriptreact
 autocmd BufNewFile,BufRead .babelrc set filetype=json
 autocmd BufNewFile,BufRead .prettierrc set filetype=json
 
-"""""""""""""""""
-" UNSORTED MAPS "
-"""""""""""""""""
+" Split to right and below
+set splitright
+set splitbelow
+
+" Enable Syntax Highlighting
+syntax on
+set t_Co=256
+set encoding=utf-8
 
 " Vertical splits resize with + / _
 nn = 5<C-W>>
@@ -123,9 +141,6 @@ hi StatusLine cterm=none ctermfg=4 ctermbg=238
 hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
 hi ColorColumn ctermbg=0
 
-" coc setup
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 
 " CtrlP
 nmap <Leader>p :CtrlP<CR>
