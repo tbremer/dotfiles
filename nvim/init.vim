@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
+Plug 'preservim/nerdtree'
 
 " Javascript & Typescript Specific
 Plug 'HerringtonDarkholme/yats.vim'
@@ -88,25 +89,26 @@ set noequalalways
 inoremap <expr> <Tab> pumvisible() ? "\<Down>" : "\<Tab>"
 
 " netrw support
-let g:netrw_banner = 0
-let g:netrw_winsize = 20
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-hi netrwTreeBar ctermfg=242
-autocmd filetype netrw  noremap <buffer> - 5<C-W><
-nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
-
-function! QuitOrOpenNetrw()
-  for i in range(1, bufnr('$'))
-    if getbufvar(i, '&filetype') == "netrw"
-      silent exe 'bwipeout ' . i
-      return
-    endif
-  endfor
-
-  execute 'Lexplore ' . getcwd()
-endfunction
+nmap <silent> <Leader>t :NERDTreeToggle<CR>
+"let g:netrw_banner = 0
+"let g:netrw_winsize = 20
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"hi netrwTreeBar ctermfg=242
+"autocmd filetype netrw  noremap <buffer> - 5<C-W><
+"nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
+"
+"function! QuitOrOpenNetrw()
+"  for i in range(1, bufnr('$'))
+"    if getbufvar(i, '&filetype') == "netrw"
+"      silent exe 'bwipeout ' . i
+"      return
+"    endif
+"  endfor
+"
+"  execute 'Lexplore ' . getcwd()
+"endfunction
 
 " Buffer stuff
 set hidden
