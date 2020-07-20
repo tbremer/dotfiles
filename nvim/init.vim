@@ -1,8 +1,3 @@
-" coc setup -- needs to be before Plug for install to work
-let g:coc_global_extensions = ['coc-prettier', 'coc-jest', 'coc-tsserver', 'coc-json']
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
-
 " Plug!
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,6 +23,14 @@ call plug#end()
 "endfunction
 "set statusline+=%{SyntaxItem()}
 
+""""""""""""""""""""
+" END TESTING AREA "
+""""""""""""""""""""
+
+" coc setup
+let g:coc_global_extensions = ['coc-prettier', 'coc-jest', 'coc-tsserver', 'coc-json']
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 
 """""""""""""""""
 " UNSORTED MAPS "
