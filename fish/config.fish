@@ -23,6 +23,10 @@ echo "got em"
     alias code='code'
 end
 
+if test -e ~/.fishrc
+  source ~/.fishrc
+end
+
 
 # Java / Android bullshit
 # set -x JAVA_HOME (/usr/libexec/java_home)
