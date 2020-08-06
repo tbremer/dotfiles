@@ -4,12 +4,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' ", { 'on':  'NERDTreeToggle' }
+Plug 'uptech/vim-slack-format'
 
 " Javascript & Typescript Specific
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescriptreact', 'typescript'] }
+Plug 'pangloss/vim-javascript', { 'for': ['typescript', 'javascript'] }
+Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['typescriptreact', 'javascriptreact'] }
 
 " Colorscheme Stuff
 Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
@@ -18,11 +19,22 @@ call plug#end()
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
-"function! SyntaxItem()
-"  return synIDattr(synID(line("."),col("."),1),"name")
-"endfunction
-"set statusline+=%{SyntaxItem()}
+function! SyntaxItem()
+  return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+set statusline+=%{SyntaxItem()}
 
+" NERDTree Filetype changes
+au FileType nerdtree hi CursorLine cterm=italic ctermbg=0
+au FileType nerdtree hi Normal ctermbg=none
+au FileType nerdtree hi link Cursor CursorLine
+
+hi link slackFormatBold DraculaOrangeBold
+hi link slackFormatItalic DraculaYellowItalic
+hi link slackFormatInlineCode DraculaGreen
+hi link slackFormatCodeBlock slackFormatInlineCode
+hi link slackformatBlockQuote DraculaComment
+hi link slackformatBlockQuoteMultiline DraculaCommentBold
 """"""""""""""""""""
 " END TESTING AREA "
 """"""""""""""""""""
