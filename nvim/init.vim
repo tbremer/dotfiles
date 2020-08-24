@@ -4,7 +4,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
-Plug 'preservim/nerdtree' ", { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 Plug 'uptech/vim-slack-format'
 
 " Javascript & Typescript Specific
@@ -35,12 +35,23 @@ hi link slackFormatInlineCode DraculaGreen
 hi link slackFormatCodeBlock slackFormatInlineCode
 hi link slackformatBlockQuote DraculaComment
 hi link slackformatBlockQuoteMultiline DraculaCommentBold
+
+" Run deno fmt after write
+autocmd BufWritePost *.ts call DenoFmt(expand('%:p'))
+
+function DenoFmt(path)
+  if executable('deno')
+    silent execute '!deno fmt '.a:path
+    edit!
+  endif
+endfunction
+
 """"""""""""""""""""
 " END TESTING AREA "
 """"""""""""""""""""
 
 " coc setup
-let g:coc_global_extensions = ['coc-prettier', 'coc-jest', 'coc-tsserver', 'coc-json']
+let g:coc_global_extensions = ['coc-prettier', 'coc-jest', 'coc-tsserver', 'coc-json', 'coc-deno']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 
@@ -105,25 +116,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<Down>" : "\<Tab>"
 
 " netrw support
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
-"let g:netrw_banner = 0
-"let g:netrw_winsize = 20
-"let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
-"let g:netrw_altv = 1
-"hi netrwTreeBar ctermfg=242
-"autocmd filetype netrw  noremap <buffer> - 5<C-W><
-"nmap <silent> <Leader>t :call QuitOrOpenNetrw()<cr>
-"
-"function! QuitOrOpenNetrw()
-"  for i in range(1, bufnr('$'))
-"    if getbufvar(i, '&filetype') == "netrw"
-"      silent exe 'bwipeout ' . i
-"      return
-"    endif
-"  endfor
-"
-"  execute 'Lexplore ' . getcwd()
-"endfunction
 
 " Buffer stuff
 set hidden

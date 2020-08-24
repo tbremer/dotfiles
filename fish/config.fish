@@ -18,11 +18,6 @@ alias glcoud="gcloud"
 # the fuck
 thefuck --alias | source
 
-if test -z (which code)
-echo "got em"
-    alias code='code'
-end
-
 if test -e ~/.fishrc
   source ~/.fishrc
 end
