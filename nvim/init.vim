@@ -47,6 +47,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" turn of folds by default
+set nofoldenable
 """"""""""""""""""""
 " END TESTING AREA "
 """"""""""""""""""""
