@@ -19,10 +19,10 @@ call plug#end()
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
-function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-set statusline+=%{SyntaxItem()}
+"function! SyntaxItem()
+"  return synIDattr(synID(line("."),col("."),1),"name")
+"endfunction
+"set statusline+=%{SyntaxItem()}
 
 " NERDTree Filetype changes
 au FileType nerdtree hi CursorLine cterm=italic ctermbg=0
@@ -36,16 +36,16 @@ hi link slackFormatCodeBlock slackFormatInlineCode
 hi link slackformatBlockQuote DraculaComment
 hi link slackformatBlockQuoteMultiline DraculaCommentBold
 
-" Run deno fmt after write
-autocmd BufWritePost *.ts call DenoFmt(expand('%:p'))
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function DenoFmt(path)
-  if executable('deno')
-    silent execute '!deno fmt '.a:path
-    edit!
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
   endif
 endfunction
-
 """"""""""""""""""""
 " END TESTING AREA "
 """"""""""""""""""""
