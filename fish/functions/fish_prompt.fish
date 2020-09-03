@@ -42,15 +42,34 @@ set fish_emoji_width 2
 
 function fish_prompt
   set last_status $status
+  set -l package_version
+  set -l node_version
+
+  if type -q npm; and test -f ./package.json
+    set package_version (node -p "require('./package.json').version" 2>/dev/null)
+    set node_version (node -v 2>/dev/null);
+  end
 
   set_color cyan
   printf '[%s] ' (date +"%T")
   set_color $fish_color_cwd
   printf '%s ' (prompt_pwd)
   set_color normal
-  
-  printf '%s \n' (__fish_git_prompt)
+
+  printf '%s ' (__fish_git_prompt)
+  if test -n "$package_version"
+    printf '❬'
+    set_color green
+    printf '⬢  '
+    set_color normal
+    printf '%s' $node_version
+    printf ' | '
+    printf '📦 %s' $package_version
+    printf '❭'
+    set_color normal
+  end
+  printf '\n'
   printf "🦦  "
-  
+
   set_color normal
 end

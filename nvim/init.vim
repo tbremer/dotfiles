@@ -6,6 +6,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 Plug 'preservim/nerdtree'
 Plug 'uptech/vim-slack-format'
+Plug 'dag/vim-fish'
 
 " Javascript & Typescript Specific
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescriptreact', 'typescript'] }
