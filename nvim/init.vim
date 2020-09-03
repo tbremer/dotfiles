@@ -130,8 +130,8 @@ hi TabLine cterm=none ctermfg=246 ctermbg=0
 set foldmethod=indent
 set foldcolumn=2
 set shiftwidth=2
+set nofoldenable
 hi Folded cterm=italic ctermfg=Grey ctermbg=0
-autocmd BufRead,BufNewFile *.vim set nofoldenable
 
 " Invisibles
 set noeol
