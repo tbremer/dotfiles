@@ -1,10 +1,10 @@
+# General Aliases
 alias l="ls -lah"
 alias vim="nvim"
-alias sta='git status -s'
 alias resource="source ~/.config/fish/config.fish"
 alias mkdir="mkdir -p"
-alias ts="ts-node"
-alias refmt="bsrefmt"
+alias download='curl -O -J'
+alias dl='download'
 
 # Git aliases
 alias guy="git"
@@ -12,38 +12,30 @@ alias gut="git"
 alias gyt="git"
 alias got="git"
 alias glone="git clone"
+alias sta='git status'
+alias master='git checkout master && git fetch && git pull origin master'
+alias ghash='git rev-parse HEAD'
+alias gname='git rev-parse --abbrev-ref HEAD';
+alias glog="git log --pretty=format:'%C(yellow)%h%C(reset)%x09%an(%ae)%x09%C(cyan)%s%Creset'"
+alias ggraph='git log --graph --oneline --decorate'
+alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
+
+# Git Config
+git config --global alias.unadd "reset HEAD"
+git config --global alias.dig 'diff --ignore-space-at-eol -b -w --ignore-blank-lines'
+
+# Static file server with history API
+alias pyserv="python3 $DOTFILES/python/static-server.py";
 
 alias glcoud="gcloud"
 
 # the fuck
 thefuck --alias | source
 
-if test -e ~/.fishrc
-  source ~/.fishrc
+# if .fishrc exists at $HOME
+if test -e $HOME/.fishrc
+  source $HOME/.fishrc
 end
-
-
-# Java / Android bullshit
-# set -x JAVA_HOME (/usr/libexec/java_home)
-# set -x ANDROID_HOME /Users/bremert/Library/Android/sdk
-# set PATH $ANDROID_HOME/platform-tools $PATH
-# set PATH $ANDROID_HOME/tools $PATH
-# set PATH $ANDROID_HOME/emulator $PATH
-
-alias dark="prof Dark"
-alias light="prof light"
-
-#function iterm_color --on-event fish_promp
-#  if test (date +'%H') -gt 18
-#    echo -e "\033]50;SetProfile=Dark\a"
-#  else
-#    echo -e "\033]50;SetProfile=Default\a"
-#  end
-#end
-
-# THEME PURE #
-# set fish_function_path /Users/bremert/.config/fish/functions/theme-pure/functions/ $fish_function_path
-# source /Users/bremert/.config/fish/functions/theme-pure/conf.d/pure.fish
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bremert/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/bremert/Downloads/google-cloud-sdk/path.fish.inc'; end
