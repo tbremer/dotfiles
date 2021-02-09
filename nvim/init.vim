@@ -15,6 +15,10 @@ Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['typescriptreact', 'javascriptreact']
 
 " Colorscheme Stuff
 Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
+
+" Writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 """"""""""""""""
@@ -97,6 +101,10 @@ nmap ; :
 
 " $$ to eol when in insertmode
 imap $$ <Esc>$a
+
+" Basic Editing configs
+set wrap
+set linebreak
 
 """""""""""""""""""""
 " END UNSORTED MAPS "
