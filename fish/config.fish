@@ -1,3 +1,12 @@
+# Variables
+if test -z "$DOTFILES"
+  if test -d "$HOME/Documents/dotfiles"
+    set -g DOTFILES "$HOME/Documents/dotfiles"
+  else if test -d "$HOME/dotfiles"
+    set -g DOTFILES "~/dotfiles"
+  end
+end
+
 # General Aliases
 alias l="ls -lah"
 alias vim="nvim"
@@ -37,5 +46,3 @@ if test -e $HOME/.fishrc
   source $HOME/.fishrc
 end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bremert/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/bremert/Downloads/google-cloud-sdk/path.fish.inc'; end
