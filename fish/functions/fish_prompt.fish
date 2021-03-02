@@ -39,7 +39,6 @@ set __fish_git_prompt_char_upstream_equal ' 💯 '
 
 set fish_emoji_width 2
 
-
 function fish_prompt
   set last_status $status
   set -l package_version
