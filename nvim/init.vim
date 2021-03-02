@@ -15,31 +15,117 @@ Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['typescriptreact', 'javascriptreact']
 
 " Colorscheme Stuff
 Plug 'git@github.com:tbremer/dracula-pro-vim.git', { 'branch': 'main' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " Writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
 
+" Colorscheme info
+set bg=dark
+colorscheme dracula_pro_van_helsing
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyHighlights()
+augroup end
+
+function! MyHighlights() abort
+  " StatusLine Highlighting
+  hi SLNormalMode ctermbg=008 ctermfg=12 cterm=none
+  hi SLInsertMode ctermbg=008 ctermfg=10 cterm=bold
+  hi! link StatusLine SLNormalMode
+  hi! link StatusLineNC StatusLine
+endfunction
+
+autocmd InsertEnter * :hi! link StatusLine SLInsertMode
+autocmd InsertLeave * :hi! link StatusLine SLNormalMode
+
 """"""""""""""""
 " TESTING AREA "
 """"""""""""""""
-"function! SyntaxItem()
-"  return synIDattr(synID(line("."),col("."),1),"name")
-"endfunction
-"set statusline+=%{SyntaxItem()}
+
+" Setup current modes
+let g:currentmode={
+    \ 'n'  : 'Normal',
+    \ 'no' : 'Normal·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'Replace',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
+    \}
+
+" Build statusline
+set laststatus=2
+set stl=
+set stl+=%* " reset color
+set stl+=\ %M " modified?
+set stl+=%<%f " relative file path
+set stl+=\ %* " reset color
+set stl+=%= " Move to end of statusline
+set stl+=\ %Y " filetype with brackets
+set stl+=\ ( " open paren
+set stl+=%l,%c\/ " line,column
+set stl+=%p " percentage through file
+set stl+=%{'%'} " percentage through file
+set stl+=) " close paren
+set stl+=%* " rest color
+set stl+=\ %{toupper(get(g:currentmode,mode(),'V-Block'))}
+set stl+=\ %*
+
+
+" Shift-Tab, ("de-tab")
+inoremap <S-Tab> <C-d>
+nnoremap <S-Tab> i<C-d><Esc>
+nnoremap <Tab> <Esc>0i<Tab><Esc>$
+
+" Goyo Stuff
+let g:goyo_height = '100%'
+function! s:goyo_enter()
+  Limelight!!
+  set statusline=0
+endfunction
+
+function! s:goyo_leave()
+  Limelight!!
+  set statusline=2
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+function LightsOn()
+  set background=light
+  silent! colorscheme PaperColor
+endfunction
+
+function LightsOut()
+  set background=dark
+  silent! colorscheme dracula_pro_van_helsing
+endfunction
 
 " NERDTree Filetype changes
 au FileType nerdtree hi CursorLine cterm=italic ctermbg=0
 au FileType nerdtree hi Normal ctermbg=none
 au FileType nerdtree hi link Cursor CursorLine
 
-hi link slackFormatBold DraculaOrangeBold
-hi link slackFormatItalic DraculaYellowItalic
-hi link slackFormatInlineCode DraculaGreen
-hi link slackFormatCodeBlock slackFormatInlineCode
-hi link slackformatBlockQuote DraculaComment
-hi link slackformatBlockQuoteMultiline DraculaCommentBold
+" Cursor Setting
+autocmd InsertEnter,InsertLeave * set cul!
+hi CursorLine ctermbg=000 guibg=#423146
+
+set guicursor=a:block,i:blinkoff400-blinkon250
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -54,6 +140,7 @@ endfunction
 
 " turn of folds by default
 set nofoldenable
+
 """"""""""""""""""""
 " END TESTING AREA "
 """"""""""""""""""""
@@ -110,10 +197,6 @@ set linebreak
 " END UNSORTED MAPS "
 """""""""""""""""""""
 
-" Colorscheme info
-set bg=dark
-silent! colorscheme dracula_pro_van_helsing
-
 " No swap files
 set noswapfile
 
@@ -158,11 +241,10 @@ highlight SpecialKey ctermfg=242
 hi Pmenu ctermfg=248 ctermbg=0
 hi PmenuSel ctermfg=White ctermbg=DarkGrey
 hi MatchParen ctermbg=DarkGrey
-hi StatusLine cterm=none ctermfg=4 ctermbg=238
-hi StatusLineNC cterm=none ctermfg=244 ctermbg=238
 hi ColorColumn ctermbg=0
 
 
 " CtrlP
 nmap <Leader>p :CtrlP<CR>
+nmap <Leader><Leader> :CtrlP<CR>
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
