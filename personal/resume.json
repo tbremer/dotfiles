@@ -1,14 +1,14 @@
 {
   "basics": {
     "email": "tom@tbremer.com",
-    "label": "Frontend Engineer",
+    "label": "Web Developer",
     "location": {
       "city": "Saint Louis",
       "countryCode": "US",
       "region": "Missouri"
     },
     "name": "Tom Bremer",
-    "phone": "314.971.7758",
+    "phone": "314-971-7758",
     "picture": "https://avatars2.githubusercontent.com/u/2998575",
     "summary": "I am a web developer and user advocate. I believe in in making the web accessible, performant, and easy to use.\nI am more generally interested in unique programming languages, compilers, and light weight or vanilla solutions.",
     "website": "http://tbremer.com",
@@ -41,10 +41,7 @@
   ],
   "languages": [
     {
-      "abilities": [
-        "Written",
-        "Spoken"
-      ],
+      "abilities": ["Written", "Spoken"],
       "fluency": "Native",
       "language": "English"
     }
@@ -57,40 +54,43 @@
         "CSS",
         "Current ECMAScript standards",
         "a11y & aria",
-        "NodeJS",
-        "webpack"
+        "NodeJS/Deno",
+        "Webpack",
+        "Parcel"
       ],
-      "name": "Front End Development"
+      "name": "Frontend Development"
     },
     {
       "keywords": [
         "NodeJS",
         "GraphQL",
-        "React / ReactNative",
+        "React/ReactNative",
         "Rust",
-        "OCaml / ReasonML",
+        "OCaml/ReasonML",
         "PHP",
-        "PostgreSQL, MySQL",
+        "PostgreSQL",
+        "MySQL",
         "nginx",
-        "graph databases"
+        "Docker"
       ],
-      "name": "Web / App Development"
+      "name": "Web/App Development"
     }
   ],
   "work": [
     {
-      "company": "World Wide Technology: Application Services",
+      "company": "World Wide Technology",
       "highlights": [
         "Deploy Enterprise web applications across web and native mobile devices",
         "Promote web accessibility standards throughout new and existing teams",
         "Mentor designers and developers across a range of experience levels in JavaScript, CSS, PostCSS, Sass, HTML, and the NodeJS ecosystem",
         "Encourage and coach teams on best practices regarding performance tuning web applications",
         "Facilitate lunch and learns over new and existing web technologies",
-        "Help incorporate latest web technologies and tools within the organization"
+        "Help incorporate latest web technologies and tools within the organization",
+        "Build frontend and backend prototype applications to perform user tests"
       ],
-      "position": "Senior Front End Engineer",
+      "position": "Lead Frontend Engineer",
       "startDate": "2015-07-06",
-      "summary": "Front End Engineer, User Experience Research.",
+      "summary": "Frontend Engineer, Design.",
       "website": "https://wwt.com"
     },
     {
