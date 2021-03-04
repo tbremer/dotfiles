@@ -14,6 +14,7 @@ alias resource="source ~/.config/fish/config.fish"
 alias mkdir="mkdir -p"
 alias download='curl -O -J'
 alias dl='download'
+alias webtopdf='chrome --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf-no-header --print-to-pdf'
 
 # Git aliases
 alias guy="git"
@@ -44,5 +45,11 @@ thefuck --alias | source
 # if .fishrc exists at $HOME
 if test -e $HOME/.fishrc
   source $HOME/.fishrc
+end
+
+set -l is_dark (defaults read -g AppleInterfaceStyle)
+
+if test is_dark != "Dark"
+  prof Light
 end
 
