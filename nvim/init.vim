@@ -24,7 +24,7 @@ call plug#end()
 
 " Colorscheme info
 set bg=dark
-colorscheme dracula_pro_van_helsing
+colorscheme dracula_pro_buffy
 augroup MyColors
   autocmd!
   autocmd ColorScheme * call MyHighlights()
@@ -32,10 +32,10 @@ augroup end
 
 function! MyHighlights() abort
   " StatusLine Highlighting
-  hi SLNormalMode ctermbg=008 ctermfg=12 cterm=none
-  hi SLInsertMode ctermbg=008 ctermfg=10 cterm=bold
-  hi! link StatusLine SLNormalMode
-  hi! link StatusLineNC StatusLine
+  "hi SLNormalMode ctermbg=008 ctermfg=12 cterm=none
+  "hi SLInsertMode ctermbg=008 ctermfg=10 cterm=bold
+  "hi! link StatusLine SLNormalMode
+  "hi! link StatusLineNC StatusLine
 endfunction
 
 autocmd InsertEnter * :hi! link StatusLine SLInsertMode

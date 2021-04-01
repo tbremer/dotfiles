@@ -29,6 +29,7 @@ alias gname='git rev-parse --abbrev-ref HEAD';
 alias glog="git log --pretty=format:'%C(yellow)%h%C(reset)%x09%an(%ae)%x09%C(cyan)%s%Creset'"
 alias ggraph='git log --graph --oneline --decorate'
 alias gcgraph="git log --graph --stat --pretty=format:'%C(yellow)%H%Creset%C(white) - %Creset%C(cyan)%ad%Creset%n''%C(cyan)%an::%Creset %C(white)%s%d%Creset %C(dim white)'"
+alias gupdate="git fetch && git rebase --no-ff"
 
 # Git Config
 git config --global alias.unadd "reset HEAD"
