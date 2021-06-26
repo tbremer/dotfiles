@@ -27,6 +27,11 @@
         "network": "CodePen",
         "url": "http://codepen.io/tbremer/",
         "username": "tbremer"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tom-bremer-b3a168195/",
+        "username": "tom-bremer"
       }
     ]
   },
@@ -49,14 +54,12 @@
   "skills": [
     {
       "keywords": [
-        "JS & CSS Preprocessors",
         "HTML",
         "CSS",
-        "Current ECMAScript standards",
+        "JavaScript",
         "a11y & aria",
         "NodeJS/Deno",
-        "Webpack",
-        "Parcel"
+        "Preact/React"
       ],
       "name": "Frontend Development"
     },
@@ -67,7 +70,6 @@
         "React/ReactNative",
         "Rust",
         "OCaml/ReasonML",
-        "PHP",
         "PostgreSQL",
         "MySQL",
         "nginx",
@@ -80,13 +82,14 @@
     {
       "company": "World Wide Technology",
       "highlights": [
-        "Deploy Enterprise web applications across web and native mobile devices",
+        "Deploy applications across web and native mobile platforms",
+        "Utilize latest trends for CI and CD best practices",
         "Promote web accessibility standards throughout new and existing teams",
-        "Mentor designers and developers across a range of experience levels in JavaScript, CSS, PostCSS, Sass, HTML, and the NodeJS ecosystem",
+        "Mentor designers and developers across a range of experience levels in JavaScript, CSS, HTML, PostCSS, Sass, and the various JavaScript runtime environments and ecosystems",
         "Encourage and coach teams on best practices regarding performance tuning web applications",
         "Facilitate lunch and learns over new and existing web technologies",
         "Help incorporate latest web technologies and tools within the organization",
-        "Build frontend and backend prototype applications to perform user tests"
+        "Rapidly build and maintain frontend and backend prototype applications for clients as well as internally."
       ],
       "position": "Lead Frontend Engineer",
       "startDate": "2015-07-06",
