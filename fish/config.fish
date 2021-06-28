@@ -48,9 +48,3 @@ if test -e $HOME/.fishrc
   source $HOME/.fishrc
 end
 
-set -l is_dark (defaults read -g AppleInterfaceStyle)
-
-if test is_dark != "Dark"
-  prof Light
-end
-
