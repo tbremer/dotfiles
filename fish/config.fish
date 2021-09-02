@@ -47,3 +47,6 @@ thefuck --alias | source
 if test -e $HOME/.fishrc
   source $HOME/.fishrc
 end
+
+# Disable fish welcome message
+set -U fish_greeting ""
