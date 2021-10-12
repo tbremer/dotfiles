@@ -84,18 +84,18 @@
     {
       "company": "World Wide Technology",
       "highlights": [
-        "Deploy applications across web and native mobile platforms",
+        "Deploy applications across web and native mobile platforms.",
         "Build out custom workflows for GitHub actions and GitLab runners.",
         "Promote web accessibility standards throughout new and existing teams",
-        "Mentor individual contributors across a range of experience levels in JavaScript, CSS, HTML, PostCSS, Sass, and the various JavaScript runtime environments and ecosystems",
-        "Coach teams and individual contributors on best practices regarding performance tuning web applications",
-        "Coach teams and individual contributors on accessibility best practices",
-        "Facilitate lunch and learns over new and existing web technologies",
-        "Help incorporate latest web technologies and tools within the organization",
+        "Mentor individual contributors across a range of experience levels in JavaScript, CSS, HTML, PostCSS, Sass, and the various JavaScript runtime environments and ecosystems.",
+        "Coach teams and individual contributors on best practices regarding performance tuning web applications.",
+        "Coach teams and individual contributors on accessibility best practices.",
+        "Facilitate lunch and learns over new and existing web technologies.",
+        "Help incorporate latest web technologies and tools within the organization.",
         "Rapidly build and maintain frontend and backend prototype applications for clients as well as internally.",
-        "Update the Frontend Engineering interview process",
-        "Worked with the wider WWT Leadership group to build a career matrix and promotion process",
-        "Build out and maintain various design systems as needed for clients"
+        "Update the Frontend Engineering, User Research, and User Experience Designer interview processes.",
+        "Worked with the wider WWT Leadership group to build a career matrix and promotion process.",
+        "Build out and maintain various design systems as needed for clients."
       ],
       "position": "Lead Frontend Engineer",
       "startDate": "2015-07-06",
