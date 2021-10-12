@@ -47,11 +47,3 @@ thefuck --alias | source
 if test -e $HOME/.fishrc
   source $HOME/.fishrc
 end
-
-defaults read -g AppleInterfaceStyle &| read -l --silent is_dark
-
-if test "$is_dark" != "Dark"
-  prof Light
-else
-  prof Default
-end
