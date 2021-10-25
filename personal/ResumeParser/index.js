@@ -1,1 +1,0 @@
-const h = require('./renderer');
