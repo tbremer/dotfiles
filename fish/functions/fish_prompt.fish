@@ -75,4 +75,8 @@ function fish_prompt
   printf "\n→ "
 
   set_color normal
+
+  if test -f $HOME/.appearance && test -d /Applications/iTerm.app/
+	  prof (cat $HOME/.appearance);
+  end
 end
