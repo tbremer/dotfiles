@@ -49,7 +49,7 @@ function fish_prompt
     set node_version (node -v 2>/dev/null);
   end
 
-  set_color cyan
+  #  set_color cyan
   printf '[%s] ' (date +"%T")
   set_color $fish_color_cwd
   printf '%s ' (prompt_pwd)
@@ -67,8 +67,12 @@ function fish_prompt
     printf '❭'
     set_color normal
   end
-  printf '\n'
-  printf "🦦  "
+  if test $last_status -eq 0
+	  set_color brgreen
+  else 
+	  set_color brred
+  end
+  printf "\n→ "
 
   set_color normal
 end
