@@ -40,13 +40,13 @@ alias pyserv="python3 $DOTFILES/python/static-server.py";
 
 alias glcoud="gcloud"
 
-# the fuck
-thefuck --alias | source
-
 # if .fishrc exists at $HOME
 if test -e $HOME/.fishrc
   source $HOME/.fishrc
 end
+
+# the fuck
+thefuck --alias | source
 
 # Disable fish welcome message
 set -U fish_greeting ""
