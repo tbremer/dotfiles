@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
 [[ $(defaults read -g AppleInterfaceStyle 2>/dev/null) == "Dark" ]] && osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/bremert/Documents/Dracula PRO — Zeno Rocha/wallpapers/dracula-buffy/desktop-3440x1440.png"' || osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/bremert/Documents/Dracula PRO — Zeno Rocha/wallpapers/dracula-buffy/light-desktop-3440x1440.png"';
-[[ $(defaults read -g AppleInterfaceStyle 2>/dev/null) == "Dark" ]] && echo "Dark" > $HOME/.appearance || echo "Light" > $HOME/.appearance
