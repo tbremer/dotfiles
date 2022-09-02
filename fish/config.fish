@@ -8,7 +8,7 @@ if test -z "$DOTFILES"
 end
 
 # General Aliases
-alias l="ls -lah"
+alias l="ls -lahFG"
 alias vim="nvim"
 alias resource="source ~/.config/fish/config.fish"
 alias mkdir="mkdir -p"
