@@ -42,34 +42,55 @@ set fish_emoji_width 2
 function fish_prompt
   set last_status $status
   set -l package_version
+  set -l monorepo false
   set -l node_version
 
   if type -q npm; and test -f ./package.json
-    set package_version (node -p "require('./package.json').version" 2>/dev/null)
     set node_version (node -v 2>/dev/null);
+    set package_version (node -p "require('./package.json').version" 2>/dev/null)
+
+    if test "$package_version" = "undefined"
+      set package_version ""
+    end
+
+    set monorepo (node -p "((require('./package.json').workspaces||{}).packages||[]).length" 2>/dev/null)
   end
 
-  #  set_color cyan
   printf '[%s] ' (date +"%T")
   set_color $fish_color_cwd
   printf '%s ' (prompt_pwd)
   set_color normal
 
   printf '%s ' (__fish_git_prompt)
-  if test -n "$package_version"
+
+  if test -n "$node_version"
     printf '❬'
     set_color green
     printf '⬢  '
     set_color normal
     printf '%s' $node_version
-    printf ' | '
-    printf '📦 %s' $package_version
+
+    printf ' | 📦'
+
+    if test $monorepo -gt 0
+      printf ' ‹'
+      set_color magenta
+      printf '%s' $monorepo
+      set_color normal
+      printf '›'
+    end
+
+    if test -n "$package_version"
+      printf ' @ %s' $package_version
+    end
+
     printf '❭'
     set_color normal
   end
+
   if test $last_status -eq 0
 	  set_color brgreen
-  else 
+  else
 	  set_color brred
   end
   printf "\n→ "
