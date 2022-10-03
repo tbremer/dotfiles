@@ -46,7 +46,6 @@ highlight SpecialKey ctermfg=242
 
 " Plug!
 call plug#begin()
-	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'ap/vim-buftabline'
 	Plug 'preservim/nerdtree'
 	Plug 'lukas-reineke/indent-blankline.nvim'
@@ -58,11 +57,6 @@ au FileType nerdtree hi Normal ctermbg=none
 au FileType nerdtree hi link Cursor CursorLine
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
 
-
-" CtrlP
-nmap <Leader>p :CtrlP<CR>
-nmap <Leader><Leader> :CtrlP<CR>
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " IndentGuides
 let g:indent_guides_enable_on_vim_startup = 1
