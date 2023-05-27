@@ -1,39 +1,15 @@
-# Formal
+Hey all,
 
-I wanted to reach out and show my interest in your opening for a User Interface Engineer, I am currently supporting the development of a UI Framework for an internal client. Daily I am tasked with moving designs into code and manual processes into automated ones. I do this on the clientside with: HTML, Sass, and Javascript. In the development environment with: NodeJS, Gulp, Grunt, ES6 (Babel and IOJS), and Bash. I have done work in React, FlightJS and small tasks in Ember.
+I wanted to express my interest in your Developer Relations role and working with the team at Glitch.
 
-I have experience in A/B testing, iterative design and development, and building frameworks. My bachelors studies were focused in Fine Arts, specifically photography. I am an advocate for Open Source projects and enjoy contributing to new, evolving and established projects. I am also a ['vinyl', 'coffee', 'beer', 'cycling', 'running'] enthusiast.
+I am a web developer and user advocate. I believe in making the web accessible, performant, easy to use, and easy to build on. As development professionals, we are responsible to our end-users and other builders to provide tools that allow for quick iteration and rapid deployment; we must do this while keeping in mind the impact our work has on the environment and world around us.
 
-Highlighted projects:
-https://github.com/tbremer/collector
-https://github.com/tbremer/crookedspaces.com (http://www.crookedspaces.com)
-https://github.com/tbremer/simple-grid (https://github.com/tbremer/simple-grid/blob/master/test/index.html)
-https://www.npmjs.com/package/sass-get-dependents
-https://github.com/tbremer/react-slideshow
+My professional development experience encompasses many technology stacks, use cases, end-users, and design requirements as a consultant. I've had the good fortune of working in web, native mobile, and also helping build and maintain deployment and automation infrastructure.
 
-You can see all of my contributions at: http://github.com/tbremer
-You can find more out about me at: http://tbremer.com
+Over the past couple of years, I have made time for both individual contributions and taking on roles as a mentor, teacher, and skill-building specialist. I've been encouraged to lean into my "back of the class" teaching style and people-centered advocacy. I believe this role would allow me to grow further in those skills while still maintaining a technical foundation in problem-solving. 
 
-Attached is my resume. Please reach out with any questions you may have!
+You can view some open source work on GitHub at https://github.com/tbremer or find out more about me at https://tbremer.com.
 
-Sincerely
-Tom Bremer.
+Thank you for your time and consideration,
 
-# Less Formal
-
-I wanted to reach out and show my interest in your opening for a web developer, I am currently supporting the development of a UI Framework for an internal client. Daily I am tasked with moving designs into code and manual processes into automated ones. I do this on the clientside with: HTML, Sass, PostCSS, and Javascript. In the development environment with: NodeJS, Gulp, Grunt, utilizing the latest in ES6 (normally through Babel), and Bash. I have done work in React, FlightJS and small tasks in Ember.
-
-I have experience in A/B testing, iterative design and development, and building frameworks. My bachelors studies were focused in Fine Arts, specifically photography. I am an advocate for Open Source projects and enjoy contributing to new, evolving and established projects. I am also a ['vinyl', 'coffee', 'beer', 'cycling', 'running'] enthusiast.
-
-Highlighted projects:
-https://github.com/tbremer/collector
-https://github.com/tbremer/crookedspaces.com (http://www.crookedspaces.com)
-https://github.com/tbremer/simple-grid (https://github.com/tbremer/simple-grid/blob/master/test/index.html)
-https://www.npmjs.com/package/sass-get-dependents
-https://github.com/tbremer/react-slideshow
-
-You can see all of my contributions at: http://github.com/tbremer
-You can find more out about me at: http://tbremer.com
-
-Sincerely
-Tom Bremer.
+Tom.

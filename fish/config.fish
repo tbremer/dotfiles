@@ -50,3 +50,10 @@ thefuck --alias | source
 
 # Disable fish welcome message
 set -U fish_greeting ""
+
+# pnpm
+set -gx PNPM_HOME "/Users/tom/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
