@@ -15,6 +15,8 @@ alias mkdir="mkdir -p"
 alias download='curl -O -J'
 alias dl='download'
 alias webtopdf='chrome --headless --disable-gpu --run-all-compositor-stages-before-draw --print-to-pdf-no-header --print-to-pdf'
+alias cs comfort-sounds
+alias lcear clear
 
 # Git aliases
 alias guy="git"
