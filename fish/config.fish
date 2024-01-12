@@ -7,6 +7,11 @@ if test -z "$DOTFILES"
   end
 end
 
+# PATH Updates
+if test -d "$HOME/.local/bin"
+  fish_add_path "$HOME/.local/bin"
+end
+
 # General Aliases
 alias l="ls -lahFG"
 alias vim="nvim"
