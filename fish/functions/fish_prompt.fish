@@ -40,20 +40,31 @@ set __fish_git_prompt_char_upstream_equal ' = '
 set fish_emoji_width 2
 
 function fish_prompt
-  set last_status $status
+  set -l last_status $status
   set -l package_version
   set -l monorepo false
   set -l node_version
+  set -l monorepo -1
 
-  if type -q npm; and test -f ./package.json
-    set node_version (node -v 2>/dev/null);
-    set package_version (node -p "require('./package.json').version" 2>/dev/null)
+  if type -q npm
+    if test \( -f ./package.json \)
+      set node_version (node -v 2>/dev/null);
+      set package_version (node -p "require('./package.json').version" 2>/dev/null)
 
-    if test "$package_version" = "undefined"
-      set package_version ""
+      # package_version could be undefined if it's not present in `package.json`
+      if test "$package_version" = "undefined"
+        set package_version ""
+      end
+
+      set monorepo (node -p "((require('./package.json').workspaces||{}).packages||[]).length" 2>/dev/null)
+
+      # there is a chance that $monorepo ends up as no length variable,
+      # if there is an issue with the `package.json` file, account for that here
+      if test -z "$monorepo"
+        set monorepo -1
+      end
+
     end
-
-    set monorepo (node -p "((require('./package.json').workspaces||{}).packages||[]).length" 2>/dev/null)
   end
 
   printf '[%s] ' (date +"%T")
