@@ -6,4 +6,13 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        numbers = "buffer_id"
+      },
+    },
+  },
 }
