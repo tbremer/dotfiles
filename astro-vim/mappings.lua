@@ -6,7 +6,8 @@
 return {
   -- first key is the mode
   n = {
-      ["<leader>t"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+    ["Z"] = { "zz", desc = "Center" },
+    [";"] = { ":", desc = "Semi to Colon"},
 
     -- second key is the lefthand side of the map
 
@@ -38,5 +39,8 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+  },
+  i = {
+    ["$$"] = { "<esc>$a", desc = "End of Line" },
   },
 }
