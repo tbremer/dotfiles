@@ -1,4 +1,6 @@
 return {
+  plugins = {},
+
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -17,8 +19,9 @@ return {
     },
   },
 
+
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -72,6 +75,13 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    require("neo-tree").setup({
+      window = {
+        position = "right"
+      }
+    })
+
+    -- require("astrovim").user_opts("nvim-neo-tree/neo-tree.nvim", { position = "right" })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
@@ -84,15 +94,15 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-   -- require("neo-tree").setup({
-   --   window = {
-   --     mappings = {
-   --       ["P"] = function(state)
-   --         local node = state.tree:get_node()
-   --         require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
-   --       end
-   --     }
-   --   }
-   -- })
+    -- require("neo-tree").setup({
+    --   window = {
+    --     mappings = {
+    --       ["P"] = function(state)
+    --         local node = state.tree:get_node()
+    --         require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+    --       end
+    --     }
+    --   }
+    -- })
   end,
 }

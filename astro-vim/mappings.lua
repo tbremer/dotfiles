@@ -35,6 +35,9 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["@+"] = {
+      ":call setreg('+', expand('%'))<CR>", desc = "Copy current file to clipboard"
+    }
   },
   t = {
     -- setting a mapping to false will disable it
