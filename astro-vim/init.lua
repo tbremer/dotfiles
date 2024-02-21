@@ -21,7 +21,8 @@ return {
 
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
+  --colorscheme = "catppuccin",
+  colorscheme = "everforest",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
