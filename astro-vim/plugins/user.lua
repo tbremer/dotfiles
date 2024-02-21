@@ -25,7 +25,17 @@ return {
       })
     end,
   },
-
+  {
+    "nvim-notify",
+    opts = {
+      stages = "fade_in_slide_out",
+      render = "wrapped-compact",
+      top_down = false,
+      timeout = 1000,
+    },
+  },
+  { "nickeb96/fish.vim" },
+  { "knsh14/vim-github-link", lazy = false },
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",

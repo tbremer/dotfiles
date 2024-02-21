@@ -1,4 +1,3 @@
-#/opt/homebrew/bin/fnm env --use-on-cd | source
-
-fnm env --use-on-cd | source
-#echo "fnm"
+if type -q fnm
+  fnm env --use-on-cd | source
+end

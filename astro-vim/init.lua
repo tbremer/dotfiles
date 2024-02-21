@@ -79,8 +79,13 @@ return {
     require("neo-tree").setup({
       window = {
         position = "right"
+      },
+      update_focused_file = {
+        enable = true,
       }
     })
+
+    vim.api.nvim_set_option_value('colorcolumn', "80,120", {})
 
     -- require("astrovim").user_opts("nvim-neo-tree/neo-tree.nvim", { position = "right" })
     -- Set up custom filetypes

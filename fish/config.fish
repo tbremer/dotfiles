@@ -12,6 +12,16 @@ if test -d "$HOME/.local/bin"
   fish_add_path "$HOME/.local/bin"
 end
 
+# neovim nightly
+if test -d "$HOME/nvim-macos"
+  fish_add_path "$HOME/nvim-macos/bin"
+end
+
+# vscode
+if test -d "/Applications/Visual Studio Code.app"
+  alias code="open -a /Applications/Visual\ Studio\ Code.app"
+end
+
 # General Aliases
 alias l="ls -lahFG"
 alias vim="nvim"
@@ -45,8 +55,6 @@ git config --global alias.dig 'diff --ignore-space-at-eol -b -w --ignore-blank-l
 # Static file server with history API
 alias pyserv="python3 $DOTFILES/python/static-server.py";
 
-alias glcoud="gcloud"
-
 # if .fishrc exists at $HOME
 if test -e $HOME/.fishrc
   source $HOME/.fishrc
@@ -59,8 +67,12 @@ thefuck --alias | source
 set -U fish_greeting ""
 
 # pnpm
-set -gx PNPM_HOME "/Users/tom/Library/pnpm"
+if not set -q PNPM_HOME
+  set -gx PNPM_HOME "$HOME/Library/pnpm"
+end
+
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
