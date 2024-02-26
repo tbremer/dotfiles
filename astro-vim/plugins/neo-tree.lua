@@ -13,6 +13,9 @@ return {
           U = "to_parent"
         },
       },
+      update_focused_file = {
+        enable = true,
+      },
     },
   },
 }

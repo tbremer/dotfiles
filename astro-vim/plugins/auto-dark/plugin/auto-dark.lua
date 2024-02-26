@@ -71,5 +71,5 @@ end
 run()
 
 -- start a timer
-vim.fn.timer_start(update, run, { ["repeat"] = -1 })
+vim.fn.timer_start(timeout, run, { ["repeat"] = -1 })
 

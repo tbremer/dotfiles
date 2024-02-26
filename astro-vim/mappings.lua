@@ -36,8 +36,9 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["@+"] = {
-      ":call setreg('+', expand('%'))<CR>", desc = "Copy current file to clipboard"
-    }
+      ":call setreg('+', expand('%'))<CR>",
+      desc = "Copy current file to clipboard",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
@@ -47,3 +48,5 @@ return {
     ["$$"] = { "<esc>$a", desc = "End of Line" },
   },
 }
+
+--front/apps/vercel-site/app/api/invite/[code]/route.ts

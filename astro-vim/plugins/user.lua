@@ -1,15 +1,17 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
-  --{
-  --  "catppuccin",
-  --  opts = {
-  --    background = {
-  --      light = "latte",
-  --      dark = "macchiato",
-  --    },
-  --  },
-  --},
+  { import = "astrocommunity.pack.svelte", enabled = true },
+  { import = "astrocommunity.pack.typescript", enabled = true },
+  {
+    "catppuccin",
+    opts = {
+      background = {
+        light = "latte",
+        dark = "macchiato",
+      },
+    },
+  },
   {
     dir = "~/dotfiles/astro-vim/plugins/auto-dark",
     lazy = false
