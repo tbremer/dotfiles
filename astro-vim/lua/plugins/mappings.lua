@@ -11,8 +11,9 @@ return {
   opts = {
     mappings = {
       n = {
+        ["<leader>q"] = false, -- disable quit via leader
         ["Z"] = { "zz", desc = "Center" },
-        [";"] = { ":", desc = "Semi to Colon"},
+        [";"] = { ":", desc = "Semi to Colon" },
 
         -- mappings seen under group name "Buffer"
         ["<leader>bD"] = {
@@ -37,6 +38,6 @@ return {
       i = {
         ["$$"] = { "<esc>$a", desc = "End of Line" },
       },
-    }
-  }
+    },
+  },
 }
