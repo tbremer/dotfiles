@@ -24,6 +24,7 @@ return {
           end,
           desc = "Pick to close",
         },
+        ["bD"] = { ":bd<CR>", name = "Delete current buffer" },
 
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
