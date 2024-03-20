@@ -37,6 +37,7 @@ return {
   },
   { "nickeb96/fish.vim" },
   { "knsh14/vim-github-link", lazy = false },
+  { "gleam-lang/gleam.vim" },
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
