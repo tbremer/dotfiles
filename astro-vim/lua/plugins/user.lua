@@ -32,12 +32,17 @@ return {
       stages = "fade_in_slide_out",
       render = "wrapped-compact",
       top_down = false,
-      timeout = 1000,
     },
   },
   { "nickeb96/fish.vim" },
   { "knsh14/vim-github-link", lazy = false },
+<<<<<<< Updated upstream
   { "gleam-lang/gleam.vim" },
+=======
+
+  -- typescript relaetd things
+  { "dmmulroy/ts-error-translator.nvim" },
+>>>>>>> Stashed changes
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder

@@ -11,12 +11,12 @@ return {
   opts = {
     mappings = {
       n = {
-        ["<leader>q"] = false, -- disable quit via leader
+        ["<Leader>q"] = false, -- disable quit via leader
         ["Z"] = { "zz", desc = "Center" },
         [";"] = { ":", desc = "Semi to Colon" },
 
         -- mappings seen under group name "Buffer"
-        ["<leader>bD"] = {
+        ["<Leader>bD"] = {
           function()
             require("astronvim.utils.status").heirline.buffer_picker(
               function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
@@ -24,11 +24,27 @@ return {
           end,
           desc = "Pick to close",
         },
-        ["bD"] = { ":bd<CR>", name = "Delete current buffer" },
+        ["<Leader>lq"] = {
+          function() vim.diagnostic.reset() end,
+          desc = "clear the diagnostics",
+        },
+        ["<Leader>lH"] = {
+          function()
+            local hints = vim.lsp.inlay_hint.is_enabled(0)
+
+            require("notify").notify("this could take a minute", vim.log.levels.INFO, {
+              title = (hints and "disabling" or "enabling") .. " inlay_hint",
+              hide_from_history = true,
+            })
+
+            vim.lsp.inlay_hint.enable(0, not hints)
+          end,
+          desc = "enable inlay hints",
+        },
 
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<leader>b"] = { name = "Buffers" },
+        ["<Leader>b"] = { name = "Buffers" },
 
         ["@+"] = {
           ":call setreg('+', expand('%'))<CR>",

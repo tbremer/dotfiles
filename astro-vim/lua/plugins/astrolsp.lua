@@ -1,4 +1,21 @@
-if true then return {} end -- uncomment this line to enable
+-- if true then return {} end -- uncomment this line to disable
+
+return {
+  "AstroNvim/astrolsp",
+  optional = true,
+  ---@type AstroLSPOpts
+  opts = {
+    features = {
+      inlay_hints = false,
+    },
+    formatting = {
+      disabled = {
+        "eslint",
+        --"typescript-tools",
+      },
+    },
+  },
+}
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`

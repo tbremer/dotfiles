@@ -12,12 +12,12 @@ return {
   { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
   { import = "astrocommunity.pack.svelte", enabled = true },
-  { import = "astrocommunity.pack.typescript", enabled = true },
+  --{ import = "astrocommunity.pack.typescript", enabled = true },
   {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        numbers = "buffer_id"
+        numbers = "buffer_id",
       },
     },
   },
@@ -31,4 +31,3 @@ return {
     },
   },
 }
-

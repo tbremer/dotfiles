@@ -1,15 +1,25 @@
 -- if true then return {} end -- uncomment this line to disable
-require("neo-tree").setup({
-  window = {
-    position = "right"
+require("neo-tree").setup {
+  filesystem = {
+    filtered_items = {
+      hide_dotfiles = false,
+    },
+    follow_current_file = {
+      enabled = true,
+    },
   },
-  update_focused_file = {
-    enable = true,
-  }
-})
+  --},
+  window = {
+    position = "right",
+  },
+}
 
-vim.api.nvim_set_option_value('colorcolumn', "80,120", {})
+vim.api.nvim_set_option_value("colorcolumn", "80,120", {})
 
+---
+--- original comments that came with this repo
+---
+--vim.lsp.set_log_level "debug" -- uncomment to enable log level
 
 -- This will run last in the setup process and is a good place to configure
 -- things like custom filetypes. This just pure lua so anything that doesn't
