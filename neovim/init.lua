@@ -1,2 +1,33 @@
 require("user")
 
+-- list of plugins to evaluate from astrovim
+-- ✓ web-devicons.lua
+-- ✓ vim-illuminate.lua -- highlight hovered word -- https://github.com/RRethy/vim-illuminate
+-- ✓ treesitter.lua
+-- ✓ todo-comments.lua
+-- ✓ telescope.lua
+-- ✓ nvim-ufo.lua -- better folds -- https://github.com/kevinhwang91/nvim-ufo
+-- ✓ notify.lua
+-- ✓ neodev.lua -- neovim lua snippets -- https://github.com/folke/neodev.nvim
+-- ✓ mason.lua
+-- ✓ lualine -- https://github.com/nvim-lualine/lualine.nvim
+-- ✓ lspkind.lua
+-- ✓ lspconfig.lua
+-- ✓ indent-blankline.lua -- https://github.com/lukas-reineke/indent-blankline.nvim
+-- ✓ gitsigns.lua
+-- ✓ dressing.lua -- ui updates -- https://github.com/stevearc/dressing.nvim
+-- ✓ conform -- formatter -- https://github.com/stevearc/conform.nvim
+-- ✓ colorizer.lua -- https://github.com/NvChad/nvim-colorizer.lua
+-- ✓ autopairs.lua -- https://github.com/windwp/nvim-autopairs
+-- ? ts-autotag.lua -- autocloses html/jsx tags
+-- ? smart-splits.lua -- better splitting -- https://github.com/mrjones2014/smart-splits.nvim?tab=readme-ov-file#examples
+-- ? mini-bufremove.lua -- prevents window changes when closing buffers
+-- ? guess-indent.lua -- sublime text indent guesser -- https://github.com/NMAC427/guess-indent.nvim
+-- ? dap.lua -- debugger -- https://github.com/mfussenegger/nvim-dap
+-- ? comment.lua -- smart comments, powered by treesitter -- https://github.com/numToStr/Comment.nvim
+-- ? cmp_luasnip.lua --
+-- × toggleterm.lua
+-- × resession.lua
+-- × better-escape.lua
+-- × alpha.lua -- start up screen
+-- × aerial.lua -- code outline
