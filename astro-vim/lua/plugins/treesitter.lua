@@ -5,6 +5,10 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    -- Additional text objects for treesitter
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
@@ -22,6 +26,7 @@ return {
       "rust",
       "sql",
       "svelte",
+      "tsx",
       "typescript",
       "vim",
     })

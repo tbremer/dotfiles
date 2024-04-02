@@ -50,6 +50,21 @@ return {
           ":call setreg('+', expand('%'))<CR>",
           desc = "Copy current file to clipboard",
         },
+
+        ["<Leader>fg"] = {
+          ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+          desc = "telescope live grep with args",
+        },
+
+        ["<Leader>c"] = {
+          ":clo<cr>",
+          desc = "close split or tab or whatever",
+        },
+
+        ["<Leader>C"] = {
+          ":bd<cr>",
+          desc = "delete current buffer",
+        },
       },
       t = {},
       i = {
