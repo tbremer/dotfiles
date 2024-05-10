@@ -10,25 +10,29 @@ return {
   keys = {
     { "<Leader>e", "<cmd>Neotree toggle<cr>", desc = "Neotree toggle" },
     {
-      "<Leader>o",
+      "<Leader>,",
       function()
         if vim.bo.filetype == "neo-tree" then
-          vim.cmd.wincmd "p"
+          vim.cmd.wincmd("p")
         else
-          vim.cmd.Neotree "focus"
+          vim.cmd.Neotree("focus")
         end
       end,
       desc = "Neotree focus",
     },
   },
   config = {
+    close_if_last_window = true,
     filesystem = {
       filtered_items = {
         hide_dotfiles = false,
-      }
+      },
+      follow_current_file = {
+        enabled = true,
+      },
     },
     window = {
-      position = "right"
+      position = "right",
     },
   },
 }

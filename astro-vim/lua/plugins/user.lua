@@ -30,7 +30,7 @@ return {
     "nvim-notify",
     opts = {
       stages = "fade_in_slide_out",
-      render = "wrapped-compact",
+      --render = "wrapped-compact",
       top_down = false,
     },
   },
@@ -40,6 +40,25 @@ return {
 
   -- typescript relaetd things
   { "dmmulroy/ts-error-translator.nvim" },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        async = true,
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+      formatters_by_ft = {
+        javascript = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        lua = { "stylua" },
+      },
+    },
+  },
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder

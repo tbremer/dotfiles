@@ -49,3 +49,15 @@ vim.opt.cursorline = true
 -- Place a column line
 vim.opt.colorcolumn = "80,120"
 
+-- Set fold settings
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
+-- disable netrwPlugin
+--vim.opt_global.loaded_netrw = 1
+--vim.opt_global.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+

@@ -1,5 +1,6 @@
 -- if true then return {} end -- uncomment this line to disable
 
+---@type LazySpec
 return {
   "AstroNvim/astrolsp",
   optional = true,

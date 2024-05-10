@@ -1,4 +1,5 @@
 require("user.opts")
 require("user.lazy")
 require("user.mappings")
-
+require("user.colorscheme")
+require("user.autocmds")

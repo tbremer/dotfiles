@@ -1,0 +1,28 @@
+return {}
+
+--return {
+--  "hrsh7th/nvim-cmp",
+--  event = { "BufReadPost", "BufNewFile" },
+--  dependencies = {
+--    "hrsh7th/cmp-nvim-lsp",
+--    "hrsh7th/cmp-buffer",
+--    "hrsh7th/cmp-path",
+--    {
+--      "L3MON4D3/LuaSnip",
+--      version = "v2.2",
+--      build = "make install_jsregexp",
+--    },
+--    "saadparwaiz1/cmp_luasnip",
+--    "rafamadriz/friendly-snippets",
+--    "onsails/lspkind.nvim",
+--    "windwp/nvim-ts-autotag",
+--    "windwp/nvim-autopairs",
+--  },
+--  opts = {
+--    sources = {
+--      { name = "nvim-lsp" },
+--      { name = "luasnip" },
+--      { name = "buffer" },
+--    },
+--  },
+--}

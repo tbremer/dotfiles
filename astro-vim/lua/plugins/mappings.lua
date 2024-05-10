@@ -33,11 +33,11 @@ return {
             local hints = vim.lsp.inlay_hint.is_enabled(0)
 
             require("notify").notify("this could take a minute", vim.log.levels.INFO, {
-              title = (hints and "disabling" or "enabling") .. " inlay_hint",
+              title = (hints and "disabling" or "enabling") .. " inlay_hint ",
               hide_from_history = true,
             })
 
-            vim.lsp.inlay_hint.enable(0, not hints)
+            vim.lsp.inlay_hint.enable(not hints)
           end,
           desc = "enable inlay hints",
         },
@@ -64,6 +64,9 @@ return {
         ["<Leader>C"] = {
           ":bd<cr>",
           desc = "delete current buffer",
+        },
+        ["<Del>"] = {
+          '"_x',
         },
       },
       t = {},
