@@ -11,7 +11,7 @@ return {
     { "onsails/lspkind.nvim" }, -- Optional
 
     -- LSP UI Tweaks/Plugins
-    { "j-hui/fidget.nvim", opts = {} }, -- Required. LSP progress messages
+    -- { "j-hui/fidget.nvim", opts = {} }, -- Required. LSP progress messages
 
     -- Autocompletion
     -- { "hrsh7th/nvim-cmp" }, -- Required
@@ -30,11 +30,12 @@ return {
     --require("lsp-zero")
 
     local cmp = require("cmp")
+    local luasnip = require("luasnip")
 
     -- cmp setup
     cmp.setup({
       snippet = {
-        expand = function()
+        expand = function(args)
           require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
@@ -60,6 +61,7 @@ return {
           end
         end),
       }),
+
       sources = cmp.config.sources({
         { name = "nvim_lua" },
         { name = "luasnip" },
@@ -84,14 +86,16 @@ return {
 
     local map = function(bufnr, key, value)
       vim.keymap.set("n", key, value, { noremap = true, silent = true, buffer = bufnr })
-      -- vim.api.nvim_buf_set_keymap(0, type, key, value, { noremap = true, silent = true })
     end
 
     local on_attach = function(_client, buf_num)
       map(buf_num, "gd", vim.lsp.buf.definition)
       map(buf_num, "gD", vim.lsp.buf.declaration)
       map(buf_num, "K", vim.lsp.buf.hover)
-      map(buf_num, "gr", vim.lsp.buf.references)
+      -- map(buf_num, "gr", vim.lsp.buf.references)
+      map(buf_num, "gr", function()
+        require("telescope.builtin").lsp_references()
+      end)
       map(buf_num, "gs", vim.lsp.buf.signature_help)
       map(buf_num, "gi", vim.lsp.buf.implementation)
       map(buf_num, "gt", vim.lsp.buf.type_definition)
@@ -106,8 +110,11 @@ return {
       end)
 
       map(buf_num, "<leader>af", vim.lsp.buf.code_action)
-      map(buf_num, "<leader>ee", function()
-        vim.diagnostic.open_float(0, { scope = "line" })
+      map(buf_num, "<leader>ld", function()
+        vim.diagnostic.open_float({ scope = "line" })
+      end)
+      map(buf_num, "<leader>lD", function()
+        vim.diagnostic.open_float({ scope = "buffer" })
       end)
       map(buf_num, "<leader>ar", vim.lsp.buf.rename)
       map(buf_num, "<leader>=", vim.lsp.buf.format)
@@ -223,6 +230,12 @@ return {
 
     -- Configure diagnostics border
     vim.diagnostic.config({
+      -- signs = {
+      --   numhl = {
+      --     [vim.diagnostic.severity.WARN] = "WarningMsg",
+      --     [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      --   },
+      -- },
       float = {
         border = "rounded",
       },

@@ -9,7 +9,9 @@ return {
       show_hidden = true,
     },
     float = {
-      padding = 10,
+      padding = 3,
+      max_width = 80,
+      -- max_height = ,
     },
   },
   -- Optional dependencies

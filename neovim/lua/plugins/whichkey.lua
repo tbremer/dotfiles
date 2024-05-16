@@ -5,7 +5,16 @@ return {
     vim.o.timeout = true
     vim.o.timeoutlen = 300
   end,
-  opts = {},
+  opts = function()
+    require("which-key").register({
+      b = {
+        name = "buffers",
+      },
+      l = {
+        name = "lsp",
+      },
+    })
+  end,
   -- https://github.com/folke/which-key.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
   -- opts = {}
 }

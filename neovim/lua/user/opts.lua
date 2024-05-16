@@ -50,14 +50,17 @@ vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,120"
 
 -- Set fold settings
-vim.opt.foldcolumn = "0"
+vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
 vim.opt.foldenable = true
+vim.opt.numberwidth = 5
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- disable netrwPlugin
 --vim.opt_global.loaded_netrw = 1
 --vim.opt_global.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 0
 vim.g.loaded_netrwPlugin = 0
-
