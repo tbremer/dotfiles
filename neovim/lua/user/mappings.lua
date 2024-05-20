@@ -7,8 +7,9 @@ vim.keymap.set("n", "<leader>c", "<cmd>clo<cr>", { desc = "close current window"
 --vim.keymap.set("n", "<Space>", "<CR>", { desc = "space as enter" })
 vim.keymap.set("n", "q", "<Nop>", { desc = "disable recording" })
 vim.keymap.set("n", "<c-z>", "<Nop>", { desc = "disable quit with Ctrl-Z" })
-vim.keymap.set("n", "bn", "<cmd>bnext<cr>", { desc = "next buffer" })
-vim.keymap.set("n", "bp", "<cmd>bprev<cr>", { desc = "previous buffer" })
+vim.keymap.set("n", "ZZ", "<Nop>", { desc = "disable quit with ZZ" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "next buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprev<cr>", { desc = "previous buffer" })
 
 -- insert mode
 vim.keymap.set("i", "$$", "<esc>$a", { desc = "goto end of line in INSERT mode" })

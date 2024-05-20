@@ -7,7 +7,10 @@ return {
   end,
   opts = function()
     require("which-key").register({
-      b = {
+      ["]"] = {
+        name = "buffers",
+      },
+      ["["] = {
         name = "buffers",
       },
       l = {
