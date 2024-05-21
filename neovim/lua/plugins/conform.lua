@@ -10,6 +10,7 @@ return {
       lsp_fallback = true,
     },
     formatters_by_ft = {
+      css = { { "prettierd" } },
       javascript = { { "prettierd" } },
       typescript = { { "prettierd" } },
       typescriptreact = { { "prettierd" } },
