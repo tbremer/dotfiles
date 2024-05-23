@@ -32,7 +32,7 @@ return {
       },
     },
     window = {
-      position = "right",
+      position = "float",
     },
   },
 }
