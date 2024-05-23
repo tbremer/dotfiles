@@ -4,7 +4,7 @@ return {
   cmd = { "ConformInfo" },
   opts = {
     notify_on_error = false,
-    format_on_save = {
+    format_after_save = {
       async = true,
       timeout_ms = 500,
       lsp_fallback = true,
