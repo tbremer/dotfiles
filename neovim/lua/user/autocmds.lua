@@ -7,4 +7,17 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   end,
 })
 
--- vim.api.nvim_create_autocmd({"VimEnter"}, {} )
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "qf" },
+  callback = function()
+    vim.keymap.set("n", "<CR>", function()
+      local win = vim.api.nvim_get_current_win()
+
+      vim.cmd("normal! <CR>")
+
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
+    end, { buffer = true })
+  end,
+})
