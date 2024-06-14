@@ -97,7 +97,7 @@ return {
       map(buf_num, "gd", vim.lsp.buf.definition)
       map(buf_num, "gD", vim.lsp.buf.declaration)
       map(buf_num, "K", vim.lsp.buf.hover)
-      -- map(buf_num, "gr", vim.lsp.buf.references)
+      map(buf_num, "gr", vim.lsp.buf.references)
       map(buf_num, "gs", vim.lsp.buf.signature_help)
       map(buf_num, "gi", vim.lsp.buf.implementation)
       map(buf_num, "gt", vim.lsp.buf.type_definition)
