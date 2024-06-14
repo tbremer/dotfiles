@@ -11,10 +11,12 @@ return {
     },
     formatters_by_ft = {
       css = { { "prettierd" } },
+      fish = { { "fish_indent" } },
       javascript = { { "prettierd" } },
+      json = { { "prettierd" } },
+      lua = { "stylua" },
       typescript = { { "prettierd" } },
       typescriptreact = { { "prettierd" } },
-      lua = { "stylua" },
     },
   },
 }
