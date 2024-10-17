@@ -6,6 +6,7 @@ node_modules
 # nvim ignores
 nvim/.netrwhist
 nvim/plugged
+.undodir/
 
 # fish ignores
 fish/fish_variables
