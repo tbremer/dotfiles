@@ -11,8 +11,19 @@ local utils = require("user.utils")
 local M = {}
 
 -- Normal --
+nnoremap("]b", "<cmd>bnext<cr>", { desc = "next buffer" })
+nnoremap("[b", "<cmd>bprev<cr>", { desc = "previous buffer" })
+
+-- telescope
+nnoremap("<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "📡 live grep" })
+nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "📡 find files" })
+nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "📡 buffers" })
+
 -- Map ; to :
 nnoremap(";", ":")
+
+-- Stop q
+nnoremap("q", "<nop>")
 
 -- Window +  better kitty navigation
 nnoremap("<C-j>", function()
@@ -321,7 +332,7 @@ M.map_lsp_keybinds = function(buffer_number)
   )
 
   -- See `:help K` for why this keymap
-  -- nnoremap("K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation", buffer = buffer_number })
+  nnoremap("K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation", buffer = buffer_number })
   nnoremap("<leader>k", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation", buffer = buffer_number })
   inoremap("<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation", buffer = buffer_number })
 
@@ -348,8 +359,8 @@ nnoremap("<leader>ih", function()
 end)
 
 -- Insert --
--- Map jj to <esc>
-inoremap("jj", "<esc>")
+-- $$ to endofline insert
+inoremap("$$", "<esc>$a", { desc = "goto end of line in INSERT mode" })
 
 -- Visual --
 -- Disable Space bar since it'll be used as the leader key
@@ -362,7 +373,7 @@ vnoremap("H", "^")
 vnoremap("<A-j>", ":m '>+1<CR>gv=gv")
 vnoremap("<A-k>", ":m '<-2<CR>gv=gv")
 
--- Paste without losing the contents of the register
+-- Paste withot using the contents of the register
 xnoremap("<leader>p", '"_dP')
 
 -- Reselect the last visual selection
@@ -379,16 +390,16 @@ end)
 
 -- Terminal --
 -- Enter normal mode while in a terminal
-tnoremap("<esc>", [[<C-\><C-n>]])
-tnoremap("jj", [[<C-\><C-n>]])
+--tnoremap("<esc>", [[<C-\><C-n>]])
+--tnoremap("jj", [[<C-\><C-n>]])
 
 -- Window navigation from terminal
-tnoremap("<C-h>", [[<Cmd>wincmd h<CR>]])
-tnoremap("<C-j>", [[<Cmd>wincmd j<CR>]])
-tnoremap("<C-k>", [[<Cmd>wincmd k<CR>]])
-tnoremap("<C-l>", [[<Cmd>wincmd l<CR>]])
+-- tnoremap("<C-h>", [[<Cmd>wincmd h<CR>]])
+-- tnoremap("<C-j>", [[<Cmd>wincmd j<CR>]])
+-- tnoremap("<C-k>", [[<Cmd>wincmd k<CR>]])
+-- tnoremap("<C-l>", [[<Cmd>wincmd l<CR>]])
 
 -- Reenable default <space> functionality to prevent input delay
-tnoremap("<space>", "<space>")
+-- tnoremap("<space>", "<space>")
 
 return M
