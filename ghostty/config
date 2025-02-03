@@ -1,0 +1,11 @@
+theme = dark:flexoki-dark,light:ayu_light
+
+font-family = RecMonoDuotone Nerd Font
+font-size = 15
+
+quick-terminal-position = bottom
+
+keybind = global:super+shift+1=toggle_visibility
+keybind = global:super+shift+2=toggle_quick_terminal
+
+# test
