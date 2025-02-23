@@ -1,3 +1,7 @@
+################################################
+# dotfiles config from dotfiles/ghostty/config #
+################################################
+
 theme = dark:flexoki-dark,light:ayu_light
 
 font-family = RecMonoDuotone Nerd Font
