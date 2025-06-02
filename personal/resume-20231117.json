@@ -1,7 +1,7 @@
 {
   "basics": {
     "email": "tom@tbremer.com",
-    "label": "Software Engineer",
+    "label": "Web Developer",
     "location": {
       "city": "Saint Louis",
       "countryCode": "US",
@@ -16,6 +16,16 @@
       {
         "network": "GitHub",
         "url": "https://github.com/tbremer",
+        "username": "tbremer"
+      },
+      {
+        "network": "Twitter",
+        "url": "http://twitter.com/_tbremer",
+        "username": "_tbremer"
+      },
+      {
+        "network": "CodePen",
+        "url": "http://codepen.io/tbremer/",
         "username": "tbremer"
       },
       {
@@ -72,25 +82,6 @@
   ],
   "work": [
     {
-      "company": "Vercel",
-      "highlights": [
-        "Build and maintain multi-variant experiment engine.",
-        "Build and maintain client-side fast-read, async-write User cache durable objects.",
-        "Build and maintain Open Graph viewer in product and within customer toolbar experience.",
-        "Build and maintain flow that allows a User to coalesce multiple Teams, Projects, and Add-ons to a single Team.",
-        "Maintained and updated the New Project clone and import experience.",
-        "Collaborated with Identity & Access Management / Security to implement new `Invite to Team` flow.",
-        "Collaborated with Money & Billing and AI to updated the V0 billing and pricing strategy from Message based to Token based for AI chat and generations.",
-        "Implemented user facing experiments for Checkout/Pricing, Product trials, and Product onboarding",
-        "Shipped user interface responsible for managing Vercel Blob storage before Vercel Ship Conference.",
-        "Ran large scale migrations that affected every User and Team across Product."
-      ],
-      "position": "Software Engineer",
-      "startDate": "2022-09-01",
-      "summary": "Product Engineer: Growth, Dashboard, Security Products",
-      "website": "https://vercel.com"
-    },
-    {
       "company": "World Wide Technology",
       "highlights": [
         "Deploy applications across web and native mobile platforms.",
@@ -109,7 +100,6 @@
       ],
       "position": "Lead Frontend Engineer",
       "startDate": "2015-07-06",
-      "endDate": "2022-08-01",
       "summary": "Frontend Engineer, Mentor.",
       "website": "https://wwt.com"
     },
