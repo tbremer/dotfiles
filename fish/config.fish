@@ -62,7 +62,9 @@ if test -e $HOME/.fishrc
 end
 
 # the fuck
-thefuck --alias | source
+if type -q thefuck
+  thefuck --alias | source
+end
 
 # Disable fish welcome message
 set -U fish_greeting ""
