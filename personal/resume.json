@@ -10,7 +10,7 @@
     "name": "Tom Bremer",
     "phone": "314-971-7758",
     "picture": "https://avatars2.githubusercontent.com/u/2998575",
-    "summary": "I am a web developer and user advocate. I believe in in making the web accessible, performant, and easy to use.\nI am more generally interested in unique programming languages, compilers, and light weight or vanilla solutions.",
+    "summary": "<p>I am a product engineer and end-user advocate dedicated to creating accessible, high-performance, and user-friendly experiences on the open web. I champion inclusive design and prioritize ease of use, ensuring equitable access for all users</p><p>My approach emphasizes simplicity and best practices in HTML, CSS, and JavaScript to deliver efficient and maintainable code. I enjoy learning about and exploring emerging technologies and aim to find the most lightweight solutions when appropriate. My emphasis on core web technologies allows me to build optimized, flexible applications that are easy to maintain</p><p>For systems and server work I am comfortable working with PostgresSQL, Rust, CosmosDB, Redis, Neo4j. I've primarily worked with backends powered by Node.js, but have experience with PHP, Laravel, and Ruby. Additionally before Vercel I have built and maintained CI/CD systems powered by Github Actions, Azure DevOps, GCP Cloud Build, and Jenkins.</p>",
     "website": "https://tbremer.com",
     "profiles": [
       {
@@ -46,16 +46,19 @@
       "keywords": [
         "HTML",
         "CSS",
-        "JavaScript",
+        "TypeScript/JavaScript",
         "Accessibility",
-        "NodeJS/Deno",
-        "Preact/React"
+        "Node.js",
+        "Preact/React",
+        "Svelte"
       ],
       "name": "Frontend Development"
     },
     {
       "keywords": [
-        "NodeJS",
+        "Next.js",
+        "Svelte/SvelteKit",
+        "Node.js",
         "React/ReactNative",
         "Rust",
         "OCaml/ReasonML",
@@ -74,13 +77,13 @@
     {
       "company": "Vercel",
       "highlights": [
-        "Build and maintain multi-variant experiment engine.",
-        "Build and maintain client-side fast-read, async-write User cache durable objects.",
-        "Build and maintain Open Graph viewer in product and within customer toolbar experience.",
-        "Build and maintain flow that allows a User to coalesce multiple Teams, Projects, and Add-ons to a single Team.",
-        "Maintained and updated the New Project clone and import experience.",
+        "With Growth Engineering Team built and maintained multi-variant experiment engine.",
+        "Built and maintained client-side fast-read, async-write User cache durable objects.",
+        "Built and maintained Open Graph viewer in product and within customer toolbar experience.",
+        "Built and maintained Merge flow that allows a User to coalesce multiple Teams, Projects, and Add-ons to a single Team.",
+        "Maintained the New Project clone and import experience.",
         "Collaborated with Identity & Access Management / Security to implement new `Invite to Team` flow.",
-        "Collaborated with Money & Billing and AI to updated the V0 billing and pricing strategy from Message based to Token based for AI chat and generations.",
+        "Collaborated with Finance Infrastructure and AI to updated the V0 billing and pricing strategy from Message based to Token based for AI chat and generations.",
         "Implemented user facing experiments for Checkout/Pricing, Product trials, and Product onboarding",
         "Shipped user interface responsible for managing Vercel Blob storage before Vercel Ship Conference.",
         "Ran large scale migrations that affected every User and Team across Product."
