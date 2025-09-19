@@ -2,7 +2,7 @@
 # dotfiles config from dotfiles/ghostty/config #
 ################################################
 
-theme = dark:nord-wave,light:ayu_light
+theme = dark:Ayu Mirage,light:Ayu Light
 
 font-family = RecMonoDuotone Nerd Font
 font-size = 15

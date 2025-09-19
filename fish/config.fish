@@ -39,6 +39,9 @@ alias guy="git"
 alias gut="git"
 alias gyt="git"
 alias got="git"
+alias gitr="git"
+alias giot="git"
+
 alias glone="git clone"
 alias sta='git status'
 alias master='git checkout master && git fetch && git pull origin master'
