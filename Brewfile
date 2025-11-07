@@ -18,12 +18,21 @@ brew "tree"
 brew "wget"
 
 cask "appcleaner"
+cask "antinote"
 cask "arc"
+cask "cleanshot"
 cask "firefox"
 cask "ghostty"
 cask "google-chrome"
+cask "itsycal"
+cask "linear-linear"
 cask "slack"
 cask "spotify"
 cask "via"
 cask "visual-studio-code"
 cask "zoom"
+
+# mac appstore
+brew "mas"
+mas "WiFi Explorer", id: 494803304
+mas "RunCat", id: 1429033973
