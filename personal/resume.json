@@ -1,0 +1,138 @@
+{
+  "basics": {
+    "email": "tom@tbremer.com",
+    "label": "Software Engineer",
+    "location": {
+      "city": "Saint Louis",
+      "countryCode": "US",
+      "region": "Missouri"
+    },
+    "name": "Tom Bremer",
+    "phone": "314-971-7758",
+    "picture": "https://avatars2.githubusercontent.com/u/2998575",
+    "summary": "<p>I am a product engineer and end-user advocate dedicated to creating accessible, high-performance, and user-friendly experiences on the open web. I champion inclusive design and prioritize ease of use, ensuring equitable access for all users</p><p>My approach emphasizes simplicity and best practices in HTML, CSS, and JavaScript to deliver efficient and maintainable code. I enjoy learning about and exploring emerging technologies and aim to find the most lightweight solutions when appropriate. My emphasis on core web technologies allows me to build optimized, flexible applications that are easy to maintain</p><p>For systems and server work I am comfortable working with PostgresSQL, Rust, CosmosDB, Redis, Neo4j. I've primarily worked with backends powered by Node.js, but have experience with PHP, Laravel, and Ruby. Additionally before Vercel I have built and maintained CI/CD systems powered by Github Actions, Azure DevOps, GCP Cloud Build, and Jenkins.</p>",
+    "website": "https://tbremer.com",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "url": "https://github.com/tbremer",
+        "username": "tbremer"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tom-bremer-b3a168195/",
+        "username": "tom-bremer"
+      }
+    ]
+  },
+  "education": [
+    {
+      "area": "Fine Arts",
+      "endDate": "2012-05-01",
+      "institution": "University of Missouri Saint Louis",
+      "startDate": "2006-09-01",
+      "studyType": "Bachelor"
+    }
+  ],
+  "languages": [
+    {
+      "abilities": ["Written", "Spoken"],
+      "fluency": "Native",
+      "language": "English"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "HTML",
+        "CSS",
+        "TypeScript/JavaScript",
+        "Accessibility",
+        "Node.js",
+        "Preact/React",
+        "Svelte"
+      ],
+      "name": "Frontend Development"
+    },
+    {
+      "keywords": [
+        "Next.js",
+        "Svelte/SvelteKit",
+        "Node.js",
+        "React/ReactNative",
+        "Rust",
+        "OCaml/ReasonML",
+        "GraphQL",
+        "PostgreSQL",
+        "MySQL",
+        "Cypher",
+        "neo4j",
+        "nginx",
+        "Docker"
+      ],
+      "name": "Web/App Development"
+    }
+  ],
+  "work": [
+    {
+      "company": "Vercel",
+      "highlights": [
+        "With Growth Engineering Team built and maintained multi-variant experiment engine.",
+        "Built and maintained client-side fast-read, async-write User cache durable objects.",
+        "Built and maintained Open Graph viewer in product and within customer toolbar experience.",
+        "Built and maintained Merge flow that allows a User to coalesce multiple Teams, Projects, and Add-ons to a single Team.",
+        "Maintained the New Project clone and import experience.",
+        "Collaborated with Identity & Access Management / Security to implement new `Invite to Team` flow.",
+        "Collaborated with Finance Infrastructure and AI to updated the V0 billing and pricing strategy from Message based to Token based for AI chat and generations.",
+        "Implemented user facing experiments for Checkout/Pricing, Product trials, and Product onboarding",
+        "Shipped user interface responsible for managing Vercel Blob storage before Vercel Ship Conference.",
+        "Ran large scale migrations that affected every User and Team across Product."
+      ],
+      "position": "Software Engineer",
+      "startDate": "2022-09-01",
+      "summary": "Product Engineer: Growth, Dashboard, Security Products",
+      "website": "https://vercel.com"
+    },
+    {
+      "company": "World Wide Technology",
+      "highlights": [
+        "Deploy applications across web and native mobile platforms.",
+        "Build out custom workflows for GitHub actions and GitLab runners.",
+        "Promote web accessibility standards throughout new and existing teams",
+        "Mentor individual contributors across a range of experience levels in JavaScript, CSS, HTML, PostCSS, Sass, and the various JavaScript runtime environments and ecosystems.",
+        "Coach teams and individual contributors on best practices regarding performance tuning web applications.",
+        "Coach teams and individual contributors on accessibility best practices.",
+        "Facilitate lunch and learns over new and existing web technologies.",
+        "Help incorporate latest web technologies and tools within the organization.",
+        "Rapidly build and maintain frontend and backend prototype applications for clients as well as internally.",
+        "Update the Frontend Engineering, User Research, and User Experience Designer interview processes.",
+        "Worked with the wider WWT Leadership group to build a career matrix and promotion process.",
+        "Build out and maintain various design systems as needed for clients.",
+        "Create and facilitate a two day React training program for clients and teammates."
+      ],
+      "position": "Lead Frontend Engineer",
+      "startDate": "2015-07-06",
+      "endDate": "2022-08-01",
+      "summary": "Frontend Engineer, Mentor.",
+      "website": "https://wwt.com"
+    },
+    {
+      "company": "Answers.com / Multiply",
+      "endDate": "2015-06-30",
+      "highlights": [
+        "Integral in a full site redesign",
+        "Created CSS and SASS based solutions to eliminate reliance on Javascript DOM manipulations and animations",
+        "Development and support of code styleguide",
+        "Development of modern workflow utilizing GruntJS",
+        "Writing a new framework / pattern library for UX and Backend developers",
+        "Researching TTFB and TTLB optimization",
+        "A large array of user experience tests with content variance",
+        "Standing up new domains for long term tests"
+      ],
+      "position": "Software Engineer II",
+      "startDate": "2013-04-15",
+      "summary": "User Experience developer, A/B Test Engineer, UX Tech Stack",
+      "website": "https://answers.com"
+    }
+  ]
+}

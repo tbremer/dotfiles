@@ -1,0 +1,106 @@
+{
+  "basics": {
+    "email": "tom@tbremer.com",
+    "label": "Web Developer",
+    "location": {
+      "city": "Saint Louis",
+      "countryCode": "US",
+      "region": "Missouri"
+    },
+    "name": "Tom Bremer",
+    "phone": "314-971-7758",
+    "picture": "https://avatars2.githubusercontent.com/u/2998575",
+    "summary": "I am a web developer and user advocate. I believe in making the web accessible, performant, and easy to use.",
+    "website": "https://tbremer.com",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "url": "https://github.com/tbremer",
+        "username": "tbremer"
+      },
+      {
+        "network": "CodePen",
+        "url": "http://codepen.io/tbremer/",
+        "username": "tbremer"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tom-bremer-b3a168195/",
+        "username": "tom-bremer"
+      }
+    ]
+  },
+  "education": [
+    {
+      "area": "Fine Arts",
+      "endDate": "2012-05-01",
+      "institution": "University of Missouri Saint Louis",
+      "startDate": "2006-09-01",
+      "studyType": "Bachelor"
+    }
+  ],
+  "languages": [
+    {
+      "abilities": ["Written", "Spoken"],
+      "fluency": "Native",
+      "language": "English"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Accessibility",
+        "NodeJS/Deno",
+        "Preact/React"
+      ],
+      "name": "Frontend Development"
+    },
+    {
+      "keywords": [
+        "NodeJS",
+        "React/ReactNative",
+        "Rust",
+        "OCaml/ReasonML",
+        "GraphQL",
+        "PostgreSQL",
+        "MySQL",
+        "Cypher",
+        "neo4j",
+        "nginx",
+        "Docker"
+      ],
+      "name": "Web/App Development"
+    }
+  ],
+  "work": [
+    {
+      "company": "World Wide Technology",
+      "highlights": [
+        "Build, test, and deploy web and mobile applications that meet client requirements while maintaining best practices related to accessibility and web performance.",
+	"Coach and train teams, individual contributors, and clients with a range of experience in JavaScript/Typescript runtimes (browsers, nodejs, and deno), CSS (PostCSS and Sass), HTML, WCAG accessibility guidelines, performance tuning, and design systems.",
+	"Create and facilitate various training activities including an in-person/remote two day ReactJS deep-dive.",
+        "Worked with the wider WWT Leadership group to build a career matrix, promotion process, and update the Frontend Engineer, User Research, and UX Design interview processes."
+      ],
+      "position": "Lead Frontend Engineer",
+      "startDate": "2015-07-06",
+      "summary": "Frontend Engineer, Mentor.",
+      "website": "https://wwt.com"
+    },
+    {
+      "company": "Answers.com / Multiply",
+      "endDate": "2015-06-30",
+      "highlights": [
+	"Integral in full site redesign and on going maintenance of the design system including developer workflows with GruntJS, frontend framework/pattern library used by fullstack engineers.",
+	"Contributed to CSS and Sass based solutions to eliminate JavaScript based DOM manipulations and animations",
+	"A/B test engineer with experience in content variance, performance tuning (pagespeed, TTFB, TTL, first meaningful paint, and time to interactive), and user experience optimizations, including creating long-lived tests on new and existing websites."
+      ],
+      "position": "Software Engineer II",
+      "startDate": "2013-04-15",
+      "summary": "User Experience developer, A/B Test Engineer, UX Tech Stack",
+      "website": "https://answers.com"
+    }
+  ]
+}
