@@ -25,7 +25,7 @@ question() {
 #
 question "sudo password required for installation:"
 read -s PASS
-echo $PASS | sudo -S
+echo $PASS | sudo --stdin success 'proceeding...'
 
 # install brew
 header "Installing Homebrew"
