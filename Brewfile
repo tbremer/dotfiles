@@ -1,5 +1,4 @@
 tap "beeftornado/rmtree"
-tap "homebrew/services"
 
 brew "colima"
 brew "docker-compose"
