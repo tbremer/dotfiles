@@ -48,6 +48,11 @@ git clone https://github.com/tbremer/dotfiles.git "$DOT_PATH"
 success "✓ dotfiles cloned!"
 
 header "Installing brews, casks, etc."
+if [[ "$(uname -m)" == "arm64" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 brew bundle --file "$DOT_PATH/Brewfile"
 success "✓ Homebrew installed!"
 
