@@ -24,7 +24,7 @@ question() {
 # add check for git, if not installed exit with message asking them to install devtooling
 #
 question "sudo password required for installation:"
-read -p PASS
+read -s PASS
 
 # install brew
 header "Installing Homebrew"
