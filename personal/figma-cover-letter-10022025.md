@@ -1,0 +1,9 @@
+I've watched Figma fundamentally reshape how teams collaborate on design and I want to help build it.
+
+At Vercel, I've spent the last two years doing work for users with high expectations for quality and performance. I helped build and maintain our multi-variant experiment engine for the Growth team, built the Vercel Blob storage management UI before our 2023 Ship conference, and collaborated with Finance Infrastructure to help rebuild V0's billing strategy from message-based to token-based pricing for AI features. Additionally, I collaborated with another engineer to build the Team merge flow that let users consolidate multiple Teams, Projects, and Add-ons—which meant touching billing, permissions, data migration, and a whole lot of edge cases.
+
+I love the challenge of building systems that are both technically sophisticated and user-friendly; whether that's pricing experiments, billing infrastructure, or onboarding flows. At Vercel, I ran large-scale migrations affecting every User and Team, built durable objects for client-side caching, and worked closely with Security and IAM teams on invite flows. I'm comfortable across the stack (TypeScript, React, Node.js, Rust, PostgreSQL) and genuinely enjoy the puzzle of making complex systems feel simple.
+
+I'm also a bit of an accessibility evangelist. As a consultant with World Wide Technology, I spent years promoting web accessibility standards across teams, mentoring engineers, and ensuring our products worked for everyone. It's something I care deeply about—I believe every user has a place on the web.
+
+I'd love to bring my engineering experience, my passion for the open web, and my enthusiasm for building products people genuinely love to Figma.
