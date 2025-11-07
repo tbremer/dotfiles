@@ -21,10 +21,10 @@ question() {
     echo -e "${BLUE}$1${RESET}"
 }
 
-# header header
-# success success
-# error error
-# warning() {}
+# install devtools
+header "Installing dev tools"
+xcode-select --install
+success "✓ Devtools installed!"
 
 # install brew
 header "Installing Homebrew"
