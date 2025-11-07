@@ -35,7 +35,7 @@ success "✓ Homebrew installed!"
 # Update GIT info
 header "Grabbing your Git config stuff"
 read -p "$(question 'Git user.name: ')" G_UN
-read -p "$(question 'Git user.name: ')" G_EMAIL
+read -p "$(question 'Git user.email: ')" G_EMAIL
 git config --global user.name "$G_UN"
 git config --global user.email "$G_EMAIL"
 success "✓ Git config updated!"
