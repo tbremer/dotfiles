@@ -21,10 +21,7 @@ question() {
     echo -e "${BLUE}$1${RESET}"
 }
 
-# install devtools
-header "Installing dev tools"
-xcode-select --install
-success "✓ Devtools installed!"
+# add check for git, if not installed exit with message asking them to install devtooling
 
 # install brew
 header "Installing Homebrew"
