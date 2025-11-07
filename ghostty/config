@@ -4,7 +4,8 @@
 
 theme = dark:Ayu Mirage,light:Ayu Light
 
-font-family = RecMonoDuotone Nerd Font
+#font-family = Maple Mono
+font-family = Departure Mono
 font-size = 15
 
 quick-terminal-position = bottom
@@ -15,3 +16,4 @@ keybind = global:super+shift+2=toggle_quick_terminal
 macos-icon = holographic
 
 # test bed
+macos-titlebar-style = "tabs"
