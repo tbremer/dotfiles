@@ -22,10 +22,13 @@ question() {
 }
 
 # add check for git, if not installed exit with message asking them to install devtooling
+#
+question "sudo password required for installation:"
+read -p PASS
 
 # install brew
 header "Installing Homebrew"
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo $PASS | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 success "✓ Homebrew installed!"
 
 
