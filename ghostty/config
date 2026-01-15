@@ -12,6 +12,7 @@ quick-terminal-position = bottom
 
 keybind = global:super+shift+1=toggle_visibility
 keybind = global:super+shift+2=toggle_quick_terminal
+#keybind = cmd+z=undo
 
 macos-icon = holographic
 
