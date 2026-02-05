@@ -18,3 +18,4 @@ macos-icon = holographic
 
 # test bed
 macos-titlebar-style = "tabs"
+unfocused-split-opacity = 0.9
